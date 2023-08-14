@@ -8,8 +8,14 @@
 import Foundation
 import UIKit
 
-struct Stamp {
+class Stamp {
     var title: String
     var image: UIImage?
     var isCompletion: Bool
+    
+    init(title: String, image: UIImage? = nil, isCompletion: Bool) {
+        self.title = title
+        self.image = image
+        self.isCompletion = isCompletion
+    }
 }

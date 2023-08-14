@@ -8,9 +8,16 @@
 import Foundation
 import UIKit
 
-struct Tikkle {
+class Tikkle {
     var image: UIImage?
     var title: String
     var description: String
     var stampList: [Stamp]
+    
+    init(image: UIImage? = nil, title: String, description: String, stampList: [Stamp]) {
+        self.image = image
+        self.title = title
+        self.description = description
+        self.stampList = stampList
+    }
 }
