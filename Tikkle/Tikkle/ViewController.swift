@@ -1,13 +1,13 @@
 //
 //  ViewController.swift
-//  T!kkle
+//  Tikkle
 //
-//  Created by 김도현 on 2023/08/14.
+//  Created by 김도현 on 2023/08/15.
 //
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

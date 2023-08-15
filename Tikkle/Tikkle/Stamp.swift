@@ -1,10 +1,9 @@
 //
 //  Stamp.swift
-//  T!kkle
+//  Tikkle
 //
-//  Created by 김도현 on 2023/08/14.
+//  Created by 김도현 on 2023/08/15.
 //
-
 import Foundation
 import UIKit
 
