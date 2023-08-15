@@ -22,7 +22,6 @@ class FeedPageViewController: UIViewController {
         feedCollectionView.delegate = self
         feedCollectionView.dataSource = self
         feedCollectionView.register(FeedCollectionViewCell.self, forCellWithReuseIdentifier: FeedCollectionViewCell.identifier)
-        // Do any additional setup after loading the view.
     }
 }
 

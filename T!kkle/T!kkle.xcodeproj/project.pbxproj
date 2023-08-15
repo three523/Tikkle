@@ -18,11 +18,12 @@
 		1870D3812A8A50CB00B27C75 /* Stamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1870D3802A8A50CB00B27C75 /* Stamp.swift */; };
 		1870D3832A8A533100B27C75 /* FeedPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1870D3822A8A533100B27C75 /* FeedPageViewController.swift */; };
 		1870D3872A8A548600B27C75 /* RecommendCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1870D3862A8A548600B27C75 /* RecommendCollectionViewCell.swift */; };
-		1870D3892A8A612400B27C75 /* TikkleImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1870D3882A8A612400B27C75 /* TikkleImageView.swift */; };
 		1870D38B2A8A633800B27C75 /* FeedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1870D38A2A8A633700B27C75 /* FeedCollectionViewCell.swift */; };
 		1870D38D2A8A6F7C00B27C75 /* TikkleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1870D38C2A8A6F7C00B27C75 /* TikkleManager.swift */; };
 		1870D3902A8A80D600B27C75 /* DummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1870D38F2A8A80D600B27C75 /* DummyData.swift */; };
 		1870D3972A8A8D7300B27C75 /* CarouselLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1870D3962A8A8D7300B27C75 /* CarouselLayout.swift */; };
+		18C8C8F22A8B45F0008E4C92 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C8C8F12A8B45F0008E4C92 /* UIColor.swift */; };
+		18C8C8F42A8B4717008E4C92 /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C8C8F32A8B4717008E4C92 /* UIFont.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,11 +40,12 @@
 		1870D3802A8A50CB00B27C75 /* Stamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stamp.swift; sourceTree = "<group>"; };
 		1870D3822A8A533100B27C75 /* FeedPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedPageViewController.swift; sourceTree = "<group>"; };
 		1870D3862A8A548600B27C75 /* RecommendCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendCollectionViewCell.swift; sourceTree = "<group>"; };
-		1870D3882A8A612400B27C75 /* TikkleImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TikkleImageView.swift; sourceTree = "<group>"; };
 		1870D38A2A8A633700B27C75 /* FeedCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCollectionViewCell.swift; sourceTree = "<group>"; };
 		1870D38C2A8A6F7C00B27C75 /* TikkleManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TikkleManager.swift; sourceTree = "<group>"; };
 		1870D38F2A8A80D600B27C75 /* DummyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyData.swift; sourceTree = "<group>"; };
 		1870D3962A8A8D7300B27C75 /* CarouselLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselLayout.swift; sourceTree = "<group>"; };
+		18C8C8F12A8B45F0008E4C92 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		18C8C8F32A8B4717008E4C92 /* UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,7 +79,6 @@
 			isa = PBXGroup;
 			children = (
 				1870D3952A8A8D5E00B27C75 /* Util */,
-				1870D3922A8A812700B27C75 /* View */,
 				1870D3912A8A811500B27C75 /* Model */,
 				1870D38E2A8A712A00B27C75 /* FeedPageViewController */,
 				1870D3602A8A3A7700B27C75 /* AppDelegate.swift */,
@@ -113,18 +114,12 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		1870D3922A8A812700B27C75 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				1870D3882A8A612400B27C75 /* TikkleImageView.swift */,
-			);
-			name = View;
-			sourceTree = "<group>";
-		};
 		1870D3952A8A8D5E00B27C75 /* Util */ = {
 			isa = PBXGroup;
 			children = (
 				1870D3962A8A8D7300B27C75 /* CarouselLayout.swift */,
+				18C8C8F12A8B45F0008E4C92 /* UIColor.swift */,
+				18C8C8F32A8B4717008E4C92 /* UIFont.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -202,14 +197,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				1870D3652A8A3A7700B27C75 /* ViewController.swift in Sources */,
+				18C8C8F22A8B45F0008E4C92 /* UIColor.swift in Sources */,
 				1870D3972A8A8D7300B27C75 /* CarouselLayout.swift in Sources */,
 				1870D38D2A8A6F7C00B27C75 /* TikkleManager.swift in Sources */,
 				1870D3612A8A3A7700B27C75 /* AppDelegate.swift in Sources */,
-				1870D3892A8A612400B27C75 /* TikkleImageView.swift in Sources */,
 				1870D3632A8A3A7700B27C75 /* SceneDelegate.swift in Sources */,
 				1870D37F2A8A509E00B27C75 /* Tikkle.swift in Sources */,
 				1870D38B2A8A633800B27C75 /* FeedCollectionViewCell.swift in Sources */,
 				1870D3832A8A533100B27C75 /* FeedPageViewController.swift in Sources */,
+				18C8C8F42A8B4717008E4C92 /* UIFont.swift in Sources */,
 				1870D3872A8A548600B27C75 /* RecommendCollectionViewCell.swift in Sources */,
 				1870D3902A8A80D600B27C75 /* DummyData.swift in Sources */,
 				1870D3812A8A50CB00B27C75 /* Stamp.swift in Sources */,

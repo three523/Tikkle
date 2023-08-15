@@ -9,6 +9,10 @@
 // tikkleTitle: 티끌 제목, description: 티끌 설명, stampList: 도장 이름 문자열 ,는 무조건 넣어줘야함 (ex: "한라산, 관악산, 백두산")
 
 class DummyDataCreator {
+    
+    // let str = "일본, 중국, 한국, 프랑스, 인도"
+    // let tikkle = DummyDataCreator.createDummyData(tikkleTitle: "여행", description: "설명입니다", stampTitleStr: str)
+    // 일본, 중국, 한국, 프랑스, 인도의 도장을 가진 Tikkle 객체 생성
     static func create(tikkleTitle: String, description: String, stampTitleStr: String) -> Tikkle {
         let stampTitleList = stampTitleStr.replacingOccurrences(of: " ", with: "").split(separator: ",")
         var stampList = [Stamp]()

@@ -33,7 +33,7 @@ class FeedCollectionViewCell: UICollectionViewCell {
         contentView.addSubview(likeButton)
         
         likeButton.addTarget(self, action: #selector(likeClick), for: .touchUpInside)
-        
+                
         tikkleImageView.translatesAutoresizingMaskIntoConstraints = false
         tikkleImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 12).isActive = true
         tikkleImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 12).isActive = true
