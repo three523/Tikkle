@@ -5,7 +5,7 @@
 //  Created by 김도현 on 2023/08/15.
 //
 
-let beerTikkle: Tikkle = Tikkle(title: "편의점 해외 맥주 도장깨기", description: "편의점의 해외 맥주를 마셔보아요!", stampList: [
+let beer: Tikkle = Tikkle(title: "편의점 해외 맥주 도장깨기", description: "편의점의 해외 맥주를 마셔보아요!", isPrivate: false, isSharedProject: false, stampList:  [
     Stamp(title: "하이네켄", isCompletion: false),
     Stamp(title: "버드와이저", isCompletion: false),
     Stamp(title: "호가든로제", isCompletion: false),
@@ -20,7 +20,9 @@ let beerTikkle: Tikkle = Tikkle(title: "편의점 해외 맥주 도장깨기", d
     Stamp(title: "구스아일랜드", isCompletion: false),
     Stamp(title: "블랑", isCompletion: false),
 ])
-let tripInKoreaTikkle: Tikkle = Tikkle(title: "국내여행지 도장깨기", description: "국내 여행지를 돌아다녀 보아요!", stampList: [
+
+
+let tripInKoreaTikkle: Tikkle = Tikkle(title: "국내여행지 도장깨기", description: "국내 여행지를 돌아다녀 보아요!", isPrivate: false, isSharedProject: false, stampList: [
     Stamp(title: "제주도", isCompletion: false),
     Stamp(title: "강릉", isCompletion: false),
     Stamp(title: "서울", isCompletion: false),
@@ -34,7 +36,9 @@ let tripInKoreaTikkle: Tikkle = Tikkle(title: "국내여행지 도장깨기", de
     Stamp(title: "서산", isCompletion: false),
     Stamp(title: "광주", isCompletion: false),
 ])
-let climbingTikkle = Tikkle(title: "국내의 산 도장깨기", description: "국내에 여러 산들을 등산해보아요!", stampList: [
+
+
+let climbingTikkle = Tikkle(title: "국내의 산 도장깨기", description: "국내에 여러 산들을 등산해보아요!", isPrivate: false, isSharedProject: false, stampList: [
     Stamp(title: "지리산", isCompletion: false),
     Stamp(title: "금강산", isCompletion: false),
     Stamp(title: "계방산", isCompletion: false),
@@ -52,7 +56,9 @@ let climbingTikkle = Tikkle(title: "국내의 산 도장깨기", description: "�
     Stamp(title: "설악산", isCompletion: false),
     Stamp(title: "화악산", isCompletion: false),
 ])
-let tripOverseasTikkle: Tikkle = Tikkle(title: "해외여행지 도장깨기", description: "해외 여행지를 돌아다녀 보아요!", stampList: [
+
+
+let tripOverseasTikkle: Tikkle = Tikkle(title: "해외여행지 도장깨기", description: "해외 여행지를 돌아다녀 보아요!", isPrivate: false, isSharedProject: false, stampList: [
     Stamp(title: "일본", isCompletion: false),
     Stamp(title: "중국", isCompletion: false),
     Stamp(title: "미국", isCompletion: false),
