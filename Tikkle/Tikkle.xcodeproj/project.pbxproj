@@ -29,6 +29,7 @@
 		18C8C9382A8B6C65008E4C92 /* DummyCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C8C9372A8B6C65008E4C92 /* DummyCreator.swift */; };
 		18C8C93A2A8B6C81008E4C92 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C8C9392A8B6C81008E4C92 /* UIColor.swift */; };
 		D87784352A8C7151002B26F9 /* TikkleListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87784342A8C7151002B26F9 /* TikkleListTableViewCell.swift */; };
+		D877843B2A8D10EC002B26F9 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D877843A2A8D10EC002B26F9 /* CustomButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +57,7 @@
 		18C8C9372A8B6C65008E4C92 /* DummyCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyCreator.swift; sourceTree = "<group>"; };
 		18C8C9392A8B6C81008E4C92 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		D87784342A8C7151002B26F9 /* TikkleListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TikkleListTableViewCell.swift; sourceTree = "<group>"; };
+		D877843A2A8D10EC002B26F9 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,6 +177,7 @@
 			children = (
 				18C8C9372A8B6C65008E4C92 /* DummyCreator.swift */,
 				18C8C9392A8B6C81008E4C92 /* UIColor.swift */,
+				D877843A2A8D10EC002B26F9 /* CustomButton.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -259,6 +262,7 @@
 				18C8C9322A8B6C08008E4C92 /* Tikkle.swift in Sources */,
 				18C8C9062A8B6216008E4C92 /* ViewController.swift in Sources */,
 				18C8C92A2A8B63C6008E4C92 /* MyPageViewController.swift in Sources */,
+				D877843B2A8D10EC002B26F9 /* CustomButton.swift in Sources */,
 				18C8C91E2A8B6359008E4C92 /* TikkleListPageViewController.swift in Sources */,
 				18C8C9022A8B6216008E4C92 /* AppDelegate.swift in Sources */,
 				18C8C9042A8B6216008E4C92 /* SceneDelegate.swift in Sources */,
