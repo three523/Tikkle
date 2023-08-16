@@ -29,10 +29,8 @@
 		18C8C9382A8B6C65008E4C92 /* DummyCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C8C9372A8B6C65008E4C92 /* DummyCreator.swift */; };
 		18C8C93A2A8B6C81008E4C92 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C8C9392A8B6C81008E4C92 /* UIColor.swift */; };
 		B852504D2A8BB63200076DCB /* TikklePageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B852504C2A8BB63200076DCB /* TikklePageCollectionViewCell.swift */; };
-		B85250512A8C6C3F00076DCB /* MyPageCountTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85250502A8C6C3F00076DCB /* MyPageCountTableViewCell.swift */; };
-		B85250532A8C722800076DCB /* MyPageMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85250522A8C722800076DCB /* MyPageMenuTableViewCell.swift */; };
+		B86DC4CC2A8CBD7900684E0D /* MypageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86DC4CB2A8CBD7900684E0D /* MypageTableViewCell.swift */; };
 		D87784352A8C7151002B26F9 /* TikkleListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87784342A8C7151002B26F9 /* TikkleListTableViewCell.swift */; };
-
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,8 +58,7 @@
 		18C8C9372A8B6C65008E4C92 /* DummyCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyCreator.swift; sourceTree = "<group>"; };
 		18C8C9392A8B6C81008E4C92 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		B852504C2A8BB63200076DCB /* TikklePageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TikklePageCollectionViewCell.swift; sourceTree = "<group>"; };
-		B85250502A8C6C3F00076DCB /* MyPageCountTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageCountTableViewCell.swift; sourceTree = "<group>"; };
-		B85250522A8C722800076DCB /* MyPageMenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageMenuTableViewCell.swift; sourceTree = "<group>"; };
+		B86DC4CB2A8CBD7900684E0D /* MypageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageTableViewCell.swift; sourceTree = "<group>"; };
 		D87784342A8C7151002B26F9 /* TikkleListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TikkleListTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -155,8 +152,7 @@
 			children = (
 				18C8C9272A8B63BD008E4C92 /* MyPage.storyboard */,
 				18C8C9292A8B63C6008E4C92 /* MyPageViewController.swift */,
-				B85250502A8C6C3F00076DCB /* MyPageCountTableViewCell.swift */,
-				B85250522A8C722800076DCB /* MyPageMenuTableViewCell.swift */,
+				B86DC4CB2A8CBD7900684E0D /* MypageTableViewCell.swift */,
 			);
 			name = MyPage;
 			sourceTree = "<group>";
@@ -267,8 +263,8 @@
 			files = (
 				18C8C9222A8B6371008E4C92 /* TikklePageViewController.swift in Sources */,
 				18C8C9322A8B6C08008E4C92 /* Tikkle.swift in Sources */,
+				B86DC4CC2A8CBD7900684E0D /* MypageTableViewCell.swift in Sources */,
 				18C8C9062A8B6216008E4C92 /* ViewController.swift in Sources */,
-				B85250532A8C722800076DCB /* MyPageMenuTableViewCell.swift in Sources */,
 				18C8C92A2A8B63C6008E4C92 /* MyPageViewController.swift in Sources */,
 				18C8C91E2A8B6359008E4C92 /* TikkleListPageViewController.swift in Sources */,
 				18C8C9022A8B6216008E4C92 /* AppDelegate.swift in Sources */,
@@ -278,7 +274,6 @@
 				18C8C92E2A8B63D9008E4C92 /* FeedPageViewController.swift in Sources */,
 				18C8C93A2A8B6C81008E4C92 /* UIColor.swift in Sources */,
 				18C8C9382A8B6C65008E4C92 /* DummyCreator.swift in Sources */,
-				B85250512A8C6C3F00076DCB /* MyPageCountTableViewCell.swift in Sources */,
 				D87784352A8C7151002B26F9 /* TikkleListTableViewCell.swift in Sources */,
 				18C8C9362A8B6C45008E4C92 /* DummyData.swift in Sources */,
 				18C8C9342A8B6C24008E4C92 /* Stamp.swift in Sources */,
