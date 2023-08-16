@@ -10,16 +10,13 @@ import UIKit
 class TikkleListTableViewCell: UITableViewCell {
 
     
-    @IBOutlet weak var cellImage: UIImageView!
     
-    @IBOutlet weak var cellInfoImage: UIImageView!
-    
-    @IBOutlet weak var cellTitleLabel: UILabel!
-    
-    @IBOutlet weak var cellPercentLabel: UILabel!
-    
-    @IBOutlet weak var cellGraphLabel: UIImageView!
-    
+    @IBOutlet weak var tikkleImage: UIImageView!
+    @IBOutlet weak var isPrivateImage: UIImageView!
+    @IBOutlet weak var isSharedProjectImage: UIImageView!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var percentLabel: UILabel!
+    @IBOutlet weak var graphImage: UIImageView!
     
     
     
