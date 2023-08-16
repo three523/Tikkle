@@ -42,9 +42,8 @@ extension TikklePageViewController: UICollectionViewDelegate, UICollectionViewDa
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = TikklePageCollectionView.frame.width / 2 - 1
+        let width = TikklePageCollectionView.frame.width / 3 - 1
         let size = CGSize(width: width, height: width)
         return size
     }
 }
-

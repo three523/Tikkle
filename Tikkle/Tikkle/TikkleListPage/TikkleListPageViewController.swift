@@ -44,8 +44,8 @@ extension TikkleListPageViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! TikkleListTableViewCell
-        cell.cellTitleLabel.text = "cellTitleLabel"
-        cell.cellPercentLabel.text = "40%"
+        cell.titleLabel.text = "cellTitleLabel"
+        cell.percentLabel.text = "40%"
         
         return cell
     }

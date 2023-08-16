@@ -59,14 +59,20 @@
                                                     <rect key="frame" x="111" y="109" width="268" height="24"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="space" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="OPB-6a-oMF">
-                                                    <rect key="frame" x="110" y="8" width="45" height="24"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                </imageView>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uN7-xO-c3h">
-                                                    <rect key="frame" x="163" y="8" width="45" height="24"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                </imageView>
+                                                <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Fvn-ow-r2i">
+                                                    <rect key="frame" x="110" y="-1.3333333333333286" width="82.333333333333314" height="20"/>
+                                                    <subviews>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="space" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="OPB-6a-oMF">
+                                                            <rect key="frame" x="0.0" y="9.3333333333333321" width="24.333333333333332" height="7.0000000000000036"/>
+                                                        </imageView>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uN7-xO-c3h">
+                                                            <rect key="frame" x="32.333333333333336" y="0.0" width="50.000000000000007" height="20"/>
+                                                        </imageView>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="20" id="W6z-qO-C7s"/>
+                                                    </constraints>
+                                                </stackView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="emd-ia-FsF">
                                                     <rect key="frame" x="111" y="34" width="42" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -77,11 +83,12 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="cellGraphLabel" destination="lBW-5Q-vuD" id="mYO-Kc-7JU"/>
-                                            <outlet property="cellImage" destination="hcs-ga-Clc" id="SSE-xI-lln"/>
-                                            <outlet property="cellInfoImage" destination="OPB-6a-oMF" id="r2E-C7-yTt"/>
-                                            <outlet property="cellPercentLabel" destination="JMP-us-djp" id="DRs-AM-7kn"/>
-                                            <outlet property="cellTitleLabel" destination="emd-ia-FsF" id="89L-pn-3gY"/>
+                                            <outlet property="graphImage" destination="lBW-5Q-vuD" id="WEf-0q-V14"/>
+                                            <outlet property="isPrivateImage" destination="OPB-6a-oMF" id="o5C-4h-3xu"/>
+                                            <outlet property="isSharedProjectImage" destination="uN7-xO-c3h" id="23i-HR-11O"/>
+                                            <outlet property="percentLabel" destination="JMP-us-djp" id="I8v-fA-bLw"/>
+                                            <outlet property="tikkleImage" destination="hcs-ga-Clc" id="2JD-Js-BTj"/>
+                                            <outlet property="titleLabel" destination="emd-ia-FsF" id="H2h-KK-gyb"/>
                                             <segue destination="Kv4-m6-gbc" kind="show" id="gtv-S5-NUt"/>
                                         </connections>
                                     </tableViewCell>
@@ -110,7 +117,9 @@
                             <constraint firstItem="UlR-f2-sm5" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="rC5-in-StP"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="qWy-JV-EcM"/>
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="qWy-JV-EcM">
+                        <nil key="title"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="UlR-f2-sm5" id="Lev-RF-IyT"/>
                     </connections>
