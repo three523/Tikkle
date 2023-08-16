@@ -28,6 +28,7 @@
 		18C8C9362A8B6C45008E4C92 /* DummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C8C9352A8B6C45008E4C92 /* DummyData.swift */; };
 		18C8C9382A8B6C65008E4C92 /* DummyCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C8C9372A8B6C65008E4C92 /* DummyCreator.swift */; };
 		18C8C93A2A8B6C81008E4C92 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C8C9392A8B6C81008E4C92 /* UIColor.swift */; };
+		18FEC5B42A8C6BF300A804DD /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FEC5B32A8C6BF300A804DD /* UIFont.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,7 @@
 		18C8C9352A8B6C45008E4C92 /* DummyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyData.swift; sourceTree = "<group>"; };
 		18C8C9372A8B6C65008E4C92 /* DummyCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyCreator.swift; sourceTree = "<group>"; };
 		18C8C9392A8B6C81008E4C92 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		18FEC5B32A8C6BF300A804DD /* UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,6 +174,7 @@
 			children = (
 				18C8C9372A8B6C65008E4C92 /* DummyCreator.swift */,
 				18C8C9392A8B6C81008E4C92 /* UIColor.swift */,
+				18FEC5B32A8C6BF300A804DD /* UIFont.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -262,6 +265,7 @@
 				18C8C9262A8B63B1008E4C92 /* CreateTikklePageViewController.swift in Sources */,
 				18C8C92E2A8B63D9008E4C92 /* FeedPageViewController.swift in Sources */,
 				18C8C93A2A8B6C81008E4C92 /* UIColor.swift in Sources */,
+				18FEC5B42A8C6BF300A804DD /* UIFont.swift in Sources */,
 				18C8C9382A8B6C65008E4C92 /* DummyCreator.swift in Sources */,
 				18C8C9362A8B6C45008E4C92 /* DummyData.swift in Sources */,
 				18C8C9342A8B6C24008E4C92 /* Stamp.swift in Sources */,
