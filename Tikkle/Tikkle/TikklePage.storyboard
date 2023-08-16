@@ -63,10 +63,10 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TikklePageCollectionViewCell" id="tc0-Yn-vae" customClass="TikklePageCollectionViewCell" customModule="Tikkle" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="127.99999999999997" height="128"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="wQg-f9-ryH">
-                                            <rect key="frame" x="0.0" y="0.0" width="127.99999999999997" height="128"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y5C-Iw-Q9Q">
@@ -91,6 +91,7 @@
                                                 <constraint firstItem="y5C-Iw-Q9Q" firstAttribute="centerX" secondItem="wQg-f9-ryH" secondAttribute="centerX" id="thS-8w-L80"/>
                                             </constraints>
                                         </collectionViewCellContentView>
+                                        <size key="customSize" width="128" height="128"/>
                                         <connections>
                                             <outlet property="TikklePageCellBtnImg" destination="y5C-Iw-Q9Q" id="pnb-WC-aMO"/>
                                             <outlet property="TikklePageCellName" destination="zg0-1f-sH3" id="5HA-Ly-zfr"/>

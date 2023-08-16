@@ -31,6 +31,8 @@
 		B852504D2A8BB63200076DCB /* TikklePageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B852504C2A8BB63200076DCB /* TikklePageCollectionViewCell.swift */; };
 		B85250512A8C6C3F00076DCB /* MyPageCountTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85250502A8C6C3F00076DCB /* MyPageCountTableViewCell.swift */; };
 		B85250532A8C722800076DCB /* MyPageMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85250522A8C722800076DCB /* MyPageMenuTableViewCell.swift */; };
+		D87784352A8C7151002B26F9 /* TikkleListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87784342A8C7151002B26F9 /* TikkleListTableViewCell.swift */; };
+
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +62,7 @@
 		B852504C2A8BB63200076DCB /* TikklePageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TikklePageCollectionViewCell.swift; sourceTree = "<group>"; };
 		B85250502A8C6C3F00076DCB /* MyPageCountTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageCountTableViewCell.swift; sourceTree = "<group>"; };
 		B85250522A8C722800076DCB /* MyPageMenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageMenuTableViewCell.swift; sourceTree = "<group>"; };
+		D87784342A8C7151002B26F9 /* TikkleListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TikkleListTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				18C8C91B2A8B6331008E4C92 /* TikkleListPage.storyboard */,
+				D87784342A8C7151002B26F9 /* TikkleListTableViewCell.swift */,
 				18C8C91D2A8B6359008E4C92 /* TikkleListPageViewController.swift */,
 			);
 			path = TikkleListPage;
@@ -275,6 +279,7 @@
 				18C8C93A2A8B6C81008E4C92 /* UIColor.swift in Sources */,
 				18C8C9382A8B6C65008E4C92 /* DummyCreator.swift in Sources */,
 				B85250512A8C6C3F00076DCB /* MyPageCountTableViewCell.swift in Sources */,
+				D87784352A8C7151002B26F9 /* TikkleListTableViewCell.swift in Sources */,
 				18C8C9362A8B6C45008E4C92 /* DummyData.swift in Sources */,
 				18C8C9342A8B6C24008E4C92 /* Stamp.swift in Sources */,
 			);
