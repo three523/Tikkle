@@ -8,22 +8,43 @@
 import UIKit
 
 class TikklePageViewController: UIViewController {
-
+    
+    @IBOutlet weak var TikklePageImage: UIImageView!
+    @IBOutlet weak var TikklePageTitle: UILabel!
+    @IBOutlet weak var TikklePageDaysLabel: UILabel!
+    @IBOutlet weak var TikklePageDateLabel: UILabel!
+    @IBOutlet weak var TikklePageInfo: UILabel!
+    
+    @IBOutlet weak var TikklePageCollectionView: UICollectionView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        TikklePageCollectionView.delegate = self
+        TikklePageCollectionView.dataSource = self
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
+
+//MARK: - TikklePage CollectionView Setting
+extension TikklePageViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+//        return menuimgArray.count
+        return 14
+    }
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = TikklePageCollectionView.dequeueReusableCell(withReuseIdentifier: "TikklePageCollectionViewCell", for: indexPath) as! TikklePageCollectionViewCell
+        
+        cell.TikklePageCellName.text = "일이삼사오"
+        
+        return cell
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width = TikklePageCollectionView.frame.width / 3 - 1
+        let size = CGSize(width: width, height: width)
+        return size
+    }
+}
+
