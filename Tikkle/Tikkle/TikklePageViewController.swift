@@ -57,7 +57,7 @@ extension TikklePageViewController: UICollectionViewDelegate, UICollectionViewDa
         let cell = TikklePageCollectionView.dequeueReusableCell(withReuseIdentifier: "TikklePageCollectionViewCell", for: indexPath) as! TikklePageCollectionViewCell
         
         cell.TikklePageCellName.text = tikkle?.stampList[indexPath.row].title
-        
+        cell.TikklePageCellBtnImg.setImage(UIImage(named: "TikkleOFF.png"), for: .normal)
         return cell
     }
 
