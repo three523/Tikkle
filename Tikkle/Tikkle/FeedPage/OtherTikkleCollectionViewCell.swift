@@ -51,6 +51,13 @@ class OtherTikkleCollectionViewCell: UICollectionViewCell {
         btn.tintColor = .mainColor
         return btn
     }()
+    let progressBar: UIView = {
+        let view = UIView()
+        view.backgroundColor = .subTitleColor
+        view.layer.masksToBounds = true
+        view.layer.cornerRadius = 6
+        return view
+    }()
     
     let backgroundImageView = UIImageView(image: UIImage(systemName: "person"))
     var tikkle: Tikkle? = nil {
@@ -69,11 +76,11 @@ class OtherTikkleCollectionViewCell: UICollectionViewCell {
         contentView.addSubview(backgroundImageView)
         contentView.addSubview(userStackView)
         contentView.addSubview(tikkleStackView)
+        contentView.addSubview(progressBar)
         
         backgroundImageView.translatesAutoresizingMaskIntoConstraints = false
         backgroundImageView.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
         backgroundImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
-        backgroundImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
         backgroundImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
         
         userStackView.translatesAutoresizingMaskIntoConstraints = false
@@ -87,6 +94,13 @@ class OtherTikkleCollectionViewCell: UICollectionViewCell {
         tikkleStackView.trailingAnchor.constraint(equalTo: backgroundImageView.trailingAnchor).isActive = true
         tikkleStackView.bottomAnchor.constraint(equalTo: backgroundImageView.bottomAnchor).isActive = true
         tikkleStackView.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        
+        progressBar.translatesAutoresizingMaskIntoConstraints = false
+        progressBar.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
+        progressBar.leadingAnchor.constraint(equalTo: backgroundImageView.trailingAnchor, constant: 10).isActive = true
+        progressBar.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
+        progressBar.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
+        progressBar.widthAnchor.constraint(equalToConstant: 10).isActive = true
     }
     
     required init?(coder: NSCoder) {
@@ -101,5 +115,24 @@ class OtherTikkleCollectionViewCell: UICollectionViewCell {
         guard let tikkle else { return }
         backgroundImageView.image = tikkle.image
         kikkleTitleLabel.text = tikkle.title
+        progressBarFill()
+    }
+    
+    private func progressBarFill() {
+        guard let tikkle else { return }
+        
+        layoutIfNeeded()
+        let notCompleteCount = tikkle.stampList.count - tikkle.stampList.filter { $0.isCompletion }.count
+        let completeRate: Double = Double(notCompleteCount) / Double(tikkle.stampList.count)
+        let fillLayer = CALayer()
+        fillLayer.frame = CGRect(x: 0, y: progressBar.bounds.height * completeRate, width: progressBar.bounds.width, height: progressBar.bounds.height)
+        fillLayer.backgroundColor = UIColor.mainColor.cgColor
+        
+        let animation = CABasicAnimation(keyPath: "position.y")
+        animation.fromValue = progressBar.bounds.height + (progressBar.bounds.height / 2)
+        animation.toValue = (progressBar.bounds.height * completeRate) + (progressBar.bounds.height / 2)
+        fillLayer.add(animation, forKey: "ProgressBarAnimation")
+        
+        progressBar.layer.addSublayer(fillLayer)
     }
 }
