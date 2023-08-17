@@ -14,7 +14,6 @@ protocol ViewControllerPushDelegate: AnyObject {
 class FeedPageViewController: UIViewController {
         
     @IBOutlet weak var feedCollectionView: UICollectionView!
-    var tikkleList: [Tikkle] = [beer, tripInKoreaTikkle, climbingTikkle, tripOverseasTikkle]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,7 +47,7 @@ extension FeedPageViewController: UICollectionViewDelegate, UICollectionViewData
         return 2
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return section == 0 ? 1 : tikkleList.count
+        return section == 0 ? 1 : DataList.list.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -62,7 +61,7 @@ extension FeedPageViewController: UICollectionViewDelegate, UICollectionViewData
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: OtherTikkleCollectionViewCell.identifier, for: indexPath) as? OtherTikkleCollectionViewCell else { return UICollectionViewCell(frame: .zero) }
             cell.layer.cornerRadius = 6
             cell.layer.masksToBounds = true
-            cell.tikkle = tikkleList[indexPath.item]
+            cell.tikkle = DataList.list[indexPath.item]
             return cell
         }
         return UICollectionViewCell()
@@ -70,8 +69,8 @@ extension FeedPageViewController: UICollectionViewDelegate, UICollectionViewData
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if indexPath.section == 1 {
-            let storyboard = UIStoryboard(name: "CreateTikklePage", bundle: nil)
-            let vc = storyboard.instantiateViewController(withIdentifier: "CreateTikklePageViewController")
+            let storyboard = UIStoryboard(name: "TikklePage", bundle: nil)
+            guard let vc = storyboard.instantiateViewController(withIdentifier: "TikklePageViewController") as? TikklePageViewController else { return }
             navigationController?.pushViewController(vc, animated: true)
         }
     }
@@ -107,8 +106,8 @@ extension FeedPageViewController: UICollectionViewDelegate, UICollectionViewData
     }
     
     func pushViewController(tikkle: Tikkle) {
-        let storyboard = UIStoryboard(name: "CreateTikklePage", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "CreateTikklePageViewController")
+        let storyboard = UIStoryboard(name: "TikklePage", bundle: nil)
+        guard let vc = storyboard.instantiateViewController(withIdentifier: "TikklePageViewController") as? TikklePageViewController else { return }
         navigationController?.pushViewController(vc, animated: true)
     }
 }

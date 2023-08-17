@@ -131,6 +131,7 @@ class OtherTikkleCollectionViewCell: UICollectionViewCell {
         let animation = CABasicAnimation(keyPath: "position.y")
         animation.fromValue = progressBar.bounds.height + (progressBar.bounds.height / 2)
         animation.toValue = (progressBar.bounds.height * completeRate) + (progressBar.bounds.height / 2)
+        animation.duration = 0.5
         fillLayer.add(animation, forKey: "ProgressBarAnimation")
         
         progressBar.layer.addSublayer(fillLayer)

@@ -9,7 +9,6 @@ import UIKit
 
 class HorizontalCollectionViewCell: UICollectionViewCell {
     
-    var tikkleList: [Tikkle] = [beer, tripInKoreaTikkle, climbingTikkle, tripOverseasTikkle]
     static let identifier: String = "\(HorizontalCollectionViewCell.self)"
     private let recommendCollectionView: UICollectionView = {
         let flow = CarouselLayout()
@@ -45,7 +44,7 @@ class HorizontalCollectionViewCell: UICollectionViewCell {
 
 extension HorizontalCollectionViewCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return tikkleList.count
+        return DataList.list.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -55,12 +54,12 @@ extension HorizontalCollectionViewCell: UICollectionViewDelegate, UICollectionVi
         cell.layer.cornerRadius = 10
         cell.layer.masksToBounds = true
         cell.backgroundColor = .white
-        cell.tikkle = tikkleList[indexPath.item]
+        cell.tikkle = DataList.list[indexPath.item]
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let delegate else { return }
-        delegate.pushViewController(tikkle: tikkleList[indexPath.item])
+        delegate.pushViewController(tikkle: DataList.list[indexPath.item])
     }
 }
