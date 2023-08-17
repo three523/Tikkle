@@ -71,6 +71,7 @@ extension FeedPageViewController: UICollectionViewDelegate, UICollectionViewData
         if indexPath.section == 1 {
             let storyboard = UIStoryboard(name: "TikklePage", bundle: nil)
             guard let vc = storyboard.instantiateViewController(withIdentifier: "TikklePageViewController") as? TikklePageViewController else { return }
+            vc.tikkle = DataList.list[indexPath.item]
             navigationController?.pushViewController(vc, animated: true)
         }
     }
@@ -105,9 +106,11 @@ extension FeedPageViewController: UICollectionViewDelegate, UICollectionViewData
         }
     }
     
+    
     func pushViewController(tikkle: Tikkle) {
         let storyboard = UIStoryboard(name: "TikklePage", bundle: nil)
         guard let vc = storyboard.instantiateViewController(withIdentifier: "TikklePageViewController") as? TikklePageViewController else { return }
+        vc.tikkle = tikkle
         navigationController?.pushViewController(vc, animated: true)
     }
 }
