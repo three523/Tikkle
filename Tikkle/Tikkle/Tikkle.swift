@@ -21,7 +21,7 @@ class Tikkle {
         self.title = title
         self.description = description
         self.stampList = stampList
-        self.isPrivate = false
-        self.isSharedProject = false
+        self.isPrivate = isPrivate
+        self.isSharedProject = isSharedProject
     }
 }
