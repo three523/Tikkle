@@ -9,12 +9,8 @@ import UIKit
 
 class MypageTableViewCell: UITableViewCell {
     
-    
     @IBOutlet weak var mypageMenuImg: UIImageView!
     @IBOutlet weak var mypageMenuLabel: UILabel!
-    
-    
-    
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -24,7 +20,6 @@ class MypageTableViewCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
-        
     }
 
 }

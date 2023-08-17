@@ -22,12 +22,12 @@ class MyPageViewController: UIViewController {
     
     //MARK: - MyPage 더미데이터
     var count: [String] = ["2", "5"]
-    let menuIcon: [UIImage] = [
-        UIImage(named: "heart.png")!,
-        UIImage(named: "vector.png")!,
-        UIImage(named: "setting.png")!,
-        UIImage(named: "contract.png")!,
-        UIImage(named: "email.png")!
+    let menuIcon: [UIImage?] = [
+        UIImage(named: "heart.png"),
+        UIImage(named: "vector.png"),
+        UIImage(named: "setting.png"),
+        UIImage(named: "contract.png"),
+        UIImage(named: "email.png")
     ]
     var menu: [String] = ["내가 찜한 티끌판", "친구 초대", "앱 설정", "서비스 약관", "기능 추가 요청"]
     
@@ -56,12 +56,12 @@ class MyPageViewController: UIViewController {
     
     //MARK: - MyPage count view 커스텀
     func countviewRadius() {
-        ingTikkleView.layer.borderColor = UIColor.white.cgColor
         ingTikkleView.layer.borderWidth = 1.0
+        ingTikkleView.layer.borderColor = UIColor.white.cgColor
         ingTikkleView.layer.cornerRadius = 30
         ingTikkleView.layer.masksToBounds = true
-        doneTikkleView.layer.borderColor = UIColor.white.cgColor
         doneTikkleView.layer.borderWidth = 1.0
+        doneTikkleView.layer.borderColor = UIColor.white.cgColor
         doneTikkleView.layer.cornerRadius = 30
         doneTikkleView.layer.masksToBounds = true
     }
