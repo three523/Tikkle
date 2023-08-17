@@ -34,7 +34,10 @@
 		18FEC5CD2A8CD48400A804DD /* CarouselLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FEC5CC2A8CD48400A804DD /* CarouselLayout.swift */; };
 		18FEC5CF2A8CDFA100A804DD /* OtherTikkleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FEC5CE2A8CDFA100A804DD /* OtherTikkleCollectionViewCell.swift */; };
 		18FEC5D12A8CFCF400A804DD /* OtherTikkleCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FEC5D02A8CFCF400A804DD /* OtherTikkleCollectionReusableView.swift */; };
+		B852504D2A8BB63200076DCB /* TikklePageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B852504C2A8BB63200076DCB /* TikklePageCollectionViewCell.swift */; };
+		B86DC4CC2A8CBD7900684E0D /* MypageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86DC4CB2A8CBD7900684E0D /* MypageTableViewCell.swift */; };
 		D87784352A8C7151002B26F9 /* TikkleListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87784342A8C7151002B26F9 /* TikkleListTableViewCell.swift */; };
+		D877843B2A8D10EC002B26F9 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D877843A2A8D10EC002B26F9 /* CustomButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,13 +64,17 @@
 		18C8C9352A8B6C45008E4C92 /* DummyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyData.swift; sourceTree = "<group>"; };
 		18C8C9372A8B6C65008E4C92 /* DummyCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyCreator.swift; sourceTree = "<group>"; };
 		18C8C9392A8B6C81008E4C92 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+<<<<<<< HEAD
 		18FEC5C42A8C988300A804DD /* RecommendCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendCollectionViewCell.swift; sourceTree = "<group>"; };
 		18FEC5C62A8CA7C500A804DD /* RecommendCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendCollectionReusableView.swift; sourceTree = "<group>"; };
 		18FEC5C82A8CBADB00A804DD /* HorizontalCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalCollectionViewCell.swift; sourceTree = "<group>"; };
 		18FEC5CC2A8CD48400A804DD /* CarouselLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselLayout.swift; sourceTree = "<group>"; };
 		18FEC5CE2A8CDFA100A804DD /* OtherTikkleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherTikkleCollectionViewCell.swift; sourceTree = "<group>"; };
 		18FEC5D02A8CFCF400A804DD /* OtherTikkleCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherTikkleCollectionReusableView.swift; sourceTree = "<group>"; };
+		B852504C2A8BB63200076DCB /* TikklePageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TikklePageCollectionViewCell.swift; sourceTree = "<group>"; };
+		B86DC4CB2A8CBD7900684E0D /* MypageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageTableViewCell.swift; sourceTree = "<group>"; };
 		D87784342A8C7151002B26F9 /* TikkleListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TikkleListTableViewCell.swift; sourceTree = "<group>"; };
+		D877843A2A8D10EC002B26F9 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +148,7 @@
 			children = (
 				18C8C91F2A8B6367008E4C92 /* TikklePage.storyboard */,
 				18C8C9212A8B6371008E4C92 /* TikklePageViewController.swift */,
+				B852504C2A8BB63200076DCB /* TikklePageCollectionViewCell.swift */,
 			);
 			name = TikklePage;
 			sourceTree = "<group>";
@@ -159,6 +167,7 @@
 			children = (
 				18C8C9272A8B63BD008E4C92 /* MyPage.storyboard */,
 				18C8C9292A8B63C6008E4C92 /* MyPageViewController.swift */,
+				B86DC4CB2A8CBD7900684E0D /* MypageTableViewCell.swift */,
 			);
 			name = MyPage;
 			sourceTree = "<group>";
@@ -189,6 +198,7 @@
 			children = (
 				18C8C9372A8B6C65008E4C92 /* DummyCreator.swift */,
 				18C8C9392A8B6C81008E4C92 /* UIColor.swift */,
+				D877843A2A8D10EC002B26F9 /* CustomButton.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -293,13 +303,16 @@
 				18C8C9222A8B6371008E4C92 /* TikklePageViewController.swift in Sources */,
 				18FEC5CD2A8CD48400A804DD /* CarouselLayout.swift in Sources */,
 				18C8C9322A8B6C08008E4C92 /* Tikkle.swift in Sources */,
+				B86DC4CC2A8CBD7900684E0D /* MypageTableViewCell.swift in Sources */,
 				18C8C9062A8B6216008E4C92 /* ViewController.swift in Sources */,
 				18C8C92A2A8B63C6008E4C92 /* MyPageViewController.swift in Sources */,
 				18FEC5C72A8CA7C500A804DD /* RecommendCollectionReusableView.swift in Sources */,
+				D877843B2A8D10EC002B26F9 /* CustomButton.swift in Sources */,
 				18C8C91E2A8B6359008E4C92 /* TikkleListPageViewController.swift in Sources */,
 				18C8C9022A8B6216008E4C92 /* AppDelegate.swift in Sources */,
 				18FEC5C92A8CBADB00A804DD /* HorizontalCollectionViewCell.swift in Sources */,
 				18C8C9042A8B6216008E4C92 /* SceneDelegate.swift in Sources */,
+				B852504D2A8BB63200076DCB /* TikklePageCollectionViewCell.swift in Sources */,
 				18C8C9262A8B63B1008E4C92 /* CreateTikklePageViewController.swift in Sources */,
 				18C8C92E2A8B63D9008E4C92 /* FeedPageViewController.swift in Sources */,
 				18C8C93A2A8B6C81008E4C92 /* UIColor.swift in Sources */,

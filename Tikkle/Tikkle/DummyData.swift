@@ -5,7 +5,9 @@
 //  Created by 김도현 on 2023/08/15.
 //
 
-let beer: Tikkle = Tikkle(title: "편의점 해외 맥주 도장깨기", description: "편의점의 해외 맥주를 마셔보아요!", isPrivate: false, isSharedProject: false, stampList:  [
+import UIKit
+
+let beer: Tikkle = Tikkle(image: UIImage(named: "beer"), title: "편의점 해외맥주 도장깨기", description: "편의점의 해외 맥주를 마셔보아요!", isPrivate: false, isSharedProject: false, stampList:  [
     Stamp(title: "하이네켄", isCompletion: false),
     Stamp(title: "버드와이저", isCompletion: false),
     Stamp(title: "호가든로제", isCompletion: false),
