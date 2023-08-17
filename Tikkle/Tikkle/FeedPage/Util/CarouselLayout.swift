@@ -13,10 +13,13 @@ class CarouselLayout: UICollectionViewFlowLayout {
     public var sideItemAlpha: CGFloat = 0.7
     public var spacing: CGFloat = 0
 
+    // Cell끼리 겹치는 간격 설정
+    public var overlapValue: CGFloat = 40
     public var isPagingEnabled: Bool = false
 
     private var isSetup: Bool = false
 
+    // CollectionView안에 Cell들의 위치를 잡기전에 이 함수가 호출된다.
     override public func prepare() {
         super.prepare()
         if isSetup == false {
@@ -25,6 +28,8 @@ class CarouselLayout: UICollectionViewFlowLayout {
         }
     }
 
+    // 레이아웃의 기본값들 설정
+    // cell간의 간격, 스크롤 방향, 스크롤 속도, section의 inset
     private func setupLayout() {
         guard let collectionView = self.collectionView else {return}
 
@@ -39,28 +44,26 @@ class CarouselLayout: UICollectionViewFlowLayout {
 
         let scaledItemOffset =  (itemWidth - itemWidth*self.sideItemScale) / 2
         
-        let fullSizeSideItemOverlap = 40 + scaledItemOffset
+        let fullSizeSideItemOverlap = overlapValue + scaledItemOffset
         let inset = xInset
         self.minimumLineSpacing = inset - fullSizeSideItemOverlap
-        
-        print(self.minimumLineSpacing, fullSizeSideItemOverlap, inset, itemWidth)
-        
-//        self.minimumLineSpacing =  -scaledItemOffset
 
         self.scrollDirection = .horizontal
 
         self.collectionView?.decelerationRate = .fast
     }
 
+    // CollectionView의 크기가 변할때마다 호출됨
+    // true 일 경우 레이아웃을 변경 false 일 경우 CollectionView의 기본 레이아웃 사용
     public override func shouldInvalidateLayout(forBoundsChange newBounds: CGRect) -> Bool {
         return true
     }
 
+    // UICollectionView의 위치와 크기를 가져와서
     public override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
         guard let superAttributes = super.layoutAttributesForElements(in: rect),
             let attributes = NSArray(array: superAttributes, copyItems: true) as? [UICollectionViewLayoutAttributes]
             else { return nil }
-
         return attributes.map({ self.transformLayoutAttributes(attributes: $0) })
     }
 

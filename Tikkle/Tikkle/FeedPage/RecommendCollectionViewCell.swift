@@ -9,8 +9,8 @@ import UIKit
 
 class RecommendCollectionViewCell: UICollectionViewCell {
     static let identifier: String = "\(RecommendCollectionViewCell.self)"
-    let backgroundImageView: UIImageView = UIImageView(image: UIImage(systemName: "person"))
-    lazy var stackView: UIStackView = {
+    private let backgroundImageView: UIImageView = UIImageView(image: UIImage(systemName: "person"))
+    private lazy var stackView: UIStackView = {
         let st = UIStackView(arrangedSubviews: [titleLabel,challengeCountLabel])
         st.axis = .vertical
         st.spacing = 8
@@ -18,21 +18,28 @@ class RecommendCollectionViewCell: UICollectionViewCell {
         st.distribution = .equalCentering
         return st
     }()
-    let titleLabel: UILabel = {
+    private let titleLabel: UILabel = {
         let lb = UILabel()
         lb.font = .systemFont(ofSize: 18, weight: .semibold)
         lb.textColor = .white
         lb.text = "편의점 맥주 도장깨기"
         return lb
     }()
-    let challengeCountLabel: UILabel = {
+    private let challengeCountLabel: UILabel = {
         let lb = UILabel()
         lb.font = .systemFont(ofSize: 14, weight: .medium)
         lb.textColor = .white
         lb.text = "216명째 도전중"
         return lb
     }()
-    let gradientView: UIView = UIView()
+    private let gradientView: UIView = UIView()
+    var tikkle: Tikkle? = nil {
+        didSet {
+            if tikkle != nil {
+                uiSetting()
+            }
+        }
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -64,6 +71,16 @@ class RecommendCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    private func uiSetting() {
+        guard let tikkle else { return }
+        titleLabel.text = tikkle.title
+        backgroundImageView.image = tikkle.image
+        if let gradientLayer = backgroundImageView.layer.sublayers?.first {
+            gradientLayer.removeFromSuperlayer()
+            backgroundImageGradient()
+        }
+    }
+    
     private func backgroundImageGradient() {
         let startColor = UIColor(red: 30/255, green: 113/255, blue: 79/255, alpha: 0).cgColor
         let endColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1).cgColor
@@ -74,6 +91,6 @@ class RecommendCollectionViewCell: UICollectionViewCell {
         gradientLayer.endPoint = CGPoint(x: 0, y: 1)
         
         gradientLayer.colors = [startColor, endColor]
-        contentView.layer.insertSublayer(gradientLayer, at: 0)
+        backgroundImageView.layer.insertSublayer(gradientLayer, at: 0)
     }
 }

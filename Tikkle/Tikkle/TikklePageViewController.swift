@@ -23,7 +23,6 @@ class TikklePageViewController: UIViewController {
         TikklePageCollectionView.delegate = self
         TikklePageCollectionView.dataSource = self
     }
-    
 }
 
 //MARK: - TikklePage CollectionView Setting

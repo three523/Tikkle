@@ -7,9 +7,12 @@
 
 import UIKit
 
+protocol ViewControllerPushDelegate: AnyObject {
+    func pushViewController(tikkle: Tikkle)
+}
+
 class FeedPageViewController: UIViewController {
-    
-    
+        
     @IBOutlet weak var feedCollectionView: UICollectionView!
     
     override func viewDidLoad() {
@@ -20,18 +23,31 @@ class FeedPageViewController: UIViewController {
         feedCollectionView.register(HorizontalCollectionViewCell.self, forCellWithReuseIdentifier: HorizontalCollectionViewCell.identifier)
         feedCollectionView.register(OtherTikkleCollectionViewCell.self, forCellWithReuseIdentifier: OtherTikkleCollectionViewCell.identifier)
         feedCollectionView.register(OtherTikkleCollectionReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: OtherTikkleCollectionReusableView.identifier)
-        // Do any additional setup after loading the view.
+        navigationSetting()
     }
     
+    func navigationSetting() {
+        guard let naviBar = navigationController?.navigationBar,
+              let tabBar = tabBarController?.tabBar else { return }
+        let naviBarAppearance = UINavigationBarAppearance()
+        naviBarAppearance.configureWithTransparentBackground()
+        naviBar.standardAppearance = naviBarAppearance
+        naviBar.scrollEdgeAppearance = naviBarAppearance
+        let tabBarAppearance = UITabBarAppearance()
+        tabBarAppearance.configureWithTransparentBackground()
+        tabBar.standardAppearance = tabBarAppearance
+        tabBar.scrollEdgeAppearance = tabBarAppearance
+    }
+        
 }
 
-extension FeedPageViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension FeedPageViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, ViewControllerPushDelegate {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 2
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return section == 0 ? 1 : 3
+        return section == 0 ? 1 : DataList.list.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -39,14 +55,24 @@ extension FeedPageViewController: UICollectionViewDelegate, UICollectionViewData
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HorizontalCollectionViewCell.identifier, for: indexPath) as? HorizontalCollectionViewCell else { return UICollectionViewCell() }
             cell.layer.cornerRadius = 6
             cell.layer.masksToBounds = true
+            cell.delegate = self
             return cell
         } else if indexPath.section == 1 {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: OtherTikkleCollectionViewCell.identifier, for: indexPath) as? OtherTikkleCollectionViewCell else { return UICollectionViewCell(frame: .zero) }
             cell.layer.cornerRadius = 6
             cell.layer.masksToBounds = true
+            cell.tikkle = DataList.list[indexPath.item]
             return cell
         }
         return UICollectionViewCell()
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if indexPath.section == 1 {
+            let storyboard = UIStoryboard(name: "TikklePage", bundle: nil)
+            guard let vc = storyboard.instantiateViewController(withIdentifier: "TikklePageViewController") as? TikklePageViewController else { return }
+            navigationController?.pushViewController(vc, animated: true)
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
@@ -74,8 +100,14 @@ extension FeedPageViewController: UICollectionViewDelegate, UICollectionViewData
             return CGSize(width: width, height: height)
         } else {
             let width = collectionView.bounds.width - 40.0
-            let height = 200.0
+            let height = 220.0
             return CGSize(width: width, height: height)
         }
+    }
+    
+    func pushViewController(tikkle: Tikkle) {
+        let storyboard = UIStoryboard(name: "TikklePage", bundle: nil)
+        guard let vc = storyboard.instantiateViewController(withIdentifier: "TikklePageViewController") as? TikklePageViewController else { return }
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
