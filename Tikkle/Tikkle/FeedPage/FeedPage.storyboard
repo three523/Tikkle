@@ -40,7 +40,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="eTF-TE-hiB">
-                                <rect key="frame" x="20" y="0.0" width="353" height="852"/>
+                                <rect key="frame" x="20" y="103" width="353" height="666"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Lm4-kT-eK6">
                                     <size key="itemSize" width="128" height="128"/>
@@ -186,9 +186,9 @@
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="eTF-TE-hiB" secondAttribute="trailing" constant="20" id="P7d-YI-S5g"/>
-                            <constraint firstItem="eTF-TE-hiB" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="TNq-Dt-q2n"/>
+                            <constraint firstItem="eTF-TE-hiB" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="TNq-Dt-q2n"/>
                             <constraint firstItem="eTF-TE-hiB" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="koz-pg-J8X"/>
-                            <constraint firstItem="eTF-TE-hiB" firstAttribute="bottom" secondItem="5EZ-qb-Rvc" secondAttribute="bottom" id="qHp-xy-u95"/>
+                            <constraint firstItem="eTF-TE-hiB" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" id="qHp-xy-u95"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ypX-sg-bpv"/>

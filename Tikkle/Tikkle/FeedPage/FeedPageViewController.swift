@@ -28,11 +28,16 @@ class FeedPageViewController: UIViewController {
     }
     
     func navigationSetting() {
-        guard let naviBar = navigationController?.navigationBar else { return }
+        guard let naviBar = navigationController?.navigationBar,
+              let tabBar = tabBarController?.tabBar else { return }
         let naviBarAppearance = UINavigationBarAppearance()
         naviBarAppearance.configureWithTransparentBackground()
         naviBar.standardAppearance = naviBarAppearance
         naviBar.scrollEdgeAppearance = naviBarAppearance
+        let tabBarAppearance = UITabBarAppearance()
+        tabBarAppearance.configureWithTransparentBackground()
+        tabBar.standardAppearance = tabBarAppearance
+        tabBar.scrollEdgeAppearance = tabBarAppearance
     }
         
 }
