@@ -64,6 +64,8 @@ class OtherTikkleCollectionViewCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
+        likeButton.addTarget(self, action: #selector(likeButtonClick), for: .touchUpInside)
+        
         contentView.addSubview(backgroundImageView)
         contentView.addSubview(userStackView)
         contentView.addSubview(tikkleStackView)
@@ -89,6 +91,10 @@ class OtherTikkleCollectionViewCell: UICollectionViewCell {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    @objc func likeButtonClick() {
+        likeButton.isSelected = !likeButton.isSelected
     }
     
     private func uiSetting() {
