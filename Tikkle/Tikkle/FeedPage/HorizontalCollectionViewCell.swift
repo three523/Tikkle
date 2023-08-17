@@ -9,15 +9,16 @@ import UIKit
 
 class HorizontalCollectionViewCell: UICollectionViewCell {
     
+    var tikkleList: [Tikkle] = [beer, tripInKoreaTikkle, climbingTikkle, tripOverseasTikkle]
     static let identifier: String = "\(HorizontalCollectionViewCell.self)"
-    let recommendCollectionView: UICollectionView = {
+    private let recommendCollectionView: UICollectionView = {
         let flow = CarouselLayout()
         flow.itemSize = CGSize(width: 280.0, height: 260.0)
         let cv = UICollectionView(frame: .zero, collectionViewLayout: flow)
         cv.backgroundColor = .clear
         return cv
     }()
-    let ints = [1,2,3,1,2,3,1,2,3]
+    weak var delegate: ViewControllerPushDelegate? = nil
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -44,7 +45,7 @@ class HorizontalCollectionViewCell: UICollectionViewCell {
 
 extension HorizontalCollectionViewCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return ints.count
+        return tikkleList.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -54,30 +55,12 @@ extension HorizontalCollectionViewCell: UICollectionViewDelegate, UICollectionVi
         cell.layer.cornerRadius = 10
         cell.layer.masksToBounds = true
         cell.backgroundColor = .white
-        print(ints[indexPath.item])
+        cell.tikkle = tikkleList[indexPath.item]
         return cell
     }
-    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
-        let endOffset = scrollView.contentSize.width - recommendCollectionView.frame.width
-            
-            if scrollView.contentOffset.x < .zero && velocity.x < .zero {
-                print("처음 -> 마지막")
-            } else if scrollView.contentOffset.x > endOffset && velocity.x > .zero  {
-                print("마지막 -> 처음")
-            }
-    }
-        
-    //MARK: 무한 스크롤이 안됌
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        print(scrollView.contentOffset)
-        let cgPoint = CGPoint(x: scrollView.contentOffset.x - recommendCollectionView.bounds.width/2, y: recommendCollectionView.bounds.height/2)
-        guard let indexPath = recommendCollectionView.indexPathForItem(at: cgPoint) else { return }
-        let item = indexPath.item
-        print(item, ints.count)
-        if item == ints.count - 3 {
-            recommendCollectionView.scrollToItem(at: IndexPath(item: 2, section: 0), at: .centeredHorizontally, animated: false)
-        } else if item == 1 {
-            recommendCollectionView.scrollToItem(at: IndexPath(item: 4, section: 0), at: .centeredHorizontally, animated: false)
-        }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let delegate else { return }
+        delegate.pushViewController(tikkle: tikkleList[indexPath.item])
     }
 }

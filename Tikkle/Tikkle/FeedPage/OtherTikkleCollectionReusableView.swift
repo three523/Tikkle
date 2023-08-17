@@ -21,14 +21,14 @@ class OtherTikkleCollectionReusableView: UICollectionReusableView {
         let lb = UILabel()
         lb.text = "티끌 둘러보기"
         lb.font = .systemFont(ofSize: 25, weight: .semibold)
-        lb.textColor = .black
+        lb.textColor = .white
         return lb
     }()
     let otherSubTitleLabel: UILabel = {
         let lb = UILabel()
         lb.text = "다른 분들의 도전을 둘러보세요"
         lb.font = .systemFont(ofSize: 14, weight: .bold)
-        lb.textColor = .black
+        lb.textColor = UIColor(hexCode: "D9D9D9")
         return lb
     }()
     override init(frame: CGRect) {

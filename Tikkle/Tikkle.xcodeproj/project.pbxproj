@@ -87,6 +87,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		189FEDAC2A8E001200AF47B0 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				18FEC5C42A8C988300A804DD /* RecommendCollectionViewCell.swift */,
+				18FEC5C82A8CBADB00A804DD /* HorizontalCollectionViewCell.swift */,
+				18FEC5CE2A8CDFA100A804DD /* OtherTikkleCollectionViewCell.swift */,
+			);
+			name = Cell;
+			sourceTree = "<group>";
+		};
 		18C8C8F52A8B6216008E4C92 = {
 			isa = PBXGroup;
 			children = (
@@ -174,6 +184,7 @@
 		18C8C91A2A8B62BA008E4C92 /* FeedPage */ = {
 			isa = PBXGroup;
 			children = (
+				189FEDAC2A8E001200AF47B0 /* Cell */,
 				18FEC5CB2A8CD45700A804DD /* Util */,
 				18FEC5C32A8C984400A804DD /* View */,
 				18C8C92B2A8B63CD008E4C92 /* FeedPage.storyboard */,
@@ -205,10 +216,7 @@
 		18FEC5C32A8C984400A804DD /* View */ = {
 			isa = PBXGroup;
 			children = (
-				18FEC5C42A8C988300A804DD /* RecommendCollectionViewCell.swift */,
 				18FEC5C62A8CA7C500A804DD /* RecommendCollectionReusableView.swift */,
-				18FEC5C82A8CBADB00A804DD /* HorizontalCollectionViewCell.swift */,
-				18FEC5CE2A8CDFA100A804DD /* OtherTikkleCollectionViewCell.swift */,
 				18FEC5D02A8CFCF400A804DD /* OtherTikkleCollectionReusableView.swift */,
 			);
 			name = View;

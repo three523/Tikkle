@@ -34,7 +34,7 @@ class OtherTikkleCollectionViewCell: UICollectionViewCell {
         st.distribution = .equalSpacing
         st.isLayoutMarginsRelativeArrangement = true
         st.layoutMargins = UIEdgeInsets(top: 0, left: 12, bottom: 0, right: 12)
-        st.backgroundColor = UIColor(hexCode: "D9D9D9").withAlphaComponent(0.6)
+        st.backgroundColor = .black.withAlphaComponent(0.6)
         return st
     }()
     let kikkleTitleLabel: UILabel = {
@@ -53,6 +53,13 @@ class OtherTikkleCollectionViewCell: UICollectionViewCell {
     }()
     
     let backgroundImageView = UIImageView(image: UIImage(systemName: "person"))
+    var tikkle: Tikkle? = nil {
+        didSet {
+            if tikkle != nil {
+                uiSetting()
+            }
+        }
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -82,5 +89,11 @@ class OtherTikkleCollectionViewCell: UICollectionViewCell {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func uiSetting() {
+        guard let tikkle else { return }
+        backgroundImageView.image = tikkle.image
+        kikkleTitleLabel.text = tikkle.title
     }
 }
