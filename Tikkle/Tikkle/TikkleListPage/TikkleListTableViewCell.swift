@@ -9,8 +9,7 @@ import UIKit
 
 class TikkleListTableViewCell: UITableViewCell {
     
-    
-    
+    //요소 아울렛
     @IBOutlet weak var tikkleImage: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var percentLabel: UILabel!
@@ -22,21 +21,11 @@ class TikkleListTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-        
-        let privateTrueButton = CustomButton.makePrivateTrueButton()
-        isPrivateButton.addSubview(privateTrueButton)
-        let sharedTrueButton = CustomButton.makeTogetherButton()
-        isSharedProjectButton.addSubview(sharedTrueButton)
     }
-    
     
     
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        
-        // Configure the view for the selected state
-    }
-    
+            }
 }
