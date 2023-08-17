@@ -146,8 +146,8 @@
 			isa = PBXGroup;
 			children = (
 				18C8C91B2A8B6331008E4C92 /* TikkleListPage.storyboard */,
-				D87784342A8C7151002B26F9 /* TikkleListTableViewCell.swift */,
 				18C8C91D2A8B6359008E4C92 /* TikkleListPageViewController.swift */,
+				D87784342A8C7151002B26F9 /* TikkleListTableViewCell.swift */,
 			);
 			path = TikkleListPage;
 			sourceTree = "<group>";

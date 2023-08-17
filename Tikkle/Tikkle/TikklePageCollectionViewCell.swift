@@ -9,11 +9,15 @@ import UIKit
 
 class TikklePageCollectionViewCell: UICollectionViewCell {
     
+    var tikkle: Tikkle?
+    
     @IBOutlet weak var TikklePageCellBtnImg: UIButton!
     @IBOutlet weak var TikklePageCellName: UILabel!
     
 //MARK: - TikklePage CollectionView Cell Btn 클릭 시 혹시나?
     @IBAction func TikklePageCellBtnClicked(_ sender: Any) {
+        
+        
         
     }
     
