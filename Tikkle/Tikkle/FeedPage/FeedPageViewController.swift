@@ -87,8 +87,8 @@ extension FeedPageViewController: UICollectionViewDelegate, UICollectionViewData
         if indexPath.section == 1 {
             let storyboard = UIStoryboard(name: "TikklePage", bundle: nil)
             guard let vc = storyboard.instantiateViewController(withIdentifier: "TikklePageViewController") as? TikklePageViewController else { return }
-            //MARK: -
-            vc.tikkle = DataList.list[indexPath.item]
+            //MARK: - 공개한 리스트만 넘기는 것
+            vc.tikkle = tikkleManage.publicTikkleList()[indexPath.row]
             navigationController?.pushViewController(vc, animated: true)
         }
     }
@@ -127,7 +127,7 @@ extension FeedPageViewController: UICollectionViewDelegate, UICollectionViewData
     func pushViewController(tikkle: Tikkle) {
         let storyboard = UIStoryboard(name: "TikklePage", bundle: nil)
         guard let vc = storyboard.instantiateViewController(withIdentifier: "TikklePageViewController") as? TikklePageViewController else { return }
-        //MARK: -
+        //MARK: - TikklePageViewController의 데이터를 어디로
         vc.tikkle = tikkle
         navigationController?.pushViewController(vc, animated: true)
     }

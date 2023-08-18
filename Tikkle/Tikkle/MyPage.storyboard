@@ -50,10 +50,10 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i1D-aw-Geu">
-                                <rect key="frame" x="302" y="147" width="71" height="33"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i1D-aw-Geu">
+                                <rect key="frame" x="349" y="156.66666666666666" width="24" height="14"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="이"/>
+                                <buttonConfiguration key="configuration" style="plain"/>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Rns-3Q-khd">
                                 <rect key="frame" x="0.0" y="434" width="393" height="335"/>
@@ -167,7 +167,7 @@
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="gad-7a-D3D" secondAttribute="trailing" constant="20" id="XHo-vk-CMI"/>
                             <constraint firstItem="gad-7a-D3D" firstAttribute="top" secondItem="kTq-xa-kDU" secondAttribute="bottom" constant="50" id="ckv-iy-svk"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="Rns-3Q-khd" secondAttribute="bottom" id="f4C-6D-VfX"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="i1D-aw-Geu" secondAttribute="trailing" constant="20" id="l19-Cx-RTG"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="i1D-aw-Geu" secondAttribute="trailing" constant="20" id="ket-xw-bc0"/>
                             <constraint firstItem="gad-7a-D3D" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="rD0-cR-qI4"/>
                             <constraint firstItem="i1D-aw-Geu" firstAttribute="centerY" secondItem="kTq-xa-kDU" secondAttribute="centerY" id="ziD-vF-Ovm"/>
                         </constraints>
@@ -192,6 +192,5 @@
     <resources>
         <image name="tabBarMyPageSelected" width="48" height="50"/>
         <image name="tabBarMyPageUnselected" width="48" height="50"/>
-        <image name="이" width="47" height="19"/>
     </resources>
 </document>

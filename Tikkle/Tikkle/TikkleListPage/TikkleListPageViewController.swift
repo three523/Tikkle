@@ -44,7 +44,7 @@ class TikkleListPageViewController: UIViewController {
     
     
     
-    //MARK: -TikkleListPage ViewController 앱 실행될 때 처음 실행되는 곳
+    //MARK: - TikkleListPage ViewController 앱 실행될 때 처음 실행되는 곳
     override func viewDidLoad() {
         super.viewDidLoad()
         setupDatas()
@@ -61,9 +61,7 @@ class TikkleListPageViewController: UIViewController {
         tableView.reloadData()
         emptyGreetingUI()
     }
-    
-    
-    
+        
     //MARK: -TikkleListPage ViewController viewDidLoad 정리 함수들 모음
     //상단바 세팅 함수. 위의 viewDidLoad 깔끔하게 사용 위함.
     func navigationSetting() {

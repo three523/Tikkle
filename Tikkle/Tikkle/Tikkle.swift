@@ -16,13 +16,16 @@ class Tikkle {
     var isSharedProject: Bool
     var stampList: [Stamp]
     var createDate: Date = Date()
+    //hoonMARK: - 
+    var tikkleCompleted: Bool
     
-    init(image: UIImage? = nil, title: String, description: String, isPrivate: Bool, isSharedProject: Bool, stampList: [Stamp]) {
+    init(image: UIImage? = nil, title: String, description: String, isPrivate: Bool, isSharedProject: Bool, stampList: [Stamp], tikkleCompleted: Bool) {
         self.image = image
         self.title = title
         self.description = description
         self.stampList = stampList
         self.isPrivate = isPrivate
         self.isSharedProject = isSharedProject
+        self.tikkleCompleted = tikkleCompleted
     }
 }
