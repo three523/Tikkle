@@ -29,6 +29,7 @@ class CreateTikklePageViewController: UIViewController {
         st.layoutMargins = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
         return st
     }()
+    let tikkleListManager: TikkleListManager = TikkleListManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -88,7 +89,8 @@ class CreateTikklePageViewController: UIViewController {
         let stampList = tikkleVerticalStack.convertStampList()
         if stampList.isEmpty { return }
         
-        Tikkle(title: challengeNameText, description: infoText, isPrivate: false, isSharedProject: false, stampList: stampList)
+        let tikkle = Tikkle(title: challengeNameText, description: infoText, isPrivate: false, isSharedProject: false, stampList: stampList)
+        tikkleListManager.addTikkle(tikkle)
         navigationController?.popViewController(animated: true)
     }
     
@@ -123,7 +125,6 @@ class CreateTikklePageViewController: UIViewController {
     // MARK: 스탬프버튼 생성 함수
     private func createStampButton() -> StampButton {
         let stampButton = StampButton()
-        stampButton.backgroundColor = .white.withAlphaComponent(0.2)
         stampButton.isEditeEnabled = true
         stampButton.widthAnchor.constraint(equalToConstant: 100).isActive = true
         stampButton.heightAnchor.constraint(equalToConstant: 100).isActive = true
