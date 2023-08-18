@@ -37,9 +37,30 @@ class MyPageViewController: UIViewController {
         viewTitle()
         myInfo()
         countviewRadius()
-        
+        navigationSetting()
         MyPageTableView.delegate = self
         MyPageTableView.dataSource = self
+    }
+    
+    
+    func navigationSetting() {
+        guard let naviBar = navigationController?.navigationBar else { return }
+        let naviBarAppearance = UINavigationBarAppearance()
+        naviBarAppearance.backgroundColor = .black
+        naviBar.standardAppearance = naviBarAppearance
+        naviBar.scrollEdgeAppearance = naviBarAppearance
+        
+        let logoImage = UIImage(named: "navi_Logo")
+        let logoImageView = UIImageView(image: logoImage)
+        logoImageView.contentMode = .scaleAspectFit
+        let logoItem = UIBarButtonItem(customView: logoImageView)
+        navigationItem.leftBarButtonItem = logoItem
+        
+        let bellImage = UIImage(named: "navi_Bell")
+        let bellImageView = UIImageView(image: bellImage)
+        bellImageView.contentMode = .scaleAspectFit
+        let bellItem = UIBarButtonItem(customView: bellImageView)
+        navigationItem.rightBarButtonItem = bellItem
     }
     
     //MARK: - MyPage Titile 커스텀
