@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -53,7 +54,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="gMY-Ga-j1X">
-                                <rect key="frame" x="0.0" y="346.66666666666674" width="393" height="471.33333333333326"/>
+                                <rect key="frame" x="0.0" y="385" width="393" height="433"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="0dZ-jz-mmW">
                                     <size key="itemSize" width="128" height="128"/>
@@ -99,17 +100,23 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AvD-jQ-c3E">
+                                <rect key="frame" x="155" y="338.66666666666669" width="83" height="34.333333333333314"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="도전하기"/>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="gMY-Ga-j1X" firstAttribute="top" secondItem="AvD-jQ-c3E" secondAttribute="bottom" constant="12" id="0eY-ge-zrJ"/>
+                            <constraint firstItem="AvD-jQ-c3E" firstAttribute="top" secondItem="MmM-qR-u8U" secondAttribute="bottom" constant="12" id="3Na-La-Yvb"/>
                             <constraint firstItem="uhN-dX-jkH" firstAttribute="top" secondItem="jMU-hr-9p3" secondAttribute="bottom" constant="20" id="C15-7A-jOF"/>
                             <constraint firstItem="MmM-qR-u8U" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="GAU-Is-ECX"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="gMY-Ga-j1X" secondAttribute="trailing" id="JG1-Ga-gB5"/>
                             <constraint firstItem="jMU-hr-9p3" firstAttribute="top" secondItem="ysJ-00-TPE" secondAttribute="bottom" constant="20" id="JfV-zz-pCQ"/>
                             <constraint firstItem="MmM-qR-u8U" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" constant="80" id="Jv0-Vh-NYL"/>
                             <constraint firstItem="uhN-dX-jkH" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="Kev-sg-sue"/>
-                            <constraint firstItem="gMY-Ga-j1X" firstAttribute="top" secondItem="MmM-qR-u8U" secondAttribute="bottom" constant="20" id="WXM-0i-jm4"/>
                             <constraint firstItem="gMY-Ga-j1X" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="YGl-7m-9La"/>
                             <constraint firstItem="jMU-hr-9p3" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="Ygg-WC-r8t"/>
                             <constraint firstItem="ysJ-00-TPE" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="20" id="ab9-qY-gXk"/>
@@ -117,6 +124,7 @@
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="gMY-Ga-j1X" secondAttribute="bottom" id="gRh-2B-soD"/>
                             <constraint firstItem="MmM-qR-u8U" firstAttribute="top" secondItem="uhN-dX-jkH" secondAttribute="bottom" constant="20" id="lNn-pP-lUc"/>
                             <constraint firstItem="ysJ-00-TPE" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="nch-41-df7"/>
+                            <constraint firstItem="AvD-jQ-c3E" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="p9Z-Gl-gWD"/>
                         </constraints>
                     </view>
                     <connections>
@@ -126,11 +134,12 @@
                         <outlet property="TikklePageImage" destination="ysJ-00-TPE" id="EGD-25-BdW"/>
                         <outlet property="TikklePageInfo" destination="MmM-qR-u8U" id="9gD-bS-m5M"/>
                         <outlet property="TikklePageTitle" destination="jMU-hr-9p3" id="42O-sF-XIA"/>
+                        <outlet property="challengeButton" destination="AvD-jQ-c3E" id="P52-as-WUk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="48" y="-2"/>
+            <point key="canvasLocation" x="46.564885496183201" y="-2.1126760563380285"/>
         </scene>
     </scenes>
     <resources>

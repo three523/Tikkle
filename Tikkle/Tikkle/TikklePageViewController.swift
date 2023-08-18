@@ -16,7 +16,7 @@ class TikklePageViewController: UIViewController {
     @IBOutlet weak var TikklePageDaysLabel: UILabel!
     @IBOutlet weak var TikklePageDateLabel: UILabel!
     @IBOutlet weak var TikklePageInfo: UILabel!
-    
+    @IBOutlet weak var challengeButton: UIButton!
     @IBOutlet weak var TikklePageCollectionView: UICollectionView!
     
     override func viewDidLoad() {
