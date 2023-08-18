@@ -237,7 +237,6 @@
                                             <outlet property="percentLabel" destination="JMP-us-djp" id="I8v-fA-bLw"/>
                                             <outlet property="tikkleImage" destination="hcs-ga-Clc" id="2JD-Js-BTj"/>
                                             <outlet property="titleLabel" destination="emd-ia-FsF" id="H2h-KK-gyb"/>
-                                            <segue destination="Kv4-m6-gbc" kind="show" id="gtv-S5-NUt"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -295,16 +294,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o2U-I4-fLq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1301" y="-303"/>
-        </scene>
-        <!--TikklePage-->
-        <scene sceneID="812-EJ-Jr0">
-            <objects>
-                <viewControllerPlaceholder storyboardName="TikklePage" id="Kv4-m6-gbc" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="Pk1-BZ-YfI"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="leB-Dl-SIi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1302" y="25"/>
         </scene>
         <!--Item-->
         <scene sceneID="9hC-S7-fJq">

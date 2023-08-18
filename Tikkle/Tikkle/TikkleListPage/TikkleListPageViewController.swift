@@ -9,6 +9,8 @@ import UIKit
 
 class TikkleListPageViewController: UIViewController {
     
+    var tikkle: Tikkle?
+    
     //요소 아울렛
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var mainLabel: UILabel!
@@ -22,6 +24,8 @@ class TikkleListPageViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         setUI()
+        
+        
     }
     
     
@@ -47,12 +51,18 @@ class TikkleListPageViewController: UIViewController {
 
 
 
-
+//MARK: - tableView 클릭 시
 extension TikkleListPageViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
+        let storyboard = UIStoryboard(name: "TikklePage", bundle: nil)
+        guard let vc = storyboard.instantiateViewController(withIdentifier: "TikklePageViewController") as? TikklePageViewController else { return }
+        vc.tikkle = DataList.list[indexPath.item]
+        //MARK: 스토리보드 삭제
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
+
+
 
 //테이블 뷰 사용시 필수 구현해야 하는 메소드
 extension TikkleListPageViewController: UITableViewDataSource {
