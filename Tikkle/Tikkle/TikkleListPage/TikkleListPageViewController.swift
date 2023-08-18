@@ -29,12 +29,36 @@ class TikkleListPageViewController: UIViewController {
         setupDatas()
         seupTableView()
         setUI()
+        navigationSetting()
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
         tableView.reloadData()
     }
+    
+    
+    func navigationSetting() {
+        guard let naviBar = navigationController?.navigationBar else { return }
+        let naviBarAppearance = UINavigationBarAppearance()
+        naviBarAppearance.backgroundColor = .black
+        naviBar.standardAppearance = naviBarAppearance
+        naviBar.scrollEdgeAppearance = naviBarAppearance
+        
+        let logoImage = UIImage(named: "navi_Logo")
+        let logoImageView = UIImageView(image: logoImage)
+        logoImageView.contentMode = .scaleAspectFit
+        let logoItem = UIBarButtonItem(customView: logoImageView)
+        navigationItem.leftBarButtonItem = logoItem
+        
+        let bellImage = UIImage(named: "navi_Bell")
+        let bellImageView = UIImageView(image: bellImage)
+        bellImageView.contentMode = .scaleAspectFit
+        let bellItem = UIBarButtonItem(customView: bellImageView)
+        navigationItem.rightBarButtonItem = bellItem
+    }
+    
+    
     
     //MARK: -TikkleListPage ViewController viewDidLoad 정리 함수들 모음
     //테이블뷰 세팅 함수. 위의 viewDidLoad 깔끔하게 사용 위함.
