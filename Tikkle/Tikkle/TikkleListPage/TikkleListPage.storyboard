@@ -227,15 +227,27 @@
             </objects>
             <point key="canvasLocation" x="1301" y="-303"/>
         </scene>
-        <!--Item-->
+        <!--Tikkle-->
         <scene sceneID="9hC-S7-fJq">
             <objects>
                 <navigationController storyboardIdentifier="TikkleListPageNavigationController" id="Lbp-sA-pBX" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="Wrl-0a-nxO"/>
+                    <tabBarItem key="tabBarItem" title="Tikkle" image="tabBarTikkleListPageUnselected" selectedImage="tabBarTikkleListPageSelected" id="Wrl-0a-nxO">
+                        <color key="badgeColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBarItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="69n-vY-neN">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.32156862745098036" green="1" blue="0.38823529411764707" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="barTintColor" red="0.32156862749999998" green="1" blue="0.38823529410000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="0.32156862745098036" green="1" blue="0.38823529411764707" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <color key="textShadowColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                            <color key="textColor" red="0.32156862745098036" green="1" blue="0.38823529411764707" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="Y6W-OH-hqX" kind="relationship" relationship="rootViewController" id="36P-Qq-DZU"/>
@@ -249,5 +261,7 @@
     <resources>
         <image name="photo.stack.fill" catalog="system" width="128" height="122"/>
         <image name="rectangle.and.pencil.and.ellipsis.rtl" catalog="system" width="128" height="92"/>
+        <image name="tabBarTikkleListPageSelected" width="31" height="31"/>
+        <image name="tabBarTikkleListPageUnselected" width="31" height="31"/>
     </resources>
 </document>
