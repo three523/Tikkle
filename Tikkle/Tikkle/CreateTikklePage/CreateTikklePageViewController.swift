@@ -35,6 +35,7 @@ class CreateTikklePageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        keyboardNotification()
         navigationBarButton()
         photoTapSetting()
         btnStyle()
