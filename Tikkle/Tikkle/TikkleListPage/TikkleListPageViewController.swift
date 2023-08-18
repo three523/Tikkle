@@ -29,6 +29,7 @@ class TikkleListPageViewController: UIViewController {
         setupDatas()
         seupTableView()
         setUI()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {

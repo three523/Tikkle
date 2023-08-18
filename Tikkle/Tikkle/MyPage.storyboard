@@ -7,11 +7,11 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Item-->
+        <!--My-->
         <scene sceneID="ok2-GS-5xE">
             <objects>
                 <navigationController storyboardIdentifier="MyPageNavigationViewController" id="AH6-bY-G8F" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="nSC-fM-hyc"/>
+                    <tabBarItem key="tabBarItem" title="My" image="tabBarMyPageUnselected" selectedImage="tabBarMyPageSelected" id="nSC-fM-hyc"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Yt8-Fp-ap1">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
@@ -186,6 +186,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="tabBarMyPageSelected" width="25" height="25"/>
+        <image name="tabBarMyPageUnselected" width="25" height="25"/>
         <image name="이" width="47" height="19"/>
     </resources>
 </document>
