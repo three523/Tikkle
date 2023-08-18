@@ -36,7 +36,7 @@ class FeedPageViewController: UIViewController {
         let tabBarAppearance = UITabBarAppearance()
         tabBarAppearance.configureWithTransparentBackground()
         tabBar.standardAppearance = tabBarAppearance
-        tabBar.scrollEdgeAppearance = tabBarAppearance
+//        tabBar.scrollEdgeAppearance = tabBarAppearance
     }
         
 }

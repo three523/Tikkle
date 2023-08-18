@@ -24,7 +24,7 @@ import UIKit
 class CustomButton: UIButton {
     
     static func makeButton(title: String, color: UIColor) -> UIButton {
-        let button = CustomButton(type: .system)
+        let button = CustomButton()
         button.frame = CGRect(x: 0, y: 0, width: 50, height: 20)
         
         // 버튼의 텍스트 설정

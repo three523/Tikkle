@@ -16,8 +16,10 @@ class StampButton: UIButton {
         tv.backgroundColor = .black.withAlphaComponent(0.4)
         tv.textAlignment = .center
         tv.textColor = .subTitleColor
+        tv.sizeToFit()
         return tv
     }()
+    var messageTextViewMaxHeight: CGFloat = .zero
     var isEditeEnabled = false {
         didSet {
             tikkleTitleTextView.isUserInteractionEnabled = isEditeEnabled
@@ -40,10 +42,10 @@ class StampButton: UIButton {
         self.layer.cornerRadius = 50
         self.layer.masksToBounds = true
         tikkleTitleTextView.translatesAutoresizingMaskIntoConstraints = false
-        tikkleTitleTextView.topAnchor.constraint(equalTo: self.topAnchor, constant: 16).isActive = true
         tikkleTitleTextView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16).isActive = true
         tikkleTitleTextView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16).isActive = true
-        tikkleTitleTextView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -16).isActive = true
+        tikkleTitleTextView.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
+        tikkleTitleTextView.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.3).isActive = true
     }
     
     func stampTitle() -> String {
