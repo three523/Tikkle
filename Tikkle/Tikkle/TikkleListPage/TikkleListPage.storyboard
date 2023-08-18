@@ -85,7 +85,7 @@
                                                             </attributedString>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo.stack.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="hcs-ga-Clc">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hcs-ga-Clc">
                                                             <rect key="frame" x="8" y="8" width="130" height="168"/>
                                                             <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
@@ -262,7 +262,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="photo.stack.fill" catalog="system" width="128" height="122"/>
         <image name="rectangle.and.pencil.and.ellipsis.rtl" catalog="system" width="128" height="92"/>
         <image name="tabBarTikkleListPageSelected" width="48" height="50"/>
         <image name="tabBarTikkleListPageUnselected" width="48" height="50"/>

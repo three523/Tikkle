@@ -10,6 +10,7 @@ import UIKit
 class TikkleListPageViewController: UIViewController {
     
     var tikkle: Tikkle?
+    let margin: CGFloat = 16
     
     //요소 아울렛
     //MARK: -티끌리스트매니저 모델 생성 (이제부터 이 매니저 모델을 통해 데이터를 매니징할 수 있음)
@@ -22,6 +23,26 @@ class TikkleListPageViewController: UIViewController {
     @IBOutlet weak var subLabel: UILabel!
     @IBOutlet weak var createTikkleButton: UIButton!
     
+    //MARK: -리스트가 비어 있을 시에 안내 문구 표시하는 라벨
+    let square: UIView = {
+        let squareView = UIView()
+        squareView.backgroundColor = UIColor.white.withAlphaComponent(0.05) // 5% 투명도
+        squareView.translatesAutoresizingMaskIntoConstraints = false
+        return squareView
+    }()
+
+    let emptyStateLabel: UILabel = {
+        let label = UILabel()
+        label.text = "생성하기를 통해\n티끌시트를 만들어보세요"
+        label.textColor = .darkGray
+        label.textAlignment = .center
+        label.numberOfLines = 0
+        label.translatesAutoresizingMaskIntoConstraints = false
+        
+        return label
+    }()
+    
+    
     
     //MARK: -TikkleListPage ViewController 앱 실행될 때 처음 실행되는 곳
     override func viewDidLoad() {
@@ -31,13 +52,18 @@ class TikkleListPageViewController: UIViewController {
         setUI()
         navigationSetting()
         
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         tableView.reloadData()
+        emptyGreetingUI()
     }
     
     
+
+    //MARK: -TikkleListPage ViewController viewDidLoad 정리 함수들 모음
+    //상단바 세팅 함수. 위의 viewDidLoad 깔끔하게 사용 위함.
     func navigationSetting() {
         guard let naviBar = navigationController?.navigationBar else { return }
         let naviBarAppearance = UINavigationBarAppearance()
@@ -45,12 +71,14 @@ class TikkleListPageViewController: UIViewController {
         naviBar.standardAppearance = naviBarAppearance
         naviBar.scrollEdgeAppearance = naviBarAppearance
         
+        //상단바 왼쪽에 티끌 로고 추가
         let logoImage = UIImage(named: "navi_Logo")
         let logoImageView = UIImageView(image: logoImage)
         logoImageView.contentMode = .scaleAspectFit
         let logoItem = UIBarButtonItem(customView: logoImageView)
         navigationItem.leftBarButtonItem = logoItem
         
+        //상단바 오른쪽에 벨 로고 추가
         let bellImage = UIImage(named: "navi_Bell")
         let bellImageView = UIImageView(image: bellImage)
         bellImageView.contentMode = .scaleAspectFit
@@ -58,9 +86,6 @@ class TikkleListPageViewController: UIViewController {
         navigationItem.rightBarButtonItem = bellItem
     }
     
-    
-    
-    //MARK: -TikkleListPage ViewController viewDidLoad 정리 함수들 모음
     //테이블뷰 세팅 함수. 위의 viewDidLoad 깔끔하게 사용 위함.
     func seupTableView() {
         tableView.delegate = self
@@ -69,13 +94,48 @@ class TikkleListPageViewController: UIViewController {
     
     //데이터 세팅 함수. 위의 viewDidLoad 깔끔하게 사용 위함.
     func setupDatas() {
-        tikkleListManager.makeTikkleListDatas()//데이터(더미데이터) 생성
+        tikkleListManager.getTikkleList()//데이터(더미데이터) 생성
     }
+    
+    
+    //비어있을 때 실행하는 안내문구 라벨 함수
+    func emptyGreetingUI() {
+        if tikkleListManager.getTikkleList().isEmpty {
+            view.addSubview(square)
+            square.addSubview(emptyStateLabel)
+            square.layer.cornerRadius = 7
+            
+            NSLayoutConstraint.activate([
+                // square의 leading, trailing 설정
+                square.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: margin),
+                square.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -margin),
+                
+                // square의 top을 createButton의 bottom에서부터 간격을 주게 함
+                square.topAnchor.constraint(equalTo: subLabel.bottomAnchor, constant: margin),
+                
+                // square의 bottom을 safeArea를 통해 탭바와 겹치지 않게 함
+                square.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -margin),
+
+                // label을 square 내부 중앙에 위치
+                emptyStateLabel.centerXAnchor.constraint(equalTo: square.centerXAnchor),
+                emptyStateLabel.centerYAnchor.constraint(equalTo: square.centerYAnchor),
+                emptyStateLabel.widthAnchor.constraint(lessThanOrEqualTo: square.widthAnchor, multiplier: 0.9)
+            ])
+        } else {
+            emptyStateLabel.isHidden = true
+            square.isHidden = true
+        }
+    }
+    
     
     //UI 세팅 함수.위의 viewDidLoad 깔끔하게 사용 위함.
     func setUI() {
+        //비어있을 때 실행하는 안내문구 라벨
+        emptyGreetingUI()
+        
+        
         let attributes: [NSAttributedString.Key: Any] = [
-            .font: UIFont.systemFont(ofSize: 16, weight: .bold), // semibold 굵기 설정
+            .font: UIFont.systemFont(ofSize: 16, weight: .bold), // 굵기 설정
             .foregroundColor: UIColor.black
         ]
         let attributedText = NSAttributedString(string: "+ 생성하기", attributes: attributes)
@@ -85,6 +145,7 @@ class TikkleListPageViewController: UIViewController {
         
         view.backgroundColor = .black
         
+        //메인라벨과 서브라벨 세팅
         mainLabel.text = "나의 Tikkle 모음"
         subLabel.text = "티끌 모아 태산 !"
         mainLabel.font = UIFont.systemFont(ofSize: 25, weight: .bold)
@@ -101,6 +162,14 @@ extension TikkleListPageViewController: UITableViewDelegate {
         let storyboard = UIStoryboard(name: "TikklePage", bundle: nil)
         guard let vc = storyboard.instantiateViewController(withIdentifier: "TikklePageViewController") as? TikklePageViewController else { return }
         vc.tikkle = tikkleListManager[indexPath.item]
+        
+        
+        if tikkleListManager.getTikkleList().isEmpty {
+      emptyGreetingUI()
+        }
+
+        
+        
         //MARK: 스토리보드 삭제
         navigationController?.pushViewController(vc, animated: true)
     }
@@ -112,6 +181,7 @@ extension TikkleListPageViewController: UITableViewDelegate {
 extension TikkleListPageViewController: UITableViewDataSource {
     //TikkleListPage 테이블뷰 셀 개수
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
         return tikkleListManager.getTikkleList().count
         
     }
@@ -123,13 +193,10 @@ extension TikkleListPageViewController: UITableViewDataSource {
         paragraphStyle.lineSpacing = 8 // 행간 설정
         
         
+        
         //titleLabel---------------------------------------------------------------------
         cell.titleLabel.font = .systemFont(ofSize: 24)
         cell.titleLabel.text = tikkleListManager[indexPath.row].title.description
-        
-        
-        
-        
         
         
         //isPrivateButton-----------------------------------------------------------------
@@ -200,6 +267,7 @@ extension TikkleListPageViewController: UITableViewDataSource {
             }
         }
         
+        
         //graphImage-----------------------------------------------------------------------
         //위에서 계산한 퍼센티지에 따라 이미지 변경
         var imageName: String
@@ -234,12 +302,10 @@ extension TikkleListPageViewController: UITableViewDataSource {
         //graphImage에 설정
         cell.graphImage.image = UIImage(named: imageName)
         
-        
         return cell
     }
-    
-    
 }
+
 
 extension UIView {
     func addoverlay(color: UIColor = .black,alpha : CGFloat = 0.7) {
