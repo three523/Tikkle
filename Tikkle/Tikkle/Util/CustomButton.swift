@@ -47,12 +47,12 @@ class CustomButton: UIButton {
     }
     
     static func makePrivateTrueButton() -> UIButton {
-        return makeButton(title: "공개", color: UIColor.mainColor)
+        return makeButton(title: "비공개", color: UIColor.gray)
     }
 
     
     static func makePrivateFalseButton() -> UIButton {
-        return makeButton(title: "비공개", color: UIColor.gray)
+        return makeButton(title: "공개", color: UIColor.mainColor)
     }
     
     

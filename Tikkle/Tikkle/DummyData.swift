@@ -33,7 +33,7 @@ let beer: Tikkle = Tikkle(image: UIImage(named: "beer"), title: "편의점 해�
 ])
 
 
-let tripInKoreaTikkle: Tikkle = Tikkle(image: UIImage(named: "travel"), title: "국내여행지 도장깨기", description: "국내 여행지를 돌아다녀 보아요!", isPrivate: false, isSharedProject: false, stampList: [
+let tripInKoreaTikkle: Tikkle = Tikkle(image: UIImage(named: "travel"), title: "꼭 가봐야 할 국내여행지", description: "국내 여행지를 돌아다녀 보아요!", isPrivate: false, isSharedProject: false, stampList: [
     Stamp(title: "제주도", isCompletion: true),
     Stamp(title: "강릉", isCompletion: true),
     Stamp(title: "서울", isCompletion: true),
@@ -49,7 +49,7 @@ let tripInKoreaTikkle: Tikkle = Tikkle(image: UIImage(named: "travel"), title: "
 ])
 
 
-let climbingTikkle = Tikkle(image: UIImage(named: "mountain"), title: "국내의 산 도장깨기", description: "국내에 여러 산들을 등산해보아요!", isPrivate: false, isSharedProject: false, stampList: [
+let climbingTikkle = Tikkle(image: UIImage(named: "mountain"), title: "우리나라 등산코스 30곳 가보기", description: "국내에 여러 산들을 등산해보아요!", isPrivate: false, isSharedProject: false, stampList: [
     Stamp(title: "지리산", isCompletion: true),
     Stamp(title: "금강산", isCompletion: false),
     Stamp(title: "계방산", isCompletion: false),
