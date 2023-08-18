@@ -8,6 +8,7 @@ import Foundation
 import UIKit
 
 class Tikkle {
+    let id: UUID = UUID() //id는 바뀌면 안되니 let
     var image: UIImage?
     var title: String
     var description: String
