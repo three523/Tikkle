@@ -34,7 +34,6 @@ class MyPageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        viewTitle()
         myInfo()
         countviewRadius()
         navigationSetting()
@@ -61,12 +60,6 @@ class MyPageViewController: UIViewController {
         bellImageView.contentMode = .scaleAspectFit
         let bellItem = UIBarButtonItem(customView: bellImageView)
         navigationItem.rightBarButtonItem = bellItem
-    }
-    
-    //MARK: - MyPage Titile 커스텀
-    func viewTitle() {
-        self.navigationItem.title = "마이페이지"
-        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor(hexCode: "#52FF63")]
     }
     
     //MARK: - MyPage info 커스텀
