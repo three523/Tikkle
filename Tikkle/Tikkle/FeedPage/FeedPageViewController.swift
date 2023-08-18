@@ -25,7 +25,7 @@ class FeedPageViewController: UIViewController {
         feedCollectionView.register(OtherTikkleCollectionReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: OtherTikkleCollectionReusableView.identifier)
         navigationSetting()
     }
-    
+ 
     func navigationSetting() {
         guard let naviBar = navigationController?.navigationBar,
               let tabBar = tabBarController?.tabBar else { return }
@@ -36,6 +36,18 @@ class FeedPageViewController: UIViewController {
         let tabBarAppearance = UITabBarAppearance()
         tabBarAppearance.configureWithTransparentBackground()
         tabBar.standardAppearance = tabBarAppearance
+
+        let logoImage = UIImage(named: "navi_Logo")
+        let logoImageView = UIImageView(image: logoImage)
+        logoImageView.contentMode = .scaleAspectFit
+        let logoItem = UIBarButtonItem(customView: logoImageView)
+        navigationItem.leftBarButtonItem = logoItem
+        
+        let bellImage = UIImage(named: "navi_Bell")
+        let bellImageView = UIImageView(image: bellImage)
+        bellImageView.contentMode = .scaleAspectFit
+        let bellItem = UIBarButtonItem(customView: bellImageView)
+        navigationItem.rightBarButtonItem = bellItem
     }
         
 }
