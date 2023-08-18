@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		189FEDAF2A8E845400AF47B0 /* StampButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189FEDAE2A8E845400AF47B0 /* StampButton.swift */; };
+		189FEDB12A8E885200AF47B0 /* TikkleHorizontalStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189FEDB02A8E885200AF47B0 /* TikkleHorizontalStackView.swift */; };
+		189FEDB32A8EAC1D00AF47B0 /* TikkleVerticalStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189FEDB22A8EAC1D00AF47B0 /* TikkleVerticalStackView.swift */; };
 		18C8C9022A8B6216008E4C92 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C8C9012A8B6216008E4C92 /* AppDelegate.swift */; };
 		18C8C9042A8B6216008E4C92 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C8C9032A8B6216008E4C92 /* SceneDelegate.swift */; };
 		18C8C9062A8B6216008E4C92 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C8C9052A8B6216008E4C92 /* ViewController.swift */; };
@@ -41,6 +44,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		189FEDAE2A8E845400AF47B0 /* StampButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StampButton.swift; sourceTree = "<group>"; };
+		189FEDB02A8E885200AF47B0 /* TikkleHorizontalStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TikkleHorizontalStackView.swift; sourceTree = "<group>"; };
+		189FEDB22A8EAC1D00AF47B0 /* TikkleVerticalStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TikkleVerticalStackView.swift; sourceTree = "<group>"; };
 		18C8C8FE2A8B6216008E4C92 /* Tikkle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tikkle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18C8C9012A8B6216008E4C92 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		18C8C9032A8B6216008E4C92 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -95,6 +101,16 @@
 				18FEC5CE2A8CDFA100A804DD /* OtherTikkleCollectionViewCell.swift */,
 			);
 			name = Cell;
+			sourceTree = "<group>";
+		};
+		189FEDAD2A8E842800AF47B0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				189FEDAE2A8E845400AF47B0 /* StampButton.swift */,
+				189FEDB02A8E885200AF47B0 /* TikkleHorizontalStackView.swift */,
+				189FEDB22A8EAC1D00AF47B0 /* TikkleVerticalStackView.swift */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 		18C8C8F52A8B6216008E4C92 = {
@@ -165,6 +181,7 @@
 		18C8C9182A8B629F008E4C92 /* CreateTikklePage */ = {
 			isa = PBXGroup;
 			children = (
+				189FEDAD2A8E842800AF47B0 /* View */,
 				18C8C9232A8B6394008E4C92 /* CreateTikklePage.storyboard */,
 				18C8C9252A8B63B1008E4C92 /* CreateTikklePageViewController.swift */,
 			);
@@ -309,6 +326,7 @@
 				18FEC5D12A8CFCF400A804DD /* OtherTikkleCollectionReusableView.swift in Sources */,
 				18C8C9222A8B6371008E4C92 /* TikklePageViewController.swift in Sources */,
 				18FEC5CD2A8CD48400A804DD /* CarouselLayout.swift in Sources */,
+				189FEDB12A8E885200AF47B0 /* TikkleHorizontalStackView.swift in Sources */,
 				18C8C9322A8B6C08008E4C92 /* Tikkle.swift in Sources */,
 				B86DC4CC2A8CBD7900684E0D /* MypageTableViewCell.swift in Sources */,
 				18C8C9062A8B6216008E4C92 /* ViewController.swift in Sources */,
@@ -316,9 +334,11 @@
 				18FEC5C72A8CA7C500A804DD /* RecommendCollectionReusableView.swift in Sources */,
 				D877843B2A8D10EC002B26F9 /* CustomButton.swift in Sources */,
 				18C8C91E2A8B6359008E4C92 /* TikkleListPageViewController.swift in Sources */,
+				189FEDB32A8EAC1D00AF47B0 /* TikkleVerticalStackView.swift in Sources */,
 				18C8C9022A8B6216008E4C92 /* AppDelegate.swift in Sources */,
 				18FEC5C92A8CBADB00A804DD /* HorizontalCollectionViewCell.swift in Sources */,
 				18C8C9042A8B6216008E4C92 /* SceneDelegate.swift in Sources */,
+				189FEDAF2A8E845400AF47B0 /* StampButton.swift in Sources */,
 				B852504D2A8BB63200076DCB /* TikklePageCollectionViewCell.swift in Sources */,
 				18C8C9262A8B63B1008E4C92 /* CreateTikklePageViewController.swift in Sources */,
 				18C8C92E2A8B63D9008E4C92 /* FeedPageViewController.swift in Sources */,
