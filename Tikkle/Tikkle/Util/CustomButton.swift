@@ -50,7 +50,7 @@ class CustomButton: UIButton {
         return makeButton(title: "비공개", color: UIColor.gray)
     }
 
-    
+
     static func makePrivateFalseButton() -> UIButton {
         return makeButton(title: "공개", color: UIColor.mainColor)
     }
@@ -60,24 +60,34 @@ class CustomButton: UIButton {
         return makeButton(title: "함께", color: UIColor.mainColor)
     }
     
+    
     static func makeEditButton() -> UIButton {
         return makeButton(title: "편집", color: UIColor.mainColor)
     }
+    
+    
+    static func makeHotButton() -> UIButton {
+        return makeButton(title: "HOT", color: UIColor.white)
+    }
+    
     
     //티끌 생성 페이지에서 사용
     static func makePrivateFalseGrayButton() -> UIButton {
         return makeButton(title: "비공개", color: UIColor.subTitleColor)
     }
     
+    
     //티끌 생성 페이지에서 사용
     static func makePrivateTrueGrayButton() -> UIButton {
         return makeButton(title: "공개", color: UIColor.subTitleColor)
     }
     
+    
     //티끌 생성 페이지에서 사용
     static func tikkle30() -> UIButton {
         return makeButton(title: "30개", color: UIColor.subTitleColor)
     }
+    
     
     //티끌 생성 페이지에서 사용
     static func tikkle60() -> UIButton {
