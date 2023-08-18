@@ -77,6 +77,25 @@ class TikklePageViewController: UIViewController {
         TikklePageImage.layer.cornerRadius = TikklePageImage.frame.height / 2
         TikklePageTitle.text = tikkle.title
         TikklePageInfo.text = tikkle.description
+        
+        challengeUpdate(isChallenge: tikkleList.getTikkle(where: tikkle.id) != nil)
+    }
+    
+    func challengeUpdate(isChallenge: Bool) {
+        if isChallenge {
+            challengeButton.setTitle("도전중", for: .normal)
+            challengeButton.isUserInteractionEnabled = false
+            TikklePageCollectionView.isUserInteractionEnabled = true
+        } else {
+            challengeButton.setTitle("도전하기", for: .normal)
+            TikklePageCollectionView.isUserInteractionEnabled = false
+        }
+
+    }
+    @IBAction func callengeStart(_ sender: Any) {
+        guard let tikkle else { return }
+        tikkleList.addTikkle(tikkle)
+        challengeUpdate(isChallenge: true)
     }
 }
 
