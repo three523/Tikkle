@@ -10,10 +10,11 @@ import UIKit
 class CreateTikklePageViewController: UIViewController {
     
     @IBOutlet weak var createScrollView: UIScrollView!
-    @IBOutlet weak var photoBtn: UIButton!
+    @IBOutlet weak var photoImageView: UIImageView!
     
-    @IBOutlet weak var openBtn: UIButton!
-    @IBOutlet weak var privateBtn: UIButton!
+    @IBOutlet weak var publicStackView: UIStackView!
+    private var openBtn: UIButton = CustomButton.makePrivateTrueGrayButton()
+    private var privateBtn: UIButton = CustomButton.makePrivateFalseGrayButton()
     
     @IBOutlet weak var challengeNameTextField: UITextField!
     @IBOutlet weak var infoTextView: UITextView!
@@ -35,6 +36,7 @@ class CreateTikklePageViewController: UIViewController {
         super.viewDidLoad()
         
         navigationBarButton()
+        photoTapSetting()
         btnStyle()
         challengeNameTextFieldStyle()
         infoTextView.delegate = self
@@ -42,13 +44,45 @@ class CreateTikklePageViewController: UIViewController {
         initStackView()
     }
     
-    //MARK: - challengeNameTextField 커스텀
+    // 키보드가 올라가거나 내려갈때 실행 시킬 함수를 등록해주는 함수
+    private func keyboardNotification() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardUp), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardDown), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    //MARK: 키보드가 올라갈 경우 ViewController의 view를 키보드의 높이만큼 올리는 함수
+    @objc func keyboardUp(notification:NSNotification) {
+        if let keyboardFrame:NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
+           let keyboardRectangle = keyboardFrame.cgRectValue
+       
+            UIView.animate(
+                withDuration: 0.3
+                , animations: {
+                    self.view.transform = CGAffineTransform(translationX: 0, y: -keyboardRectangle.height)
+                }
+            )
+        }
+    }
+    
+    //MARK: 키보드가 내려갈경우 view의 위치를 원래 상태로 되돌리는 함수
+    @objc func keyboardDown() {
+        self.view.transform = .identity
+    }
+    
+    //MARK: 공개 비공개 버튼 클릭 이벤트 생성
     func btnStyle() {
-        let openButton = CustomButton.makePrivateTrueGrayButton()
-        openBtn.addSubview(openButton)
+        openBtn.backgroundColor = .mainColor
+        openBtn.addTarget(self, action: #selector(openButtonClick), for: .touchUpInside)
+        privateBtn.addTarget(self, action: #selector(privateButtonCilck), for: .touchUpInside)
         
-        let privateButton = CustomButton.makePrivateFalseGrayButton()
-        privateBtn.addSubview(privateButton)
+        openBtn.widthAnchor.constraint(equalToConstant: 50).isActive = true
+        openBtn.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        
+        privateBtn.widthAnchor.constraint(equalToConstant: 50).isActive = true
+        privateBtn.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        
+        publicStackView.addArrangedSubview(openBtn)
+        publicStackView.addArrangedSubview(privateBtn)
     }
     
     //MARK: - challengeNameTextField 커스텀
@@ -73,6 +107,36 @@ class CreateTikklePageViewController: UIViewController {
         self.infoTextView.resignFirstResponder()
     }
     
+    //MARK: 이미지뷰에 클릭 이벤트 적용시키는 함수
+    private func photoTapSetting() {
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(photoSelect))
+        photoImageView.addGestureRecognizer(gesture)
+        photoImageView.isUserInteractionEnabled = true
+    }
+    
+    //MARK: 이미지뷰 클릭시 ImagePickerController를 불러오는 함수
+    @objc func photoSelect() {
+        let imagePickerController: UIImagePickerController = UIImagePickerController()
+        imagePickerController.delegate = self
+        imagePickerController.sourceType = .photoLibrary
+        present(imagePickerController, animated: true)
+    }
+    
+    //MARK: 공개버튼 클릭시 공개버튼의 isSelected 와 비공개 버튼의 isSelected, 배경색 변경
+    @objc func openButtonClick(_ sender: Any) {
+        openBtn.backgroundColor = .mainColor
+        privateBtn.backgroundColor = .subTitleColor
+        openBtn.isSelected = true
+        privateBtn.isSelected = false
+    }
+    //MARK: 비공개버튼 클릭시 공개버튼의 isSelected 와 비공개 버튼의 isSelected, 배경색 변경
+    @objc func privateButtonCilck(_ sender: Any) {
+        openBtn.backgroundColor = .subTitleColor
+        privateBtn.backgroundColor = .mainColor
+        openBtn.isSelected = false
+        privateBtn.isSelected = true
+    }
+    
     //MARK: Navigation에 완료 버튼 생성
     private func navigationBarButton() {
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "완료", style: .done, target: self, action: #selector(saveTikkle))
@@ -81,15 +145,15 @@ class CreateTikklePageViewController: UIViewController {
     //MARK: NavigationBar에 완료 버튼 클릭 호출되는 함수
     // 적지 않은 내용이 있는지 확인하고 다 작성한 경우 Tikkle 클래스 생성후 화면 닫기
     @objc func saveTikkle() {
-        print("save")
-        
         guard let challengeNameText = challengeNameTextField.text,
               let infoText = infoTextView.text else { return }
         if challengeNameText.isEmpty || infoText.isEmpty { return }
         let stampList = tikkleVerticalStack.convertStampList()
         if stampList.isEmpty { return }
+        let image = getImage()
+        let isPrivate = privateBtn.isSelected
         
-        let tikkle = Tikkle(title: challengeNameText, description: infoText, isPrivate: false, isSharedProject: false, stampList: stampList)
+        let tikkle = Tikkle(image: image,title: challengeNameText, description: infoText, isPrivate: isPrivate, isSharedProject: false, stampList: stampList)
         tikkleListManager.addTikkle(tikkle)
         navigationController?.popViewController(animated: true)
     }
@@ -110,6 +174,14 @@ class CreateTikklePageViewController: UIViewController {
         tikkleVerticalStack.addArrangedSubview(horizontalStackView)
         horizontalStackView.addArrangedSubview(createStampButton())
         horizontalStackView.addArrangedSubview(createAddButton())
+    }
+    
+    private func getImage() -> UIImage? {
+        if let image = photoImageView.image {
+            return image
+        }
+        let defalutImage = UIImage(systemName: "person.fill")
+        return defalutImage
     }
     
     //MARK: 스탬프를 한줄에 3개를 넣어줄 수평 스택뷰 생성 함수
@@ -134,10 +206,13 @@ class CreateTikklePageViewController: UIViewController {
     // MARK: +버튼 생성 함수
     private func createAddButton() -> UIButton {
         let button = UIButton()
-        button.backgroundColor = .subTitleColor
+        button.backgroundColor = .black.withAlphaComponent(0.4)
         button.setImage(UIImage(systemName: "plus"), for: .normal)
+        button.tintColor = UIColor(hexCode: "7a7a7a")
         button.addTarget(self, action: #selector(createStamp), for: .touchUpInside)
         button.layer.cornerRadius = 50
+        button.layer.borderWidth = 1
+        button.layer.borderColor = UIColor(hexCode: "7A7a7a").cgColor
         button.layer.masksToBounds = true
         button.widthAnchor.constraint(equalToConstant: 100).isActive = true
         button.heightAnchor.constraint(equalToConstant: 100).isActive = true
@@ -201,4 +276,15 @@ extension CreateTikklePageViewController: UITextViewDelegate {
         }
     }
 
+}
+
+extension CreateTikklePageViewController:  UIImagePickerControllerDelegate & UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let infoImage = info[UIImagePickerController.InfoKey.originalImage],
+            let image = infoImage as? UIImage
+           {
+            photoImageView.image = image
+            dismiss(animated: true)
+        }
+    }
 }
