@@ -50,6 +50,9 @@ class TikkleListManager {
         TikkleListManager.tikkleList.removeAll { $0.id == id }
     }
     
+    
+    
+    
     //subscript : 객체의 내부 요소에 접근할 수 있는 짧은 경로(shortcut)를 제공하는 문법
     //사용 법 : 특정 티끌판 리턴해야 할 때 [tikkleListManager.getTikkleList() 대신에 사용]
     subscript(index: Int) -> Tikkle {

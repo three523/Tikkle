@@ -34,14 +34,14 @@ class MyPageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        myInfo()
+        myInfoStyle()
         countviewRadius()
         navigationSetting()
         MyPageTableView.delegate = self
         MyPageTableView.dataSource = self
     }
     
-    
+    //MARK: - Mypage NavigationStyle
     func navigationSetting() {
         guard let naviBar = navigationController?.navigationBar else { return }
         let naviBarAppearance = UINavigationBarAppearance()
@@ -63,9 +63,18 @@ class MyPageViewController: UIViewController {
     }
     
     //MARK: - MyPage info 커스텀
-    func myInfo() {
-        myPageMyImg.image = UIImage(named: "TikkleOFF.png")
-        myPageMyIDLabel.text = "루똘이"
+    func myInfoStyle() {
+        myPageMyImg.image = UIImage(named: "TikkleON.png")
+        myPageMyIDLabel.text = "티끌이"
+        
+        let attributes: [NSAttributedString.Key: Any] = [
+            .font: UIFont.systemFont(ofSize: 16, weight: .bold), // semibold 굵기 설정
+            .foregroundColor: UIColor.black
+        ]
+        let attributedText = NSAttributedString(string: "편집", attributes: attributes)
+        myPageMyEditBtn.setAttributedTitle(attributedText, for: .normal)
+        myPageMyEditBtn.backgroundColor = UIColor.mainColor
+        myPageMyEditBtn.layer.cornerRadius = 17
     }
     
     //MARK: - MyPage count view 커스텀

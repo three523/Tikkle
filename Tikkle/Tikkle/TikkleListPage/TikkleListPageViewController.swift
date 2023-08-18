@@ -23,7 +23,7 @@ class TikkleListPageViewController: UIViewController {
     @IBOutlet weak var createTikkleButton: UIButton!
     
     
-    //MARK: -TikkleListPage ViewController 앱 실행될 때 처음 실행되는 곳
+    //MARK: - TikkleListPage ViewController 앱 실행될 때 처음 실행되는 곳
     override func viewDidLoad() {
         super.viewDidLoad()
         setupDatas()
@@ -37,7 +37,7 @@ class TikkleListPageViewController: UIViewController {
         tableView.reloadData()
     }
     
-    
+    //MARK: - TikkleListPage NavigationStyle
     func navigationSetting() {
         guard let naviBar = navigationController?.navigationBar else { return }
         let naviBarAppearance = UINavigationBarAppearance()

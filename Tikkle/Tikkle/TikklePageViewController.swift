@@ -10,7 +10,6 @@ import UIKit
 class TikklePageViewController: UIViewController {
     
     var tikkle: Tikkle?
-    
     var tikkleList: TikkleListManager = TikkleListManager()
     
     @IBOutlet weak var TikklePageImage: UIImageView!
@@ -46,11 +45,11 @@ class TikklePageViewController: UIViewController {
         let deleteImageview = UIImageView(image: deleteImage)
         deleteImageview.contentMode = .scaleAspectFit
         
-        //MARK: -
+        //MARK: - TikklePage 포기하기 버튼 커스텀, 클릭 시 deleteAlert 함수 실행
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: deleteImage, style: .plain, target: self, action: #selector(TikklePageViewController.deleteAlert))
     }
     
-    //MARK: -
+    //MARK: - 포기하기 버튼 동작
     @objc func deleteAlert() {
         let deleteAlert = UIAlertController(title: "정말로 포기하시겠습니까?", message: nil, preferredStyle: .alert)
         
