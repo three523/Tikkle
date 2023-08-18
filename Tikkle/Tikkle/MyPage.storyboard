@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -11,7 +12,10 @@
         <scene sceneID="ok2-GS-5xE">
             <objects>
                 <navigationController storyboardIdentifier="MyPageNavigationViewController" id="AH6-bY-G8F" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="My" image="tabBarMyPageUnselected" selectedImage="tabBarMyPageSelected" id="nSC-fM-hyc"/>
+                    <tabBarItem key="tabBarItem" title="My" image="tabBarMyPageUnselected" selectedImage="tabBarMyPageSelected" id="nSC-fM-hyc">
+                        <inset key="imageInsets" minX="0.0" minY="9" maxX="0.0" maxY="0.0"/>
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="4"/>
+                    </tabBarItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Yt8-Fp-ap1">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
@@ -186,8 +190,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="tabBarMyPageSelected" width="25" height="25"/>
-        <image name="tabBarMyPageUnselected" width="25" height="25"/>
+        <image name="tabBarMyPageSelected" width="48" height="50"/>
+        <image name="tabBarMyPageUnselected" width="48" height="50"/>
         <image name="이" width="47" height="19"/>
     </resources>
 </document>
