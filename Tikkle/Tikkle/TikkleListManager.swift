@@ -45,6 +45,17 @@ class TikkleListManager {
         }
     }
     
+    // 공유하는 티끌판들을 보내주기
+    func publicTikkleList() -> [Tikkle] {
+        return TikkleListManager.tikkleList.filter { !$0.isPrivate }
+    }
+    
+    // 인덱스에 맞는 공유하는 티끌판 보내주기
+    func publicTikkle(at index: Int) -> Tikkle {
+        let publicTikkle = TikkleListManager.tikkleList.filter { !$0.isPrivate }[index]
+        return publicTikkle
+    }
+    
     //티끌판 이름으로 해당 티끌판 삭제
     func deleteTikkle(where id: UUID) {
         TikkleListManager.tikkleList.removeAll { $0.id == id }

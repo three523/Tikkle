@@ -14,6 +14,7 @@ protocol ViewControllerPushDelegate: AnyObject {
 class FeedPageViewController: UIViewController {
         
     @IBOutlet weak var feedCollectionView: UICollectionView!
+    private var tikkleManage: TikkleListManager = TikkleListManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +25,10 @@ class FeedPageViewController: UIViewController {
         feedCollectionView.register(OtherTikkleCollectionViewCell.self, forCellWithReuseIdentifier: OtherTikkleCollectionViewCell.identifier)
         feedCollectionView.register(OtherTikkleCollectionReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: OtherTikkleCollectionReusableView.identifier)
         navigationSetting()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        feedCollectionView.reloadData()
     }
  
     func navigationSetting() {
@@ -58,7 +63,7 @@ extension FeedPageViewController: UICollectionViewDelegate, UICollectionViewData
         return 2
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return section == 0 ? 1 : DataList.list.count
+        return section == 0 ? 1 : tikkleManage.publicTikkleList().count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -72,7 +77,7 @@ extension FeedPageViewController: UICollectionViewDelegate, UICollectionViewData
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: OtherTikkleCollectionViewCell.identifier, for: indexPath) as? OtherTikkleCollectionViewCell else { return UICollectionViewCell(frame: .zero) }
             cell.layer.cornerRadius = 6
             cell.layer.masksToBounds = true
-            cell.tikkle = DataList.list[indexPath.item]
+            cell.tikkle = tikkleManage.publicTikkle(at: indexPath.row)
             return cell
         }
         return UICollectionViewCell()
