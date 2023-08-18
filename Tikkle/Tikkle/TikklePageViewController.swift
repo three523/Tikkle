@@ -49,7 +49,6 @@ class TikklePageViewController: UIViewController {
 //MARK: - TikklePage CollectionView Setting
 extension TikklePageViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        return menuimgArray.count
         return tikkle?.stampList.count ?? 0
     }
 
@@ -57,7 +56,8 @@ extension TikklePageViewController: UICollectionViewDelegate, UICollectionViewDa
         let cell = TikklePageCollectionView.dequeueReusableCell(withReuseIdentifier: "TikklePageCollectionViewCell", for: indexPath) as! TikklePageCollectionViewCell
         
         cell.TikklePageCellName.text = tikkle?.stampList[indexPath.row].title
-        cell.TikklePageCellBtnImg.setImage(UIImage(named: "TikkleOFF.png"), for: .normal)
+        cell.cellUISetting(tikkle: tikkle, index: indexPath.row)
+        
         return cell
     }
 

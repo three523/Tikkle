@@ -11,12 +11,15 @@ import Foundation
 class TikkleListManager {
     
     private static var tikkleList: [Tikkle] = []
-    
 
     //빈 배열에 더미데이터 추가
     func makeTikkleListDatas() {
         TikkleListManager.tikkleList = DataList.list
     }
+    
+//    func myTikkleList() {
+//
+//    }
     
     //전체 티끌판 리스트를 리턴해주는 함수
     func getTikkleList() -> [Tikkle] {
@@ -27,7 +30,7 @@ class TikkleListManager {
     func getTikkle(where id: UUID) -> Tikkle? {
         return TikkleListManager.tikkleList.first { $0.id == id }
     }
-    
+
     
     //새로운 티끌판 만들기
     func addTikkle(_ tikkle: Tikkle) {

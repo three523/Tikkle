@@ -15,7 +15,7 @@ class Tikkle {
     var isPrivate: Bool
     var isSharedProject: Bool
     var stampList: [Stamp]
-    
+    //날짜추가
     
     init(image: UIImage? = nil, title: String, description: String, isPrivate: Bool, isSharedProject: Bool, stampList: [Stamp]) {
         self.image = image
