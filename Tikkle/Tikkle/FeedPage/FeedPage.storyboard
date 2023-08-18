@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="4mo-FJ-0Hb">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
@@ -13,7 +14,10 @@
         <scene sceneID="EYp-7C-yhb">
             <objects>
                 <navigationController storyboardIdentifier="FeedPageNavigationController" id="4mo-FJ-0Hb" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Feed" image="tabBarFeedPageUnselected" selectedImage="tabBarFeedPageSelected" id="ED7-cZ-iwG"/>
+                    <tabBarItem key="tabBarItem" title="Feed" image="tabBarFeedPageUnselected" selectedImage="tabBarFeedPageSelected" id="ED7-cZ-iwG">
+                        <inset key="imageInsets" minX="0.0" minY="9" maxX="0.0" maxY="0.0"/>
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="4"/>
+                    </tabBarItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="4qS-eJ-yN7">
@@ -202,7 +206,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="tabBarFeedPageSelected" width="25.5" height="28"/>
-        <image name="tabBarFeedPageUnselected" width="25.5" height="28"/>
+        <image name="tabBarFeedPageSelected" width="48" height="50"/>
+        <image name="tabBarFeedPageUnselected" width="48" height="50"/>
     </resources>
 </document>
