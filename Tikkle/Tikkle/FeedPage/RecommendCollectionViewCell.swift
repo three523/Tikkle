@@ -75,6 +75,7 @@ class RecommendCollectionViewCell: UICollectionViewCell {
         guard let tikkle else { return }
         titleLabel.text = tikkle.title
         backgroundImageView.image = tikkle.image
+        backgroundImageView.contentMode = .scaleAspectFill
         if let gradientLayer = backgroundImageView.layer.sublayers?.first {
             gradientLayer.removeFromSuperlayer()
             backgroundImageGradient()

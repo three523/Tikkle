@@ -73,6 +73,8 @@ class OtherTikkleCollectionViewCell: UICollectionViewCell {
         
         likeButton.addTarget(self, action: #selector(likeButtonClick), for: .touchUpInside)
         
+        backgroundImageView.contentMode = .scaleAspectFill
+        
         contentView.addSubview(backgroundImageView)
         contentView.addSubview(userStackView)
         contentView.addSubview(tikkleStackView)
