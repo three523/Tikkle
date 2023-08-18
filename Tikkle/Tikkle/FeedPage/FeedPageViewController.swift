@@ -36,6 +36,7 @@ class FeedPageViewController: UIViewController {
         let tabBarAppearance = UITabBarAppearance()
         tabBarAppearance.configureWithTransparentBackground()
         tabBar.standardAppearance = tabBarAppearance
+
         let logoImage = UIImage(named: "navi_Logo")
         let logoImageView = UIImageView(image: logoImage)
         logoImageView.contentMode = .scaleAspectFit
@@ -47,7 +48,6 @@ class FeedPageViewController: UIViewController {
         bellImageView.contentMode = .scaleAspectFit
         let bellItem = UIBarButtonItem(customView: bellImageView)
         navigationItem.rightBarButtonItem = bellItem
-//        tabBar.scrollEdgeAppearance = tabBarAppearance
     }
         
 }
