@@ -9,6 +9,9 @@ import UIKit
 
 class MyPageViewController: UIViewController {
     
+    var tikkle: Tikkle?
+    var tikkleList: TikkleListManager = TikkleListManager()
+    
     @IBOutlet weak var myPageMyImg: UIImageView!
     @IBOutlet weak var myPageMyIDLabel: UILabel!
     @IBOutlet weak var myPageMyEditBtn: UIButton!
@@ -35,7 +38,7 @@ class MyPageViewController: UIViewController {
         super.viewDidLoad()
         
         myInfoStyle()
-        countviewRadius()
+        countViewStyle()
         navigationSetting()
         MyPageTableView.delegate = self
         MyPageTableView.dataSource = self
@@ -75,18 +78,25 @@ class MyPageViewController: UIViewController {
         myPageMyEditBtn.setAttributedTitle(attributedText, for: .normal)
         myPageMyEditBtn.backgroundColor = UIColor.mainColor
         myPageMyEditBtn.layer.cornerRadius = 17
+        
+        //hoonMARK: - MyPage 편집버튼 커스텀 버튼 사용하면 짤림?
+//        myPageMyEditBtn.addSubview(CustomButton.makeEditButton())
     }
     
     //MARK: - MyPage count view 커스텀
-    func countviewRadius() {
+    func countViewStyle() {
         ingTikkleView.layer.borderWidth = 1.0
         ingTikkleView.layer.borderColor = UIColor.white.cgColor
         ingTikkleView.layer.cornerRadius = 30
         ingTikkleView.layer.masksToBounds = true
+    
         doneTikkleView.layer.borderWidth = 1.0
         doneTikkleView.layer.borderColor = UIColor.white.cgColor
         doneTikkleView.layer.cornerRadius = 30
         doneTikkleView.layer.masksToBounds = true
+        
+        //hoonMARK: - tikkleList.completList 개수가 나오면 되는거기는 한데... 어찌 처리해야하는거지???
+        doneTikkleCountLabel.text = String("\(tikkleList.completList().count)개")
     }
     
 }

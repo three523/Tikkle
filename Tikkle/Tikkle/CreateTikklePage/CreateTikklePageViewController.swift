@@ -154,8 +154,10 @@ class CreateTikklePageViewController: UIViewController {
         if stampList.isEmpty { return }
         let image = getImage()
         let isPrivate = privateBtn.isSelected
+        //hoonMARK: - 
+        let tikkleCompleted = false
         
-        let tikkle = Tikkle(image: image,title: challengeNameText, description: infoText, isPrivate: isPrivate, isSharedProject: false, stampList: stampList)
+        let tikkle = Tikkle(image: image,title: challengeNameText, description: infoText, isPrivate: isPrivate, isSharedProject: false, stampList: stampList, tikkleCompleted: tikkleCompleted)
         tikkleListManager.addTikkle(tikkle)
         navigationController?.popViewController(animated: true)
     }

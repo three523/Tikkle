@@ -14,6 +14,7 @@ protocol ViewControllerPushDelegate: AnyObject {
 class FeedPageViewController: UIViewController {
         
     @IBOutlet weak var feedCollectionView: UICollectionView!
+    private var tikkleManage: TikkleListManager = TikkleListManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +25,10 @@ class FeedPageViewController: UIViewController {
         feedCollectionView.register(OtherTikkleCollectionViewCell.self, forCellWithReuseIdentifier: OtherTikkleCollectionViewCell.identifier)
         feedCollectionView.register(OtherTikkleCollectionReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: OtherTikkleCollectionReusableView.identifier)
         navigationSetting()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        feedCollectionView.reloadData()
     }
  
     func navigationSetting() {
@@ -58,7 +63,7 @@ extension FeedPageViewController: UICollectionViewDelegate, UICollectionViewData
         return 2
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return section == 0 ? 1 : DataList.list.count
+        return section == 0 ? 1 : tikkleManage.publicTikkleList().count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -72,7 +77,7 @@ extension FeedPageViewController: UICollectionViewDelegate, UICollectionViewData
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: OtherTikkleCollectionViewCell.identifier, for: indexPath) as? OtherTikkleCollectionViewCell else { return UICollectionViewCell(frame: .zero) }
             cell.layer.cornerRadius = 6
             cell.layer.masksToBounds = true
-            cell.tikkle = DataList.list[indexPath.item]
+            cell.tikkle = tikkleManage.publicTikkle(at: indexPath.row)
             return cell
         }
         return UICollectionViewCell()
@@ -82,8 +87,8 @@ extension FeedPageViewController: UICollectionViewDelegate, UICollectionViewData
         if indexPath.section == 1 {
             let storyboard = UIStoryboard(name: "TikklePage", bundle: nil)
             guard let vc = storyboard.instantiateViewController(withIdentifier: "TikklePageViewController") as? TikklePageViewController else { return }
-            //MARK: -
-            vc.tikkle = DataList.list[indexPath.item]
+            //MARK: - 공개한 리스트만 넘기는 것
+            vc.tikkle = tikkleManage.publicTikkleList()[indexPath.row]
             navigationController?.pushViewController(vc, animated: true)
         }
     }
@@ -122,7 +127,7 @@ extension FeedPageViewController: UICollectionViewDelegate, UICollectionViewData
     func pushViewController(tikkle: Tikkle) {
         let storyboard = UIStoryboard(name: "TikklePage", bundle: nil)
         guard let vc = storyboard.instantiateViewController(withIdentifier: "TikklePageViewController") as? TikklePageViewController else { return }
-        //MARK: -
+        //MARK: - TikklePageViewController의 데이터를 어디로
         vc.tikkle = tikkle
         navigationController?.pushViewController(vc, animated: true)
     }
