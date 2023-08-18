@@ -32,7 +32,7 @@ let beer: Tikkle = Tikkle(image: UIImage(named: "beer"), title: "편의점 해�
     Stamp(title: "블랑", isCompletion: false),
 ])
 
-
+ 
 let tripInKoreaTikkle: Tikkle = Tikkle(image: UIImage(named: "travel"), title: "꼭 가봐야 할 국내여행지", description: "국내 여행지를 돌아다녀 보아요!", isPrivate: false, isSharedProject: false, stampList: [
     Stamp(title: "제주도", isCompletion: true),
     Stamp(title: "강릉", isCompletion: true),
