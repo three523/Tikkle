@@ -29,10 +29,11 @@ class TikkleListPageViewController: UIViewController {
         setupDatas()
         seupTableView()
         setUI()
-        
-        
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
+    }
     
     //MARK: -TikkleListPage ViewController viewDidLoad 정리 함수들 모음
     //테이블뷰 세팅 함수. 위의 viewDidLoad 깔끔하게 사용 위함.
@@ -74,7 +75,7 @@ extension TikkleListPageViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let storyboard = UIStoryboard(name: "TikklePage", bundle: nil)
         guard let vc = storyboard.instantiateViewController(withIdentifier: "TikklePageViewController") as? TikklePageViewController else { return }
-        vc.tikkle = DataList.list[indexPath.item]
+        vc.tikkle = tikkleListManager[indexPath.item]
         //MARK: 스토리보드 삭제
         navigationController?.pushViewController(vc, animated: true)
     }
@@ -108,7 +109,7 @@ extension TikkleListPageViewController: UITableViewDataSource {
         
         
         //isPrivateButton-----------------------------------------------------------------
-        if DataList.list[indexPath.row].isPrivate {
+        if tikkleListManager[indexPath.row].isPrivate {
             cell.isPrivateButton.addSubview(CustomButton.makePrivateTrueButton())
         } else {
             cell.isPrivateButton.addSubview(CustomButton.makePrivateFalseButton())
@@ -116,7 +117,7 @@ extension TikkleListPageViewController: UITableViewDataSource {
         
         
         //isSharedProjectButton------------------------------------------------------------
-        if DataList.list[indexPath.row].isSharedProject {
+        if tikkleListManager[indexPath.row].isSharedProject {
             cell.isSharedProjectButton.addSubview(CustomButton.makeTogetherButton())
         }
         

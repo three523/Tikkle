@@ -13,7 +13,7 @@ class StampButton: UIButton {
         let tv = UITextView()
         tv.font = .systemFont(ofSize: 13, weight: .bold)
         tv.isUserInteractionEnabled = false
-        tv.backgroundColor = .white
+        tv.backgroundColor = .black.withAlphaComponent(0.4)
         tv.textAlignment = .center
         tv.textColor = .subTitleColor
         return tv
@@ -36,6 +36,7 @@ class StampButton: UIButton {
     }
     
     private func uiSetting() {
+        self.backgroundColor = .white.withAlphaComponent(0.2)
         self.layer.cornerRadius = 50
         self.layer.masksToBounds = true
         tikkleTitleTextView.translatesAutoresizingMaskIntoConstraints = false
