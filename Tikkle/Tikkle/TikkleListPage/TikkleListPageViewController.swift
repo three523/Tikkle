@@ -30,7 +30,7 @@ class TikkleListPageViewController: UIViewController {
         squareView.translatesAutoresizingMaskIntoConstraints = false
         return squareView
     }()
-
+    
     let emptyStateLabel: UILabel = {
         let label = UILabel()
         label.text = "생성하기를 통해\n티끌시트를 만들어보세요"
@@ -51,6 +51,8 @@ class TikkleListPageViewController: UIViewController {
         seupTableView()
         setUI()
         navigationSetting()
+        emptyGreetingUI()
+
         
         
     }
@@ -61,7 +63,7 @@ class TikkleListPageViewController: UIViewController {
     }
     
     
-
+    
     //MARK: -TikkleListPage ViewController viewDidLoad 정리 함수들 모음
     //상단바 세팅 함수. 위의 viewDidLoad 깔끔하게 사용 위함.
     func navigationSetting() {
@@ -101,10 +103,16 @@ class TikkleListPageViewController: UIViewController {
     //비어있을 때 실행하는 안내문구 라벨 함수
     func emptyGreetingUI() {
         if tikkleListManager.getTikkleList().isEmpty {
-            view.addSubview(square)
-            square.addSubview(emptyStateLabel)
-            square.layer.cornerRadius = 7
+            // 화면에 안내문구와 사각형이 추가되어 있지 않다면 추가
+            if !view.subviews.contains(square) {
+                view.addSubview(square)
+                square.addSubview(emptyStateLabel)
+                square.layer.cornerRadius = 7
+            }
+            square.isHidden = false
             
+            emptyStateLabel.isHidden = false
+
             NSLayoutConstraint.activate([
                 // square의 leading, trailing 설정
                 square.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: margin),
@@ -115,7 +123,7 @@ class TikkleListPageViewController: UIViewController {
                 
                 // square의 bottom을 safeArea를 통해 탭바와 겹치지 않게 함
                 square.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -margin),
-
+                
                 // label을 square 내부 중앙에 위치
                 emptyStateLabel.centerXAnchor.constraint(equalTo: square.centerXAnchor),
                 emptyStateLabel.centerYAnchor.constraint(equalTo: square.centerYAnchor),
@@ -131,7 +139,6 @@ class TikkleListPageViewController: UIViewController {
     //UI 세팅 함수.위의 viewDidLoad 깔끔하게 사용 위함.
     func setUI() {
         //비어있을 때 실행하는 안내문구 라벨
-        emptyGreetingUI()
         
         
         let attributes: [NSAttributedString.Key: Any] = [
@@ -165,9 +172,9 @@ extension TikkleListPageViewController: UITableViewDelegate {
         
         
         if tikkleListManager.getTikkleList().isEmpty {
-      emptyGreetingUI()
+            emptyGreetingUI()
         }
-
+        
         
         
         //MARK: 스토리보드 삭제
