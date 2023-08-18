@@ -92,7 +92,8 @@ class CreateTikklePageViewController: UIViewController {
         
         challengeNameTextField.borderStyle = .none
         let border = CALayer()
-        border.frame = CGRect(x: 0, y: challengeNameTextField.frame.size.height-2, width: challengeNameTextField.frame.width, height: 1)
+        challengeNameTextField.layoutIfNeeded()
+        border.frame = CGRect(x: 0, y: challengeNameTextField.frame.size.height-2, width: createScrollView.frame.width - 40, height: 1)
         border.backgroundColor = UIColor.white.cgColor
         challengeNameTextField.layer.addSublayer((border))
     }
