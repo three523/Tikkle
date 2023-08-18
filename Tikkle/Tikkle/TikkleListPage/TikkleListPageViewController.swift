@@ -103,9 +103,8 @@ extension TikkleListPageViewController: UITableViewDataSource {
         cell.titleLabel.text = tikkleListManager[indexPath.row].title.description
         
         
-        //tikkleImage---------------------------------------------------------------------
-        cell.tikkleImage.image = tikkleListManager[indexPath.row].image
-        cell.tikkleImage.contentMode = .scaleAspectFill //이미지 채우는 방식
+        
+        
         
         
         //isPrivateButton-----------------------------------------------------------------
@@ -139,6 +138,42 @@ extension TikkleListPageViewController: UITableViewDataSource {
         cell.percentLabel.text = "\(Int(percentage))%"
         
         
+        //tikkleImage---------------------------------------------------------------------
+        cell.tikkleImage.image = tikkleListManager[indexPath.row].image
+        cell.tikkleImage.contentMode = .scaleAspectFill //이미지 채우는 방식
+        
+        //percentage가 100%일 때, 이미지 어둡게 변하도록
+        if percentage == 100 {
+            cell.tikkleImage.image = tikkleListManager[indexPath.row].image
+            cell.tikkleImage.addoverlay()
+            
+            // 100%일 때 tikkleDoneSticker 이미지를 추가
+            let stickerImageViewTag = 1002
+            if cell.tikkleImage.viewWithTag(stickerImageViewTag) == nil {
+                let stickerImageView = UIImageView(image: UIImage(named: "tikkleDoneSticker"))
+                stickerImageView.contentMode = .scaleAspectFit
+                stickerImageView.tag = stickerImageViewTag  // 스티커 이미지 뷰를 식별하기 위한 tag
+                stickerImageView.translatesAutoresizingMaskIntoConstraints = false
+                cell.tikkleImage.addSubview(stickerImageView)
+                
+                // 제약 조건 추가. 스티커 이미지 중앙에 배치
+                NSLayoutConstraint.activate([
+                    stickerImageView.centerXAnchor.constraint(equalTo: cell.tikkleImage.centerXAnchor),
+                    stickerImageView.centerYAnchor.constraint(equalTo: cell.tikkleImage.centerYAnchor),
+                    stickerImageView.widthAnchor.constraint(equalToConstant: 100),  // 원하는 크기로 조정
+                    stickerImageView.heightAnchor.constraint(equalToConstant: 100)  // 원하는 크기로 조정
+                ])
+            }
+        } else {
+            let overlayTag = 1001
+            if let existingOverlay = cell.tikkleImage.viewWithTag(overlayTag) {
+                existingOverlay.removeFromSuperview()
+            }
+            // 이미지가 100%가 아닐 경우, 기존에 추가된 스티커 이미지 뷰를 제거
+            if let stickerView = cell.tikkleImage.viewWithTag(1002) {
+                stickerView.removeFromSuperview()
+            }
+        }
         
         //graphImage-----------------------------------------------------------------------
         //위에서 계산한 퍼센티지에 따라 이미지 변경
@@ -176,5 +211,24 @@ extension TikkleListPageViewController: UITableViewDataSource {
         
         
         return cell
+    }
+    
+    
+}
+
+extension UIView {
+    func addoverlay(color: UIColor = .black,alpha : CGFloat = 0.7) {
+        let overlayTag = 1001
+        if let existingOverlay = self.viewWithTag(overlayTag) {
+            existingOverlay.removeFromSuperview()
+        }
+        
+        let overlay = UIView()
+        overlay.tag = overlayTag
+        overlay.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        overlay.frame = bounds
+        overlay.backgroundColor = color
+        overlay.alpha = alpha
+        addSubview(overlay)
     }
 }
