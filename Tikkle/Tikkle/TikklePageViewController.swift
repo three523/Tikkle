@@ -91,8 +91,8 @@ class TikklePageViewController: UIViewController {
             TikklePageDateLabel.isHidden = false
             TikklePageDaysLabel.isHidden = false
         } else {
-            TikklePageDateLabel.isHidden = true
-            TikklePageDaysLabel.isHidden = true
+            TikklePageDateLabel.text = "00.00.00"
+            TikklePageDaysLabel.text = "도전중이 아닙니다"
         }
     }
     
@@ -150,6 +150,8 @@ class TikklePageViewController: UIViewController {
     }
     @IBAction func callengeStart(_ sender: Any) {
         guard let tikkle else { return }
+        updateDateLabel()
+        updateDaysLabel()
         tikkleList.addTikkle(tikkle)
         challengeUpdate(isChallenge: true)
     }
