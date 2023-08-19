@@ -88,7 +88,8 @@ extension FeedPageViewController: UICollectionViewDelegate, UICollectionViewData
             let storyboard = UIStoryboard(name: "TikklePage", bundle: nil)
             guard let vc = storyboard.instantiateViewController(withIdentifier: "TikklePageViewController") as? TikklePageViewController else { return }
             //MARK: - 공개한 리스트만 넘기는 것
-            vc.tikkle = tikkleManage.publicTikkleList()[indexPath.row]
+//            vc.tikkle = tikkleManage.publicTikkleList()[indexPath.row]
+            vc.tikkle = DummyList.dummylist[indexPath.item]
             navigationController?.pushViewController(vc, animated: true)
         }
     }
