@@ -136,8 +136,6 @@ class TikkleListPageViewController: UIViewController {
     
     //UI 세팅 함수.위의 viewDidLoad 깔끔하게 사용 위함.
     func setUI() {
-        //비어있을 때 실행하는 안내문구 라벨
-        
         
         let attributes: [NSAttributedString.Key: Any] = [
             .font: UIFont.systemFont(ofSize: 16, weight: .bold), // 굵기 설정

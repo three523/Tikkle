@@ -112,18 +112,22 @@ class TikklePageViewController: UIViewController {
     
     func challengeUpdate(isChallenge: Bool) {
         if isChallenge {
+            challengeButton.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .bold)
             challengeButton.setTitle("도전중", for: .normal)
             challengeButton.isUserInteractionEnabled = false
-            challengeButton.backgroundColor = .subTitleColor
-            challengeButton.layer.cornerRadius = 20
+            challengeButton.backgroundColor = .mainColor
+            challengeButton.layer.cornerRadius = 17
             challengeButton.layer.masksToBounds = true
             TikklePageCollectionView.isUserInteractionEnabled = true
             navigationItem.rightBarButtonItem?.isEnabled = true
             navigationItem.rightBarButtonItem?.tintColor = .mainColor
+            
+            
         } else {
+            challengeButton.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .bold)
             challengeButton.setTitle("도전하기", for: .normal)
             challengeButton.backgroundColor = .mainColor
-            challengeButton.layer.cornerRadius = 20
+            challengeButton.layer.cornerRadius = 17
             challengeButton.layer.masksToBounds = true
             TikklePageCollectionView.isUserInteractionEnabled = false
             navigationItem.rightBarButtonItem?.isEnabled = false
