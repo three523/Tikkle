@@ -30,7 +30,7 @@ let beer: Tikkle = Tikkle(image: UIImage(named: "beer"), title: "편의점 해�
     Stamp(title: "블루문", isCompletion: false),
     Stamp(title: "구스아일랜드", isCompletion: false),
     Stamp(title: "블랑", isCompletion: false),
-], tikkleCompleted: false)
+])
 
  
 let tripInKoreaTikkle: Tikkle = Tikkle(image: UIImage(named: "travel"), title: "꼭 가봐야 할 국내여행지", description: "국내 여행지를 돌아다녀 보아요!", isPrivate: false, isSharedProject: false, stampList: [
@@ -46,7 +46,7 @@ let tripInKoreaTikkle: Tikkle = Tikkle(image: UIImage(named: "travel"), title: "
     Stamp(title: "여수", isCompletion: true),
     Stamp(title: "서산", isCompletion: true),
     Stamp(title: "광주", isCompletion: true),
-], tikkleCompleted: false)
+])
 
 
 let climbingTikkle = Tikkle(image: UIImage(named: "mountain"), title: "우리나라 등산코스 30곳 가보기", description: "국내에 여러 산들을 등산해보아요!", isPrivate: false, isSharedProject: false, stampList: [
@@ -66,7 +66,7 @@ let climbingTikkle = Tikkle(image: UIImage(named: "mountain"), title: "우리나
     Stamp(title: "천마산", isCompletion: false),
     Stamp(title: "설악산", isCompletion: false),
     Stamp(title: "화악산", isCompletion: false),
-], tikkleCompleted: false)
+])
 
 
 let tripOverseasTikkle: Tikkle = Tikkle(image: UIImage(named: "plane"), title: "해외여행지 도장깨기", description: "해외 여행지를 돌아다녀 보아요!", isPrivate: false, isSharedProject: false, stampList: [
@@ -97,4 +97,4 @@ let tripOverseasTikkle: Tikkle = Tikkle(image: UIImage(named: "plane"), title: "
     Stamp(title: "영국", isCompletion: false),
     Stamp(title: "잉글랜드", isCompletion: false),
     Stamp(title: "아르엔티나", isCompletion: false),
-], tikkleCompleted: false)
+])

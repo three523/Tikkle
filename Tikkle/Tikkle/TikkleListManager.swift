@@ -62,13 +62,13 @@ class TikkleListManager {
     }
     
     //hoonMARK: - 완료처리
-    func complet(tikkle: Tikkle, tikkleCompleted: Bool) {
-        for index in 0 ..< TikkleListManager.tikkleList.count {
-            if TikkleListManager.tikkleList[index].id == tikkle.id {
-                TikkleListManager.tikkleList[index].tikkleCompleted = tikkleCompleted
-            }
-        }
-    }
+//    func complet(tikkle: Tikkle, tikkleCompleted: Bool) {
+//        for index in 0 ..< TikkleListManager.tikkleList.count {
+//            if TikkleListManager.tikkleList[index].id == tikkle.id {
+//                TikkleListManager.tikkleList[index].tikkleCompleted = tikkleCompleted
+//            }
+//        }
+//    }
     
     //hoonMARK: - 완료 리스트
     func completList() -> [Tikkle] {
