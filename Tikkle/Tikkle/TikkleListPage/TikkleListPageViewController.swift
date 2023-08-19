@@ -325,7 +325,7 @@ extension UIView {
         overlay.frame = bounds
         overlay.backgroundColor = color
         overlay.alpha = alpha
-        addSubview(overlay)
+        insertSubview(overlay, at: 0)
     }
 }
 
