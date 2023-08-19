@@ -16,7 +16,7 @@ class Tikkle {
     var isSharedProject: Bool
     var stampList: [Stamp]
     var createDate: Date = Date()
-    //hoonMARK: - 연산프로퍼티
+    //MARK: - 연산프로퍼티!!!
     var tikkleCompleted: Bool {
         return stampList.filter{ $0.isCompletion }.count == stampList.count
     }
