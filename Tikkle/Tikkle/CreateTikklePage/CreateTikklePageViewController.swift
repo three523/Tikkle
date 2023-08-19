@@ -45,6 +45,8 @@ class CreateTikklePageViewController: UIViewController {
         initStackView()
     }
     
+    
+    
     // 키보드가 올라가거나 내려갈때 실행 시킬 함수를 등록해주는 함수
     private func keyboardNotification() {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardUp), name: UIResponder.keyboardWillShowNotification, object: nil)
@@ -152,6 +154,8 @@ class CreateTikklePageViewController: UIViewController {
         if challengeNameText.isEmpty || infoText.isEmpty { return }
         let stampList = tikkleVerticalStack.convertStampList()
         if stampList.isEmpty { return }
+        
+        
         let image = getImage()
         let isPrivate = privateBtn.isSelected
         
@@ -178,12 +182,16 @@ class CreateTikklePageViewController: UIViewController {
         horizontalStackView.addArrangedSubview(createAddButton())
     }
     
+    
     private func getImage() -> UIImage? {
-        if let image = photoImageView.image {
-            return image
+        if photoImageView.image?.pngData() == UIImage(named: "addphoto")?.pngData() {
+            print("@@@")
+            let defaultImage = UIImage(named: "default")
+            return defaultImage
+        } else {
+            print("#########")
+            return photoImageView.image
         }
-        let defalutImage = UIImage(systemName: "person.fill")
-        return defalutImage
     }
     
     //MARK: 스탬프를 한줄에 3개를 넣어줄 수평 스택뷰 생성 함수
@@ -280,13 +288,12 @@ extension CreateTikklePageViewController: UITextViewDelegate {
 
 }
 
-extension CreateTikklePageViewController:  UIImagePickerControllerDelegate & UINavigationControllerDelegate {
+
+extension CreateTikklePageViewController: UIImagePickerControllerDelegate & UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        if let infoImage = info[UIImagePickerController.InfoKey.originalImage],
-            let image = infoImage as? UIImage
-           {
-            photoImageView.image = image
-            dismiss(animated: true)
-        }
+        if let infoImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            photoImageView.image = infoImage
+        } 
+        dismiss(animated: true)
     }
 }
