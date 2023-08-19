@@ -133,7 +133,7 @@
                                         </collectionViewCellContentView>
                                     </collectionViewCell>
                                 </cells>
-                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="HotTikkleReusableView" id="3MG-uo-Ror">
+                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="HotTikkleReusableView" id="3MG-uo-Ror" customClass="RecommendCollectionReusableView" customModule="Tikkle" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="353" height="130"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
@@ -144,9 +144,6 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="47.666666666666664" height="29.666666666666668"/>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain" title="Hot">
-                                                        <backgroundConfiguration key="background" cornerRadius="20">
-                                                            <color key="backgroundColor" red="0.85098039215686272" green="0.85098039215686272" blue="0.85098039215686272" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        </backgroundConfiguration>
                                                         <fontDescription key="titleFontDescription" type="boldSystem" pointSize="13"/>
                                                         <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </buttonConfiguration>
@@ -183,6 +180,9 @@
                                         <constraint firstAttribute="bottomMargin" secondItem="4KQ-Ey-y6M" secondAttribute="bottom" id="XTn-fb-mhp"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="4KQ-Ey-y6M" secondAttribute="trailing" id="sHT-X9-cBQ"/>
                                     </constraints>
+                                    <connections>
+                                        <outlet property="hotButton" destination="OBs-2P-pQ8" id="opY-cN-ktZ"/>
+                                    </connections>
                                 </collectionReusableView>
                             </collectionView>
                         </subviews>
