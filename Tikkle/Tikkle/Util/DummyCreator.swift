@@ -17,7 +17,6 @@ class DummyDataCreator {
             stampList.append(Stamp(title: String(stampTitle), isCompletion: false))
         }
         
-        //hoonMARK: - 
         return Tikkle(title: tikkleTitle, description: description, isPrivate: isPrivate, isSharedProject: isSharedProject, stampList: stampList)
     }
 }
