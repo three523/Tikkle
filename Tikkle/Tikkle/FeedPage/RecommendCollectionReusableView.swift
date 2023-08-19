@@ -9,11 +9,13 @@ import UIKit
 
 class RecommendCollectionReusableView: UICollectionReusableView {
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-    }
+    @IBOutlet weak var hotButton: UIButton!
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    override func awakeFromNib() {
+        hotButton.backgroundColor = .mainColor
+        hotButton.widthAnchor.constraint(equalToConstant: 50).isActive = true
+        hotButton.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        hotButton.layer.cornerRadius = 10
+        hotButton.layer.masksToBounds = true
     }
 }
