@@ -68,8 +68,11 @@ class TikklePageViewController: UIViewController {
     }
     
     
-    //MARK: - TikklePage Image, Title, Info 가져오기
+    //MARK: - TikklePage Image, Title, Info, 날짜 세팅 가져오기
     func uiSet() {
+        updateDaysLabel()
+        updateDateLabel()
+        
         guard let tikkle else { return }
         TikklePageImage.image = tikkle.image
         TikklePageImage.contentMode = .scaleAspectFill
@@ -77,8 +80,35 @@ class TikklePageViewController: UIViewController {
         TikklePageTitle.text = tikkle.title
         TikklePageInfo.text = tikkle.description
         
+        
         challengeUpdate(isChallenge: tikkleList.getTikkle(where: tikkle.id) != nil)
     }
+    
+    
+    //날짜 출력 함수
+    func updateDateLabel() {
+        guard let tikkle = tikkle else { return }
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yy.MM.dd ~ 현재"
+        let formattedDate = dateFormatter.string(from: tikkle.createDate)
+        TikklePageDateLabel.text = formattedDate
+    }
+    
+    
+    
+    //n일 째 도전 중 출력 함수
+    func updateDaysLabel() {
+        guard let createDate = tikkle?.createDate else { return }
+
+        let currentDate = Date()
+        let calendar = Calendar.current
+
+        // createDate와 현재 날짜 사이의 차이 계산
+        if let diff = calendar.dateComponents([.day], from: createDate, to: currentDate).day {
+            TikklePageDaysLabel.text = "\(diff+1)일째 도전 중"
+        }
+    }
+    
     
     func challengeUpdate(isChallenge: Bool) {
         if isChallenge {
@@ -89,7 +119,7 @@ class TikklePageViewController: UIViewController {
             challengeButton.setTitle("도전하기", for: .normal)
             TikklePageCollectionView.isUserInteractionEnabled = false
         }
-
+        
     }
     @IBAction func callengeStart(_ sender: Any) {
         guard let tikkle else { return }
@@ -103,7 +133,7 @@ extension TikklePageViewController: UICollectionViewDelegate, UICollectionViewDa
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return tikkle?.stampList.count ?? 0
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = TikklePageCollectionView.dequeueReusableCell(withReuseIdentifier: "TikklePageCollectionViewCell", for: indexPath) as! TikklePageCollectionViewCell
         
@@ -112,7 +142,7 @@ extension TikklePageViewController: UICollectionViewDelegate, UICollectionViewDa
         
         return cell
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = TikklePageCollectionView.frame.width / 3 - 1
         let size = CGSize(width: width, height: width)
