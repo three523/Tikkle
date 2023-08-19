@@ -14,6 +14,8 @@ class TikkleListTableViewCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var percentLabel: UILabel!
     @IBOutlet weak var graphImage: UIImageView!
+    
+    @IBOutlet weak var edgeStackView: UIStackView!
     @IBOutlet weak var isPrivateButton: UIButton!
     @IBOutlet weak var isSharedProjectButton: UIButton!
     

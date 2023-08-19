@@ -99,31 +99,8 @@
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="SGc-Q4-LLh">
-                                                            <rect key="frame" x="153" y="13" width="79" height="20"/>
-                                                            <subviews>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7bc-4Y-mhV">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="20"/>
-                                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                    <constraints>
-                                                                        <constraint firstAttribute="width" constant="50" id="EDz-Ce-wc6"/>
-                                                                    </constraints>
-                                                                    <state key="normal" title="Button"/>
-                                                                    <buttonConfiguration key="configuration" style="plain" title="">
-                                                                        <backgroundConfiguration key="background"/>
-                                                                        <fontDescription key="titleFontDescription" type="system" pointSize="13"/>
-                                                                    </buttonConfiguration>
-                                                                </button>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Qt-fS-n45">
-                                                                    <rect key="frame" x="55" y="0.0" width="24" height="20"/>
-                                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                    <state key="normal" title="Button"/>
-                                                                    <buttonConfiguration key="configuration" style="plain" title="">
-                                                                        <backgroundConfiguration key="background"/>
-                                                                        <fontDescription key="titleFontDescription" type="system" pointSize="13"/>
-                                                                    </buttonConfiguration>
-                                                                </button>
-                                                            </subviews>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="SGc-Q4-LLh">
+                                                            <rect key="frame" x="153" y="13" width="50" height="20"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="20" id="Zky-dF-vDT"/>
                                                             </constraints>
@@ -164,9 +141,8 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
+                                            <outlet property="edgeStackView" destination="SGc-Q4-LLh" id="WWA-Vx-OgI"/>
                                             <outlet property="graphImage" destination="lBW-5Q-vuD" id="WEf-0q-V14"/>
-                                            <outlet property="isPrivateButton" destination="7bc-4Y-mhV" id="8SV-Pb-AZP"/>
-                                            <outlet property="isSharedProjectButton" destination="0Qt-fS-n45" id="HR8-0Q-3I9"/>
                                             <outlet property="percentLabel" destination="JMP-us-djp" id="I8v-fA-bLw"/>
                                             <outlet property="tikkleImage" destination="hcs-ga-Clc" id="2JD-Js-BTj"/>
                                             <outlet property="titleLabel" destination="emd-ia-FsF" id="H2h-KK-gyb"/>

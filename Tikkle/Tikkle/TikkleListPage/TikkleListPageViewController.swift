@@ -203,18 +203,28 @@ extension TikkleListPageViewController: UITableViewDataSource {
         cell.titleLabel.font = .systemFont(ofSize: 24)
         cell.titleLabel.text = tikkleListManager[indexPath.row].title.description
         
-        
+        // 공개 비공개 함깨 버튼 스택뷰 비우기
+        cell.edgeStackView.arrangedSubviews.forEach{ $0.removeFromSuperview() }
         //isPrivateButton-----------------------------------------------------------------
         if tikkleListManager[indexPath.row].isPrivate {
-            cell.isPrivateButton.addSubview(CustomButton.makePrivateTrueButton())
+            let privateTrueButton = CustomButton.makePrivateTrueButton()
+            privateTrueButton.widthAnchor.constraint(equalToConstant: 50).isActive = true
+            privateTrueButton.heightAnchor.constraint(equalToConstant: 20).isActive = true
+            cell.edgeStackView.addArrangedSubview(privateTrueButton)
         } else {
-            cell.isPrivateButton.addSubview(CustomButton.makePrivateFalseButton())
+            let privateFalseButton = CustomButton.makePrivateFalseButton()
+            privateFalseButton.widthAnchor.constraint(equalToConstant: 50).isActive = true
+            privateFalseButton.heightAnchor.constraint(equalToConstant: 20).isActive = true
+            cell.edgeStackView.addArrangedSubview(privateFalseButton)
         }
         
         
         //isSharedProjectButton------------------------------------------------------------
         if tikkleListManager[indexPath.row].isSharedProject {
-            cell.isSharedProjectButton.addSubview(CustomButton.makeTogetherButton())
+            let togetherButton =  CustomButton.makeTogetherButton()
+            togetherButton.widthAnchor.constraint(equalToConstant: 50).isActive = true
+            togetherButton.heightAnchor.constraint(equalToConstant: 20).isActive = true
+            cell.edgeStackView.addArrangedSubview(togetherButton)
         }
         
         
