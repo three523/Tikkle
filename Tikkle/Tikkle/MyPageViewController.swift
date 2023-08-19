@@ -44,6 +44,13 @@ class MyPageViewController: UIViewController {
         MyPageTableView.dataSource = self
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        //MARK: - tikkleList.completList 개수가 나오면 되는거기는 한데... 어찌 처리해야하는거지???
+        ingTikkleCountLabel.text = String("\(tikkleList.getTikkleList().count - tikkleList.completList().count)개")
+        doneTikkleCountLabel.text = String("\(tikkleList.completList().count)개")
+    }
+    
     //MARK: - Mypage NavigationStyle
     func navigationSetting() {
         guard let naviBar = navigationController?.navigationBar else { return }
@@ -78,9 +85,6 @@ class MyPageViewController: UIViewController {
         myPageMyEditBtn.setAttributedTitle(attributedText, for: .normal)
         myPageMyEditBtn.backgroundColor = UIColor.mainColor
         myPageMyEditBtn.layer.cornerRadius = 17
-        
-        //hoonMARK: - MyPage 편집버튼 커스텀 버튼 사용하면 짤림?
-//        myPageMyEditBtn.addSubview(CustomButton.makeEditButton())
     }
     
     //MARK: - MyPage count view 커스텀
@@ -89,13 +93,16 @@ class MyPageViewController: UIViewController {
         ingTikkleView.layer.borderColor = UIColor.white.cgColor
         ingTikkleView.layer.cornerRadius = 30
         ingTikkleView.layer.masksToBounds = true
+        
+        //MARK: - tikkleList.completList 개수가 나오면 되는거기는 한데... 어찌 처리해야하는거지???
+        ingTikkleCountLabel.text = String("\(tikkleList.getTikkleList().count - tikkleList.completList().count)개")
     
         doneTikkleView.layer.borderWidth = 1.0
         doneTikkleView.layer.borderColor = UIColor.white.cgColor
         doneTikkleView.layer.cornerRadius = 30
         doneTikkleView.layer.masksToBounds = true
         
-        //hoonMARK: - tikkleList.completList 개수가 나오면 되는거기는 한데... 어찌 처리해야하는거지???
+        //MARK: - tikkleList.completList 개수가 나오면 되는거기는 한데... 어찌 처리해야하는거지???
         doneTikkleCountLabel.text = String("\(tikkleList.completList().count)개")
     }
     

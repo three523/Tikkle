@@ -17,10 +17,6 @@ class TikkleListManager {
         TikkleListManager.tikkleList = DataList.list
     }
     
-    //    func myTikkleList() {
-    //
-    //    }
-    
     //전체 티끌판 리스트를 리턴해주는 함수
     func getTikkleList() -> [Tikkle] {
         return TikkleListManager.tikkleList
@@ -61,20 +57,10 @@ class TikkleListManager {
         TikkleListManager.tikkleList.removeAll { $0.id == id }
     }
     
-    //hoonMARK: - 완료처리
-    func complet(tikkle: Tikkle, tikkleCompleted: Bool) {
-        for index in 0 ..< TikkleListManager.tikkleList.count {
-            if TikkleListManager.tikkleList[index].id == tikkle.id {
-                TikkleListManager.tikkleList[index].tikkleCompleted = tikkleCompleted
-            }
-        }
-    }
-    
-    //hoonMARK: - 완료 리스트
+    //MARK: - 완료 리스트
     func completList() -> [Tikkle] {
         return TikkleListManager.tikkleList.filter{ $0.tikkleCompleted == true }
     }
-    
     
     //subscript : 객체의 내부 요소에 접근할 수 있는 짧은 경로(shortcut)를 제공하는 문법
     //사용 법 : 특정 티끌판 리턴해야 할 때 [tikkleListManager.getTikkleList() 대신에 사용]

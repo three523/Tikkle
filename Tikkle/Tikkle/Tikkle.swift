@@ -16,16 +16,17 @@ class Tikkle {
     var isSharedProject: Bool
     var stampList: [Stamp]
     var createDate: Date = Date()
-    //hoonMARK: - 
-    var tikkleCompleted: Bool
-    
-    init(image: UIImage? = nil, title: String, description: String, isPrivate: Bool, isSharedProject: Bool, stampList: [Stamp], tikkleCompleted: Bool) {
+    //hoonMARK: - 연산프로퍼티
+    var tikkleCompleted: Bool {
+        return stampList.filter{ $0.isCompletion }.count == stampList.count
+    }
+    //전체에서 완료될걸 뺴라
+    init(image: UIImage? = nil, title: String, description: String, isPrivate: Bool, isSharedProject: Bool, stampList: [Stamp]) {
         self.image = image
         self.title = title
         self.description = description
         self.stampList = stampList
         self.isPrivate = isPrivate
         self.isSharedProject = isSharedProject
-        self.tikkleCompleted = tikkleCompleted
     }
 }
