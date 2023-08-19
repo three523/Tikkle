@@ -19,11 +19,11 @@ class OtherTikkleCollectionViewCell: UICollectionViewCell {
         st.backgroundColor = UIColor(hexCode: "08190A")
         return st
     }()
-    let userImageView: UIImageView = UIImageView(image: UIImage(systemName: "person"))
+    let userImageView: UIImageView = UIImageView(image: UIImage(named: "profileImg"))
     let userNameLabel: UILabel = {
         let lb = UILabel()
-        lb.text = "test"
-        lb.font = .systemFont(ofSize: 18, weight: .semibold)
+        lb.text = "test_ID"
+        lb.font = .systemFont(ofSize: 15, weight: .semibold)
         lb.textColor = .white
         return lb
     }()
@@ -59,7 +59,7 @@ class OtherTikkleCollectionViewCell: UICollectionViewCell {
         return view
     }()
     
-    let backgroundImageView = UIImageView(image: UIImage(systemName: "person"))
+    let backgroundImageView = UIImageView(image: UIImage(named: "profileImg"))
     var tikkle: Tikkle? = nil {
         didSet {
             if tikkle != nil {
