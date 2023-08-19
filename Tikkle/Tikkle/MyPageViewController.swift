@@ -84,13 +84,14 @@ class MyPageViewController: UIViewController {
         let attributedText = NSAttributedString(string: "편집", attributes: attributes)
         myPageMyEditBtn.setAttributedTitle(attributedText, for: .normal)
         myPageMyEditBtn.backgroundColor = UIColor.mainColor
-        myPageMyEditBtn.layer.cornerRadius = 17
+        myPageMyEditBtn.layer.cornerRadius = 10
+        
     }
     
     //MARK: - MyPage count view 커스텀
     func countViewStyle() {
         ingTikkleView.layer.borderWidth = 1.0
-        ingTikkleView.layer.borderColor = UIColor.white.cgColor
+        ingTikkleView.layer.borderColor = UIColor.gray.cgColor
         ingTikkleView.layer.cornerRadius = 30
         ingTikkleView.layer.masksToBounds = true
         
@@ -98,7 +99,7 @@ class MyPageViewController: UIViewController {
         ingTikkleCountLabel.text = String("\(tikkleList.getTikkleList().count - tikkleList.completList().count)개")
     
         doneTikkleView.layer.borderWidth = 1.0
-        doneTikkleView.layer.borderColor = UIColor.white.cgColor
+        doneTikkleView.layer.borderColor = UIColor.gray.cgColor
         doneTikkleView.layer.cornerRadius = 30
         doneTikkleView.layer.masksToBounds = true
         
