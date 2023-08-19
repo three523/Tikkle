@@ -12,7 +12,7 @@ class RecommendCollectionReusableView: UICollectionReusableView {
     @IBOutlet weak var hotButton: UIButton!
     
     override func awakeFromNib() {
-        hotButton.backgroundColor = .mainColor
+        hotButton.backgroundColor = .white
         hotButton.widthAnchor.constraint(equalToConstant: 50).isActive = true
         hotButton.heightAnchor.constraint(equalToConstant: 20).isActive = true
         hotButton.layer.cornerRadius = 10
