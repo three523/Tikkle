@@ -9,7 +9,7 @@ import UIKit
 
 class RecommendCollectionViewCell: UICollectionViewCell {
     static let identifier: String = "\(RecommendCollectionViewCell.self)"
-    private let backgroundImageView: UIImageView = UIImageView(image: UIImage(systemName: "person"))
+    private let backgroundImageView: UIImageView = UIImageView(image: UIImage(named: "TikkleON"))
     private lazy var stackView: UIStackView = {
         let st = UIStackView(arrangedSubviews: [titleLabel,challengeCountLabel])
         st.axis = .vertical
