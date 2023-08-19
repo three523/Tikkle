@@ -102,7 +102,7 @@ let tripOverseasTikkle: Tikkle = Tikkle(image: UIImage(named: "plane"), title: "
 //
 struct DummyList {
     //티끌 더미데이터
-    static var dummylist: [Tikkle] = [coding, coding2]
+    static var dummylist: [Tikkle] = [coding,morning]
 }
 
 let coding: Tikkle = Tikkle(image: UIImage(named: "coding"), title: "1일 1 커밋하기", description: "하루에 한번씩 커밋해보아요", isPrivate: false, isSharedProject: true, stampList:  [
@@ -114,10 +114,45 @@ let coding: Tikkle = Tikkle(image: UIImage(named: "coding"), title: "1일 1 커�
 ])
 
 
+
 let coding2: Tikkle = Tikkle(image: UIImage(named: "coding"), title: "1일 1 커밋하기2222", description: "하루에 한번씩 커밋해보아요", isPrivate: false, isSharedProject: true, stampList:  [
     Stamp(title: "1일", isCompletion: false),
     Stamp(title: "2일", isCompletion: false),
     Stamp(title: "3일", isCompletion: false),
     Stamp(title: "4일", isCompletion: false),
     Stamp(title: "5일", isCompletion: false)
+])
+
+let morning: Tikkle = Tikkle(image: UIImage(named: "morning"), title: "30일간 미라클 모닝 도전", description: "매일 6시 기상\n독서와 운동 꾸준히 해보기", isPrivate: false, isSharedProject: true, stampList:  [
+    Stamp(title: "1일", isCompletion: true),
+    Stamp(title: "2일", isCompletion: true),
+    Stamp(title: "3일", isCompletion: true),
+    Stamp(title: "4일", isCompletion: true),
+    Stamp(title: "5일", isCompletion: true),
+    Stamp(title: "6일", isCompletion: true),
+    Stamp(title: "7일", isCompletion: true),
+    Stamp(title: "8일", isCompletion: true),
+    Stamp(title: "9일", isCompletion: true),
+    Stamp(title: "10일", isCompletion: false),
+    Stamp(title: "11일", isCompletion: false),
+    Stamp(title: "12일", isCompletion: false),
+    Stamp(title: "13일", isCompletion: false),
+    Stamp(title: "14일", isCompletion: false),
+    Stamp(title: "15일", isCompletion: false),
+    Stamp(title: "16일", isCompletion: false),
+    Stamp(title: "17일", isCompletion: false),
+    Stamp(title: "18일", isCompletion: false),
+    Stamp(title: "19일", isCompletion: false),
+    Stamp(title: "20일", isCompletion: false),
+    Stamp(title: "21일", isCompletion: false),
+    Stamp(title: "22일", isCompletion: false),
+    Stamp(title: "23일", isCompletion: false),
+    Stamp(title: "24일", isCompletion: false),
+    Stamp(title: "25일", isCompletion: false),
+    Stamp(title: "26일", isCompletion: false),
+    Stamp(title: "27일", isCompletion: false),
+    Stamp(title: "28일", isCompletion: false),
+    Stamp(title: "29일", isCompletion: false),
+    Stamp(title: "30일", isCompletion: false),
+    Stamp(title: "31일", isCompletion: false)
 ])

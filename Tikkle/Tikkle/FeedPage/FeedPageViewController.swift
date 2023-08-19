@@ -62,6 +62,18 @@ class FeedPageViewController: UIViewController {
 
 extension FeedPageViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, ViewControllerPushDelegate {
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 20.0  // 줄 간의 최소 간격 설정
+    }
+
+
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 0)  // 섹션의 인셋 설정
+    }
+
+    
+    
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 2
     }
@@ -80,8 +92,7 @@ extension FeedPageViewController: UICollectionViewDelegate, UICollectionViewData
             cell.layer.masksToBounds = true
             cell.delegate = self
             return cell
-            
-            
+
         } else if indexPath.section == 1 {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: OtherTikkleCollectionViewCell.identifier, for: indexPath) as? OtherTikkleCollectionViewCell else { return UICollectionViewCell(frame: .zero) }
             cell.layer.cornerRadius = 6
@@ -97,6 +108,7 @@ extension FeedPageViewController: UICollectionViewDelegate, UICollectionViewData
     //✅특정 셀 탭했을 때 실행 돼
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if indexPath.section == 1 {
+
             //UIStoryboard 객체를 생성하여 TikklePage라는 이름의 스토리보드를 로드
             let storyboard = UIStoryboard(name: "TikklePage", bundle: nil)
             //뷰컨트롤러 인스턴스 생성
@@ -109,13 +121,11 @@ extension FeedPageViewController: UICollectionViewDelegate, UICollectionViewData
     }
     
     
-    //
-    //            //MARK: - 공개한 리스트만 넘기는 것
-    ////            vc.tikkle = tikkleManage.publicTikkleList()[indexPath.row]
-    //            vc.tikkle = DummyList.dummylist[indexPath.item]
-    //            navigationController?.pushViewController(vc, animated: true)
-    //        }
-    //    }
+ 
+
+    
+    
+    
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         switch kind {
