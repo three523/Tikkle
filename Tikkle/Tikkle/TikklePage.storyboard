@@ -108,9 +108,6 @@
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="도전하기">
-                                    <backgroundConfiguration key="background" cornerRadius="20">
-                                        <color key="backgroundColor" red="0.32156862745098036" green="1" blue="0.38823529411764707" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                    </backgroundConfiguration>
                                     <fontDescription key="titleFontDescription" type="boldSystem" pointSize="13"/>
                                     <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>

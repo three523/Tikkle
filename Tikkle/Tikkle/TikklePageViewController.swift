@@ -84,10 +84,20 @@ class TikklePageViewController: UIViewController {
         if isChallenge {
             challengeButton.setTitle("도전중", for: .normal)
             challengeButton.isUserInteractionEnabled = false
+            challengeButton.backgroundColor = .subTitleColor
+            challengeButton.layer.cornerRadius = 20
+            challengeButton.layer.masksToBounds = true
             TikklePageCollectionView.isUserInteractionEnabled = true
+            navigationItem.rightBarButtonItem?.isEnabled = true
+            navigationItem.rightBarButtonItem?.tintColor = .mainColor
         } else {
             challengeButton.setTitle("도전하기", for: .normal)
+            challengeButton.backgroundColor = .mainColor
+            challengeButton.layer.cornerRadius = 20
+            challengeButton.layer.masksToBounds = true
             TikklePageCollectionView.isUserInteractionEnabled = false
+            navigationItem.rightBarButtonItem?.isEnabled = false
+            navigationItem.rightBarButtonItem?.tintColor = .clear
         }
 
     }
