@@ -102,7 +102,7 @@ let tripOverseasTikkle: Tikkle = Tikkle(image: UIImage(named: "plane"), title: "
 //
 struct DummyList {
     //티끌 더미데이터
-    static var dummylist: [Tikkle] = [coding,morning]
+    static var dummylist: [Tikkle] = [coding,morning,coding2]
 }
 
 let coding: Tikkle = Tikkle(image: UIImage(named: "coding"), title: "8월 한달동안 1일 1커밋하기", description: "하루에 한번 의미있는 커밋을 하겠다!", isPrivate: false, isSharedProject: true, stampList:  [
@@ -139,7 +139,7 @@ let coding: Tikkle = Tikkle(image: UIImage(named: "coding"), title: "8월 한달
     Stamp(title: "31일", isCompletion: false)
 ])
 
-let coding2: Tikkle = Tikkle(image: UIImage(named: "coding"), title: "1일 1 커밋하기2222", description: "하루에 한번씩 커밋해보아요", isPrivate: false, isSharedProject: true, stampList:  [
+let coding2: Tikkle = Tikkle(image: UIImage(named: "mountain_1"), title: "1일 1 커밋하기2222", description: "하루에 한번씩 커밋해보아요", isPrivate: false, isSharedProject: true, stampList:  [
     Stamp(title: "1일", isCompletion: false),
     Stamp(title: "2일", isCompletion: false),
     Stamp(title: "3일", isCompletion: false),
