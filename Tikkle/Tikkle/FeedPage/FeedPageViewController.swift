@@ -100,6 +100,7 @@ extension FeedPageViewController: UICollectionViewDelegate, UICollectionViewData
             
             cell.tikkle = combinedList[indexPath.row]
             
+
             return cell
         }
         return UICollectionViewCell()
@@ -119,13 +120,6 @@ extension FeedPageViewController: UICollectionViewDelegate, UICollectionViewData
             navigationController?.pushViewController(vc, animated: true)
         }
     }
-    
-    
- 
-
-    
-    
-    
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         switch kind {

@@ -1,12 +1,11 @@
 {
   "images" : [
     {
-      "filename" : "morning.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "morning.jpg",
+      "filename" : "coding.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
