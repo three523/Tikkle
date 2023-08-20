@@ -11,6 +11,7 @@ class TikklePageViewController: UIViewController {
     
     var tikkle: Tikkle?
     var tikkleList: TikkleListManager = TikkleListManager()
+    var isChallenged: Bool = false
     
     @IBOutlet weak var TikklePageImage: UIImageView!
     @IBOutlet weak var TikklePageTitle: UILabel!
@@ -131,22 +132,19 @@ class TikklePageViewController: UIViewController {
             challengeButton.backgroundColor = .mainColor
             challengeButton.layer.cornerRadius = 17
             challengeButton.layer.masksToBounds = true
-            TikklePageCollectionView.isUserInteractionEnabled = true
             navigationItem.rightBarButtonItem?.isEnabled = true
             navigationItem.rightBarButtonItem?.tintColor = .mainColor
-            
-            
         } else {
+            guard let tikkle else { return }
             challengeButton.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .bold)
             challengeButton.setTitle("도전하기", for: .normal)
             challengeButton.backgroundColor = .mainColor
             challengeButton.layer.cornerRadius = 17
             challengeButton.layer.masksToBounds = true
-            TikklePageCollectionView.isUserInteractionEnabled = false
             navigationItem.rightBarButtonItem?.isEnabled = false
             navigationItem.rightBarButtonItem?.tintColor = .clear
         }
-        
+                        
     }
     @IBAction func callengeStart(_ sender: Any) {
         guard let tikkle else { return }
@@ -176,5 +174,22 @@ extension TikklePageViewController: UICollectionViewDelegate, UICollectionViewDa
         let width = TikklePageCollectionView.frame.width / 3 - 1
         let size = CGSize(width: width, height: width)
         return size
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let tikkle,
+              let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TikklePageCollectionViewCell", for: indexPath) as? TikklePageCollectionViewCell else { return }
+        if tikkleList.getTikkle(where: tikkle.id) == nil { return }
+        let index = indexPath.row
+        
+        tikkle.stampList[index].isCompletion = !tikkle.stampList[index].isCompletion
+        
+        if tikkle.stampList[index].isCompletion == true {
+            cell.TikklePageCellBtnImg.setImage(UIImage(named: "TikkleON.png"), for: .normal)
+        } else {
+            cell.TikklePageCellBtnImg.setImage(UIImage(named: "TikkleOFF.png"), for: .normal)
+        }
+        cell.tikkleList.updateTikkleInfo(index: index, tikkle)
+        collectionView.reloadData()
     }
 }

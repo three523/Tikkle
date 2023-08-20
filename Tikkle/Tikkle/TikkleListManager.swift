@@ -54,6 +54,11 @@ class TikkleListManager {
     
     //티끌판 이름으로 해당 티끌판 삭제
     func deleteTikkle(where id: UUID) {
+        guard let index = TikkleListManager.tikkleList.firstIndex(where: { $0.id == id }) else { return }
+        let stampList = TikkleListManager.tikkleList[index].stampList
+        for stamp in stampList {
+            stamp.isCompletion = false
+        }
         TikkleListManager.tikkleList.removeAll { $0.id == id }
     }
     
