@@ -9,10 +9,8 @@ import UIKit
 
 
 struct DataList {
-    
     //티끌 더미데이터
     static var list: [Tikkle] = [beer, tripInKoreaTikkle, climbingTikkle, tripOverseasTikkle]
-    
 }
 
 
