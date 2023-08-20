@@ -15,6 +15,7 @@ class OtherTikkleCollectionReusableView: UICollectionReusableView {
         st.axis = .vertical
         st.alignment = .leading
         st.distribution = .fillProportionally
+        st.spacing = -16
         return st
     }()
     let otherTikkleTitleLabel: UILabel = {
@@ -26,9 +27,9 @@ class OtherTikkleCollectionReusableView: UICollectionReusableView {
     }()
     let otherSubTitleLabel: UILabel = {
         let lb = UILabel()
-        lb.text = "다른 분들의 도전을 둘러보세요"
-        lb.font = .systemFont(ofSize: 14, weight: .bold)
-        lb.textColor = UIColor(hexCode: "D9D9D9")
+        lb.text = "다른 분들의 도전을 둘러보세요!"
+        lb.font = .systemFont(ofSize: 14, weight: .heavy)
+        lb.textColor = UIColor.subTitleColor
         return lb
     }()
     override init(frame: CGRect) {

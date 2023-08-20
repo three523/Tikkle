@@ -15,15 +15,15 @@ class OtherTikkleCollectionViewCell: UICollectionViewCell {
         st.alignment = .center
         st.distribution = .equalSpacing
         st.isLayoutMarginsRelativeArrangement = true
-        st.layoutMargins = UIEdgeInsets(top: 0, left: 12, bottom: 0, right: 12)
+        st.layoutMargins = UIEdgeInsets(top: 0, left: 10, bottom: 5, right: 10)
         st.backgroundColor = UIColor(hexCode: "08190A")
         return st
     }()
-    let userImageView: UIImageView = UIImageView(image: UIImage(systemName: "person"))
+    let userImageView: UIImageView = UIImageView(image: UIImage(named: "profileImg"))
     let userNameLabel: UILabel = {
         let lb = UILabel()
-        lb.text = "test"
-        lb.font = .systemFont(ofSize: 18, weight: .semibold)
+        lb.text = "test_ID"
+        lb.font = .systemFont(ofSize: 15, weight: .regular)
         lb.textColor = .white
         return lb
     }()
@@ -40,7 +40,7 @@ class OtherTikkleCollectionViewCell: UICollectionViewCell {
     let kikkleTitleLabel: UILabel = {
         let lb = UILabel()
         lb.text = "매일 commit 하기"
-        lb.font = .systemFont(ofSize: 18, weight: .semibold)
+        lb.font = .systemFont(ofSize: 15, weight: .semibold)
         lb.textColor = .white
         return lb
     }()
@@ -59,7 +59,7 @@ class OtherTikkleCollectionViewCell: UICollectionViewCell {
         return view
     }()
     
-    let backgroundImageView = UIImageView(image: UIImage(systemName: "person"))
+    let backgroundImageView = UIImageView(image: UIImage(named: "profileImg"))
     var tikkle: Tikkle? = nil {
         didSet {
             if tikkle != nil {
@@ -89,13 +89,13 @@ class OtherTikkleCollectionViewCell: UICollectionViewCell {
         userStackView.topAnchor.constraint(equalTo: backgroundImageView.topAnchor).isActive = true
         userStackView.leadingAnchor.constraint(equalTo: backgroundImageView.leadingAnchor).isActive = true
         userStackView.trailingAnchor.constraint(equalTo: backgroundImageView.trailingAnchor).isActive = true
-        userStackView.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        userStackView.heightAnchor.constraint(equalToConstant: 40).isActive = true
         
         tikkleStackView.translatesAutoresizingMaskIntoConstraints = false
         tikkleStackView.leadingAnchor.constraint(equalTo: backgroundImageView.leadingAnchor).isActive = true
         tikkleStackView.trailingAnchor.constraint(equalTo: backgroundImageView.trailingAnchor).isActive = true
         tikkleStackView.bottomAnchor.constraint(equalTo: backgroundImageView.bottomAnchor).isActive = true
-        tikkleStackView.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        tikkleStackView.heightAnchor.constraint(equalToConstant: 40).isActive = true
         
         progressBar.translatesAutoresizingMaskIntoConstraints = false
         progressBar.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
@@ -133,7 +133,7 @@ class OtherTikkleCollectionViewCell: UICollectionViewCell {
         let animation = CABasicAnimation(keyPath: "position.y")
         animation.fromValue = progressBar.bounds.height + (progressBar.bounds.height / 2)
         animation.toValue = (progressBar.bounds.height * completeRate) + (progressBar.bounds.height / 2)
-        animation.duration = 0.5
+        animation.duration = 0.7
         fillLayer.add(animation, forKey: "ProgressBarAnimation")
         
         progressBar.layer.addSublayer(fillLayer)

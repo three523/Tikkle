@@ -70,23 +70,36 @@ class TikklePageViewController: UIViewController {
     
     //MARK: - TikklePage Image, Title, Info, 날짜 세팅 가져오기
     func uiSet() {
-        updateDaysLabel()
-        updateDateLabel()
+        guard let unwrappedTikkle = tikkle else { return }
         
-        guard let tikkle else { return }
-        TikklePageImage.image = tikkle.image
+        updateLabelsBasedOnChallenge(isChallenge: tikkleList.getTikkle(where: unwrappedTikkle.id) != nil)
+        
+        TikklePageImage.image = unwrappedTikkle.image
         TikklePageImage.contentMode = .scaleAspectFill
         TikklePageImage.layer.cornerRadius = TikklePageImage.frame.height / 2
-        TikklePageTitle.text = tikkle.title
-        TikklePageInfo.text = tikkle.description
+        TikklePageTitle.text = unwrappedTikkle.title
+        TikklePageInfo.text = unwrappedTikkle.description
         
-        
-        challengeUpdate(isChallenge: tikkleList.getTikkle(where: tikkle.id) != nil)
+        challengeUpdate(isChallenge: tikkleList.getTikkle(where: unwrappedTikkle.id) != nil)
+    }
+    
+    
+    func updateLabelsBasedOnChallenge(isChallenge: Bool) {
+        if isChallenge {
+            updateDateLabel()
+            updateDaysLabel()
+            TikklePageDateLabel.isHidden = false
+            TikklePageDaysLabel.isHidden = false
+        } else {
+            TikklePageDateLabel.text = "00.00.00"
+            TikklePageDaysLabel.text = "도전중이 아닙니다"
+        }
     }
     
     
     //날짜 출력 함수
     func updateDateLabel() {
+        
         guard let tikkle = tikkle else { return }
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yy.MM.dd ~ 현재"
@@ -137,6 +150,8 @@ class TikklePageViewController: UIViewController {
     }
     @IBAction func callengeStart(_ sender: Any) {
         guard let tikkle else { return }
+        updateDateLabel()
+        updateDaysLabel()
         tikkleList.addTikkle(tikkle)
         challengeUpdate(isChallenge: true)
     }
