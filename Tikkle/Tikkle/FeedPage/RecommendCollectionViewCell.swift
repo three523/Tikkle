@@ -29,7 +29,8 @@ class RecommendCollectionViewCell: UICollectionViewCell {
         let lb = UILabel()
         lb.font = .systemFont(ofSize: 14, weight: .medium)
         lb.textColor = .white
-        lb.text = "216명째 도전중"
+        lb.text = "216명 도전중"
+        lb.alpha = 0.6
         return lb
     }()
     private let gradientView: UIView = UIView()
@@ -56,7 +57,7 @@ class RecommendCollectionViewCell: UICollectionViewCell {
         
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.leadingAnchor.constraint(equalTo: backgroundImageView.leadingAnchor, constant: 12).isActive = true
-        stackView.bottomAnchor.constraint(equalTo: backgroundImageView.bottomAnchor, constant: -12).isActive = true
+        stackView.bottomAnchor.constraint(equalTo: backgroundImageView.bottomAnchor, constant: -32).isActive = true
         
         gradientView.translatesAutoresizingMaskIntoConstraints = false
         gradientView.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true

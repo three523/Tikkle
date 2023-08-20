@@ -62,6 +62,18 @@ class FeedPageViewController: UIViewController {
 
 extension FeedPageViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, ViewControllerPushDelegate {
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 20.0  // 줄 간의 최소 간격 설정
+    }
+
+
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 0)  // 섹션의 인셋 설정
+    }
+
+    
+    
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 2
     }
@@ -108,22 +120,6 @@ extension FeedPageViewController: UICollectionViewDelegate, UICollectionViewData
             navigationController?.pushViewController(vc, animated: true)
         }
     }
-    
-    
-
-            
-            //UIStoryboard 객체를 생성하여 TikklePage라는 이름의 스토리보드를 로드
-            let storyboard = UIStoryboard(name: "TikklePage", bundle: nil)
-            //뷰컨트롤러 인스턴스 생성
-            guard let vc = storyboard.instantiateViewController(withIdentifier: "TikklePageViewController") as? TikklePageViewController else { return }
-            //데이터 할당. 여기서 합친 리스트를 줘.
-            vc.tikkle = combinedList[indexPath.row]
-            
-            navigationController?.pushViewController(vc, animated: true)
-        }
-        
-    }
-
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         switch kind {
