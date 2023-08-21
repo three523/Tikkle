@@ -116,7 +116,13 @@ class OtherTikkleCollectionViewCell: UICollectionViewCell {
     
     private func uiSetting() {
         guard let tikkle else { return }
-        backgroundImageView.image = tikkle.image
+        backgroundImageView.image = UIImage(named: "default")
+        DispatchQueue.global().async {
+            let image = UIImage(data: tikkle.image!.pngData()!)
+            DispatchQueue.main.async {
+                self.backgroundImageView.image = image
+            }
+        }
         kikkleTitleLabel.text = tikkle.title
         progressBarFill()
     }
@@ -129,18 +135,16 @@ class OtherTikkleCollectionViewCell: UICollectionViewCell {
         let notCompleteCount = tikkle.stampList.count - tikkle.stampList.filter { $0.isCompletion }.count
         let completeRate: Double = Double(notCompleteCount) / Double(tikkle.stampList.count)
         
-        if progressBarAnimationLayer == nil {
-            progressBarAnimationLayer = progressBarLayer(completeRate: completeRate)
-        }
+        progressBarAnimationLayer?.removeFromSuperlayer()
+        let fillLayer = progressBarLayer(completeRate: completeRate)
         
-        if let progressBarAnimationLayer {
-            let animation = CABasicAnimation(keyPath: "position.y")
-            animation.fromValue = progressBar.bounds.height + (progressBar.bounds.height / 2)
-            animation.toValue = (progressBar.bounds.height * completeRate) + (progressBar.bounds.height / 2)
-            animation.duration = 0.7
-            progressBarAnimationLayer.add(animation, forKey: "ProgressBarAnimation")
-            progressBar.layer.addSublayer(progressBarAnimationLayer)
-        }
+        let animation = CABasicAnimation(keyPath: "position.y")
+        animation.fromValue = progressBar.bounds.height + (progressBar.bounds.height / 2)
+        animation.toValue = (progressBar.bounds.height * completeRate) + (progressBar.bounds.height / 2)
+        animation.duration = 0.7
+        fillLayer.add(animation, forKey: "ProgressBarAnimation")
+        progressBar.layer.addSublayer(fillLayer)
+        progressBarAnimationLayer = fillLayer
     }
     
     private func progressBarLayer(completeRate: CGFloat) -> CALayer {
