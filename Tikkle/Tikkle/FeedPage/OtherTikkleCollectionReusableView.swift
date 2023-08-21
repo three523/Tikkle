@@ -19,18 +19,18 @@ class OtherTikkleCollectionReusableView: UICollectionReusableView {
         return st
     }()
     let otherTikkleTitleLabel: UILabel = {
-        let lb = UILabel()
-        lb.text = "티끌 둘러보기"
-        lb.font = .systemFont(ofSize: 25, weight: .semibold)
-        lb.textColor = .white
-        return lb
+        let label = UILabel()
+        label.text = "티끌 둘러보기"
+        label.font = .systemFont(ofSize: 25, weight: .semibold)
+        label.textColor = .white
+        return label
     }()
     let otherSubTitleLabel: UILabel = {
-        let lb = UILabel()
-        lb.text = "다른 분들의 도전을 둘러보세요!"
-        lb.font = .systemFont(ofSize: 14, weight: .heavy)
-        lb.textColor = UIColor.subTitleColor
-        return lb
+        let label = UILabel()
+        label.text = "다른 분들의 도전을 둘러보세요!"
+        label.font = .systemFont(ofSize: 14, weight: .heavy)
+        label.textColor = UIColor.subTitleColor
+        return label
     }()
     override init(frame: CGRect) {
         super.init(frame: frame)

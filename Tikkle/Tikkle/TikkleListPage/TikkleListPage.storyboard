@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Lbp-sA-pBX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Tikkle List Page View Controller-->
+        <!--Tikkle-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
                 <viewController storyboardIdentifier="TikkleListPageViewController" id="Y6W-OH-hqX" customClass="TikkleListPageViewController" customModule="Tikkle" customModuleProvider="target" sceneMemberID="viewController">
@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="3rf-4Z-DZe">
-                                <rect key="frame" x="20" y="113" width="200" height="70"/>
+                                <rect key="frame" x="20" y="69" width="200" height="70"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0SM-l5-R8D">
                                         <rect key="frame" x="0.0" y="0.0" width="200" height="40"/>
@@ -52,7 +52,7 @@
                                 </constraints>
                             </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="UlR-f2-sm5">
-                                <rect key="frame" x="0.0" y="183" width="393" height="586"/>
+                                <rect key="frame" x="0.0" y="139" width="393" height="630"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="cell" rowHeight="200" id="YWM-GM-B62" customClass="TikkleListTableViewCell" customModule="Tikkle" customModuleProvider="target">
@@ -180,9 +180,15 @@
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Sm1-wK-Y5h" secondAttribute="trailing" constant="20" id="udH-ls-wGa"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Tikkle" image="tabBarTikkleListPageUnselected" selectedImage="tabBarTikkleListPageSelected" id="Wrl-0a-nxO">
+                        <inset key="imageInsets" minX="0.0" minY="9" maxX="0.0" maxY="0.0"/>
+                        <color key="badgeColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="4"/>
+                    </tabBarItem>
                     <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="qWy-JV-EcM">
                         <nil key="title"/>
                     </navigationItem>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="createTikkleButton" destination="Sm1-wK-Y5h" id="xPR-WF-jh9"/>
                         <outlet property="mainLabel" destination="0SM-l5-R8D" id="BZq-30-EtB"/>
@@ -203,38 +209,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o2U-I4-fLq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1301" y="-303"/>
-        </scene>
-        <!--Tikkle-->
-        <scene sceneID="9hC-S7-fJq">
-            <objects>
-                <navigationController storyboardIdentifier="TikkleListPageNavigationController" id="Lbp-sA-pBX" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Tikkle" image="tabBarTikkleListPageUnselected" selectedImage="tabBarTikkleListPageSelected" id="Wrl-0a-nxO">
-                        <inset key="imageInsets" minX="0.0" minY="9" maxX="0.0" maxY="0.0"/>
-                        <color key="badgeColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="4"/>
-                    </tabBarItem>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="69n-vY-neN">
-                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" red="0.32156862745098036" green="1" blue="0.38823529411764707" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                        <color key="barTintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <textAttributes key="titleTextAttributes">
-                            <color key="textColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <color key="textShadowColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        </textAttributes>
-                        <textAttributes key="largeTitleTextAttributes">
-                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                            <color key="textColor" red="0.32156862745098036" green="1" blue="0.38823529411764707" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                        </textAttributes>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="Y6W-OH-hqX" kind="relationship" relationship="rootViewController" id="36P-Qq-DZU"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="3xU-4d-gwr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-112" y="-136"/>
         </scene>
     </scenes>
     <resources>

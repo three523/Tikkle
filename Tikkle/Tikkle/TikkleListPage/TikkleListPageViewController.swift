@@ -9,8 +9,6 @@ import UIKit
 
 class TikkleListPageViewController: UIViewController {
     
-    //티끌 정보 담기 위한 변수
-    var tikkle: Tikkle?
     let margin: CGFloat = 16
     
     
@@ -49,14 +47,9 @@ class TikkleListPageViewController: UIViewController {
     //MARK: - TikkleListPage ViewController 앱 실행될 때 처음 실행되는 곳
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupDatas()
         seupTableView()
         setUI()
-        navigationSetting()
         emptyGreetingUI()
-
-        
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -65,28 +58,6 @@ class TikkleListPageViewController: UIViewController {
     }
         
     //MARK: -TikkleListPage ViewController viewDidLoad 정리 함수들 모음
-    //상단바 세팅 함수. 위의 viewDidLoad 깔끔하게 사용 위함.
-    func navigationSetting() {
-        guard let naviBar = navigationController?.navigationBar else { return }
-        let naviBarAppearance = UINavigationBarAppearance()
-        naviBarAppearance.backgroundColor = .black
-        naviBar.standardAppearance = naviBarAppearance
-        naviBar.scrollEdgeAppearance = naviBarAppearance
-        
-        //상단바 왼쪽에 티끌 로고 추가
-        let logoImage = UIImage(named: "navi_Logo")
-        let logoImageView = UIImageView(image: logoImage)
-        logoImageView.contentMode = .scaleAspectFit
-        let logoItem = UIBarButtonItem(customView: logoImageView)
-        navigationItem.leftBarButtonItem = logoItem
-        
-        //상단바 오른쪽에 벨 로고 추가
-        let bellImage = UIImage(named: "navi_Bell")
-        let bellImageView = UIImageView(image: bellImage)
-        bellImageView.contentMode = .scaleAspectFit
-        let bellItem = UIBarButtonItem(customView: bellImageView)
-        navigationItem.rightBarButtonItem = bellItem
-    }
     
     //테이블뷰 세팅 함수. 위의 viewDidLoad 깔끔하게 사용 위함.
     func seupTableView() {
@@ -94,47 +65,36 @@ class TikkleListPageViewController: UIViewController {
         tableView.dataSource = self
     }
     
-    //데이터 세팅 함수. 위의 viewDidLoad 깔끔하게 사용 위함.
-    func setupDatas() {
-        tikkleListManager.getTikkleList()//데이터(더미데이터) 생성
-    }
-    
-    
     //비어있을 때 실행하는 안내문구 라벨 함수
     func emptyGreetingUI() {
+        // 리스트가 비어 있을 경우 안내 UI 보여주기
         if tikkleListManager.getTikkleList().isEmpty {
-            // 화면에 안내문구와 사각형이 추가되어 있지 않다면 추가
-            if !view.subviews.contains(square) {
-                view.addSubview(square)
-                square.addSubview(emptyStateLabel)
-                square.layer.cornerRadius = 7
-            }
-            square.isHidden = false
-            
-            emptyStateLabel.isHidden = false
+
+            view.addSubview(square)
+            square.addSubview(emptyStateLabel)
 
             NSLayoutConstraint.activate([
                 // square의 leading, trailing 설정
                 square.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: margin),
                 square.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -margin),
-                
+
                 // square의 top을 createButton의 bottom에서부터 간격을 주게 함
                 square.topAnchor.constraint(equalTo: subLabel.bottomAnchor, constant: margin),
-                
+
                 // square의 bottom을 safeArea를 통해 탭바와 겹치지 않게 함
                 square.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -margin),
-                
+
                 // label을 square 내부 중앙에 위치
                 emptyStateLabel.centerXAnchor.constraint(equalTo: square.centerXAnchor),
                 emptyStateLabel.centerYAnchor.constraint(equalTo: square.centerYAnchor),
                 emptyStateLabel.widthAnchor.constraint(lessThanOrEqualTo: square.widthAnchor, multiplier: 0.9)
             ])
         } else {
-            emptyStateLabel.isHidden = true
-            square.isHidden = true
+            square.removeFromSuperview()
+            emptyStateLabel.removeFromSuperview()
         }
+
     }
-    
     
     //UI 세팅 함수.위의 viewDidLoad 깔끔하게 사용 위함.
     func setUI() {
@@ -158,8 +118,6 @@ class TikkleListPageViewController: UIViewController {
         subLabel.textColor = UIColor.subTitleColor
     }
 }
-
-
 
 //MARK: -테이블 뷰 행을 탭할 때 실행
 extension TikkleListPageViewController: UITableViewDelegate {

@@ -16,8 +16,6 @@ class TikkleListTableViewCell: UITableViewCell {
     @IBOutlet weak var graphImage: UIImageView!
     
     @IBOutlet weak var edgeStackView: UIStackView!
-    @IBOutlet weak var isPrivateButton: UIButton!
-    @IBOutlet weak var isSharedProjectButton: UIButton!
     
     
     
@@ -29,5 +27,5 @@ class TikkleListTableViewCell: UITableViewCell {
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-            }
+    }
 }

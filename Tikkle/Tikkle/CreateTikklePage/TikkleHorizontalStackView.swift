@@ -17,13 +17,13 @@ class TikkleHorizontalStackView: UIStackView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func convertButtonIntoStampList() -> [Stamp] {
-        var stampStringList = [Stamp]()
+    func convertButtonIntoStampList() -> [Tikkle] {
+        var stampStringList = [Tikkle]()
         for view in arrangedSubviews {
             guard let button = view as? StampButton else { continue }
             let text = button.stampTitle()
             if text.isEmpty { continue }
-            let stamp = Stamp(title: text, isCompletion: false)
+            let stamp = Tikkle(title: text, isCompletion: false)
             stampStringList.append(stamp)
         }
         return stampStringList

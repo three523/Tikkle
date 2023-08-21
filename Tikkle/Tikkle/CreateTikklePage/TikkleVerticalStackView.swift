@@ -18,8 +18,8 @@ class TikkleVerticalStackView: UIStackView {
     }
     
     //TODO: 함수명 고민해보기
-    func convertStampList() -> [Stamp] {
-        var stampStringList = [Stamp]()
+    func convertStampList() -> [Tikkle] {
+        var stampStringList = [Tikkle]()
         for view in arrangedSubviews {
             guard let horizontalStackView = view as? TikkleHorizontalStackView else { continue }
             stampStringList.append(contentsOf: horizontalStackView.convertButtonIntoStampList())

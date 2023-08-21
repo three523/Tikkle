@@ -9,7 +9,7 @@ import UIKit
 
 class MyPageViewController: UIViewController {
     
-    var tikkle: Tikkle?
+    var tikkleSheet: TikkleSheet?
     var tikkleList: TikkleListManager = TikkleListManager()
     
     @IBOutlet weak var myPageMyImg: UIImageView!
@@ -24,7 +24,6 @@ class MyPageViewController: UIViewController {
     @IBOutlet weak var MyPageTableView: UITableView!
     
     //MARK: - MyPage 더미데이터
-    var count: [String] = ["2", "5"]
     let menuIcon: [UIImage?] = [
         UIImage(named: "heart.png"),
         UIImage(named: "vector.png"),
@@ -39,7 +38,6 @@ class MyPageViewController: UIViewController {
         
         myInfoStyle()
         countViewStyle()
-        navigationSetting()
         MyPageTableView.delegate = self
         MyPageTableView.dataSource = self
     }
@@ -49,27 +47,6 @@ class MyPageViewController: UIViewController {
         //MARK: - tikkleList.completList 개수가 나오면 되는거기는 한데... 어찌 처리해야하는거지???
         ingTikkleCountLabel.text = String("\(tikkleList.getTikkleList().count - tikkleList.completList().count)개")
         doneTikkleCountLabel.text = String("\(tikkleList.completList().count)개")
-    }
-    
-    //MARK: - Mypage NavigationStyle
-    func navigationSetting() {
-        guard let naviBar = navigationController?.navigationBar else { return }
-        let naviBarAppearance = UINavigationBarAppearance()
-        naviBarAppearance.backgroundColor = .black
-        naviBar.standardAppearance = naviBarAppearance
-        naviBar.scrollEdgeAppearance = naviBarAppearance
-        
-        let logoImage = UIImage(named: "navi_Logo")
-        let logoImageView = UIImageView(image: logoImage)
-        logoImageView.contentMode = .scaleAspectFit
-        let logoItem = UIBarButtonItem(customView: logoImageView)
-        navigationItem.leftBarButtonItem = logoItem
-        
-        let bellImage = UIImage(named: "navi_Bell")
-        let bellImageView = UIImageView(image: bellImage)
-        bellImageView.contentMode = .scaleAspectFit
-        let bellItem = UIBarButtonItem(customView: bellImageView)
-        navigationItem.rightBarButtonItem = bellItem
     }
     
     //MARK: - MyPage info 커스텀
