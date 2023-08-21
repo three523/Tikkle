@@ -125,26 +125,29 @@ class OtherTikkleCollectionViewCell: UICollectionViewCell {
         guard let tikkle else { return }
         
         layoutIfNeeded()
-        
-        if let progressBarAnimationLayer {
-            progressBarAnimationLayer.removeFromSuperlayer()
-        }
                 
         let notCompleteCount = tikkle.stampList.count - tikkle.stampList.filter { $0.isCompletion }.count
         let completeRate: Double = Double(notCompleteCount) / Double(tikkle.stampList.count)
+        
+        if progressBarAnimationLayer == nil {
+            progressBarAnimationLayer = progressBarLayer(completeRate: completeRate)
+        }
+        
+        if let progressBarAnimationLayer {
+            let animation = CABasicAnimation(keyPath: "position.y")
+            animation.fromValue = progressBar.bounds.height + (progressBar.bounds.height / 2)
+            animation.toValue = (progressBar.bounds.height * completeRate) + (progressBar.bounds.height / 2)
+            animation.duration = 0.7
+            progressBarAnimationLayer.add(animation, forKey: "ProgressBarAnimation")
+            progressBar.layer.addSublayer(progressBarAnimationLayer)
+        }
+    }
+    
+    private func progressBarLayer(completeRate: CGFloat) -> CALayer {
         let fillLayer = CALayer()
         fillLayer.frame = CGRect(x: 0, y: progressBar.bounds.height * completeRate, width: progressBar.bounds.width, height: progressBar.bounds.height)
         fillLayer.backgroundColor = UIColor.mainColor.cgColor
-        
-        progressBarAnimationLayer = fillLayer
-        
-        let animation = CABasicAnimation(keyPath: "position.y")
-        animation.fromValue = progressBar.bounds.height + (progressBar.bounds.height / 2)
-        animation.toValue = (progressBar.bounds.height * completeRate) + (progressBar.bounds.height / 2)
-        animation.duration = 0.7
-        fillLayer.add(animation, forKey: "ProgressBarAnimation")
-        
-        progressBar.layer.addSublayer(fillLayer)
+        return fillLayer
     }
     
 }

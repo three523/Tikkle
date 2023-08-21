@@ -32,6 +32,7 @@ class FeedPageViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         feedCollectionView.reloadData()
+        print("will")
     }
     
     func navigationSetting() {
