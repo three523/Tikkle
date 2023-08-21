@@ -104,6 +104,8 @@ struct DummyList {
 }
 
 let coding: Tikkle = Tikkle(image: UIImage(named: "coding"), title: "8월 한달동안 1일 1커밋하기", description: "하루에 한번 의미있는 커밋을 하겠다!", isPrivate: false, isSharedProject: true, stampList:  [
+
+
     Stamp(title: "1일", isCompletion: true),
     Stamp(title: "2일", isCompletion: true),
     Stamp(title: "3일", isCompletion: true),
@@ -135,6 +137,7 @@ let coding: Tikkle = Tikkle(image: UIImage(named: "coding"), title: "8월 한달
     Stamp(title: "29일", isCompletion: false),
     Stamp(title: "30일", isCompletion: false),
     Stamp(title: "31일", isCompletion: false)
+
 ])
 
 let coding2: Tikkle = Tikkle(image: UIImage(named: "coding"), title: "1일 1 커밋하기2222", description: "하루에 한번씩 커밋해보아요", isPrivate: false, isSharedProject: true, stampList:  [

@@ -9,10 +9,11 @@ import UIKit
 
 class TikkleListPageViewController: UIViewController {
     
+    //티끌 정보 담기 위한 변수
     var tikkle: Tikkle?
     let margin: CGFloat = 16
     
-    //요소 아울렛
+    
     //MARK: -티끌리스트매니저 모델 생성 (이제부터 이 매니저 모델을 통해 데이터를 매니징할 수 있음)
     var tikkleListManager = TikkleListManager()
     
@@ -22,6 +23,7 @@ class TikkleListPageViewController: UIViewController {
     @IBOutlet weak var mainLabel: UILabel!
     @IBOutlet weak var subLabel: UILabel!
     @IBOutlet weak var createTikkleButton: UIButton!
+    
     
     //MARK: -리스트가 비어 있을 시에 안내 문구 표시하는 라벨
     let square: UIView = {
