@@ -26,27 +26,27 @@ class TikkleListPageViewController: UIViewController {
     
     
     //MARK: -리스트가 비어 있을 시에 안내 문구 표시하는 라벨
+    //네모 배경 만들기
     let square: UIView = {
-        let squareView = UIView()
-        squareView.backgroundColor = UIColor.white.withAlphaComponent(0.05) // 5% 투명도
-        squareView.translatesAutoresizingMaskIntoConstraints = false
+        let squareView = UIView() //UIView를 만들고
+        squareView.backgroundColor = UIColor.white.withAlphaComponent(0.05) // 배경은 흰색에 5% 투명도
+        squareView.translatesAutoresizingMaskIntoConstraints = false // 오토레이아웃을 코드로 설정하기 위해 추가
         return squareView
     }()
-    
+    //네모 배경 위에 올라가는 글씨 라벨 만들기
     let emptyStateLabel: UILabel = {
         let label = UILabel()
         label.text = "생성하기를 통해\n티끌시트를 만들어보세요"
         label.textColor = .darkGray
         label.textAlignment = .center
-        label.numberOfLines = 0
-        label.translatesAutoresizingMaskIntoConstraints = false
+        label.numberOfLines = 0 // 여러 줄 텍스트 표시를 위한 설정
+        label.translatesAutoresizingMaskIntoConstraints = false // 오토레이아웃을 코드로 설정하기 위해 추가
         
         return label
     }()
     
     
-    
-    //MARK: - TikkleListPage ViewController 앱 실행될 때 처음 실행되는 곳
+    //MARK: - TikkleListPage ViewController 뷰 실행될 때 처음 실행되는 곳
     override func viewDidLoad() {
         super.viewDidLoad()
         setupDatas()
@@ -54,16 +54,16 @@ class TikkleListPageViewController: UIViewController {
         setUI()
         navigationSetting()
         emptyGreetingUI()
-
-        
-        
     }
     
+    
+    //MARK: - TikkleListPage ViewController 뷰가 화면에 나타날 때마다 실행되는 곳
     override func viewWillAppear(_ animated: Bool) {
-        tableView.reloadData()
-        emptyGreetingUI()
+        tableView.reloadData() // 테이블 뷰를 다시 로드하여 데이터 최신화
+        emptyGreetingUI() // 빈화면 문구도 업데이트
     }
         
+    
     //MARK: -TikkleListPage ViewController viewDidLoad 정리 함수들 모음
     //상단바 세팅 함수. 위의 viewDidLoad 깔끔하게 사용 위함.
     func navigationSetting() {
@@ -77,7 +77,7 @@ class TikkleListPageViewController: UIViewController {
         let logoImage = UIImage(named: "navi_Logo")
         let logoImageView = UIImageView(image: logoImage)
         logoImageView.contentMode = .scaleAspectFit
-        let logoItem = UIBarButtonItem(customView: logoImageView)
+        let logoItem = UIBarButtonItem(customView: logoImageView) //BarButtonItem에 UIImageView와 UIView를 넣는 방식이 있음. 둘의 차이점이 존재. UIImageView를 사용하면 이미지 크기, 콘텐츠 모드(비율 유지&크기조절) 같은 다양한 속성 활용 가능. UIView로 하면 조절 불가능.
         navigationItem.leftBarButtonItem = logoItem
         
         //상단바 오른쪽에 벨 로고 추가
@@ -102,16 +102,11 @@ class TikkleListPageViewController: UIViewController {
     
     //비어있을 때 실행하는 안내문구 라벨 함수
     func emptyGreetingUI() {
+        // 리스트가 비어 있을 경우 안내 UI 보여주기
         if tikkleListManager.getTikkleList().isEmpty {
-            // 화면에 안내문구와 사각형이 추가되어 있지 않다면 추가
-            if !view.subviews.contains(square) {
-                view.addSubview(square)
-                square.addSubview(emptyStateLabel)
-                square.layer.cornerRadius = 7
-            }
-            square.isHidden = false
             
-            emptyStateLabel.isHidden = false
+            view.addSubview(square)
+                        square.addSubview(emptyStateLabel)
 
             NSLayoutConstraint.activate([
                 // square의 leading, trailing 설정
@@ -130,8 +125,8 @@ class TikkleListPageViewController: UIViewController {
                 emptyStateLabel.widthAnchor.constraint(lessThanOrEqualTo: square.widthAnchor, multiplier: 0.9)
             ])
         } else {
-            emptyStateLabel.isHidden = true
-            square.isHidden = true
+            square.removeFromSuperview()
+            emptyStateLabel.removeFromSuperview()
         }
     }
     

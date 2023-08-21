@@ -117,6 +117,7 @@ class OtherTikkleCollectionViewCell: UICollectionViewCell {
     private func uiSetting() {
         guard let tikkle else { return }
         backgroundImageView.image = UIImage(named: "default")
+        backgroundImageView.contentMode = .scaleAspectFill
         DispatchQueue.global().async {
             let image = UIImage(data: tikkle.image!.pngData()!)
             DispatchQueue.main.async {
