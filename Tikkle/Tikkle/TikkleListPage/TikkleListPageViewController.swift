@@ -181,17 +181,14 @@ extension TikkleListPageViewController: UITableViewDelegate {
 extension TikkleListPageViewController: UITableViewDataSource {
     //TikkleListPage 테이블뷰 셀 개수
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
         return tikkleListManager.getTikkleList().count
-        
     }
     
-    //셀에 데이터 연결하기
+    //테이블 뷰의 각 셀을 설정
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! TikkleListTableViewCell
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineSpacing = 8 // 행간 설정
-        
         
         
         //titleLabel---------------------------------------------------------------------
@@ -200,7 +197,10 @@ extension TikkleListPageViewController: UITableViewDataSource {
         
         // 공개 비공개 함깨 버튼 스택뷰 비우기
         cell.edgeStackView.arrangedSubviews.forEach{ $0.removeFromSuperview() }
+        
+        
         //isPrivateButton-----------------------------------------------------------------
+        //Tikkle의 isPrivate 속성 값에 따라 버튼 다르게 보이도록
         if tikkleListManager[indexPath.row].isPrivate {
             let privateTrueButton = CustomButton.makePrivateTrueButton()
             privateTrueButton.widthAnchor.constraint(equalToConstant: 50).isActive = true
@@ -215,6 +215,7 @@ extension TikkleListPageViewController: UITableViewDataSource {
         
         
         //isSharedProjectButton------------------------------------------------------------
+        //isShared값이 true면 "함께하기" 버튼 추가
         if tikkleListManager[indexPath.row].isSharedProject {
             let togetherButton =  CustomButton.makeTogetherButton()
             togetherButton.widthAnchor.constraint(equalToConstant: 50).isActive = true
@@ -226,6 +227,7 @@ extension TikkleListPageViewController: UITableViewDataSource {
         //percentLabel---------------------------------------------------------------------
         //isCompletion이 true인 Stamp의 개수
         let completedCount = tikkleListManager[indexPath.row].stampList.filter { $0.isCompletion }.count
+        //전체 Stamp 개수
         let totalCount = tikkleListManager[indexPath.row].stampList.count
         
         // percentLabel : 퍼센트 값 계산
@@ -244,10 +246,10 @@ extension TikkleListPageViewController: UITableViewDataSource {
         cell.tikkleImage.image = tikkleListManager[indexPath.row].image
         cell.tikkleImage.contentMode = .scaleAspectFill //이미지 채우는 방식
         
+        
         //percentage가 100%일 때, 이미지 어둡게 변하도록
         if percentage == 100 {
-            cell.tikkleImage.image = tikkleListManager[indexPath.row].image
-            cell.tikkleImage.addoverlay()
+            cell.tikkleImage.addoverlay() // 이미지 어둡게
             
             // 100%일 때 tikkleDoneSticker 이미지를 추가
             let stickerImageViewTag = 1002
