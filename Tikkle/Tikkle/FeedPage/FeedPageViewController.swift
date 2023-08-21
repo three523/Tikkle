@@ -100,7 +100,6 @@ extension FeedPageViewController: UICollectionViewDelegate, UICollectionViewData
             
             cell.tikkle = combinedList[indexPath.row]
             
-
             return cell
         }
         return UICollectionViewCell()

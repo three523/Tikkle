@@ -58,6 +58,7 @@ class OtherTikkleCollectionViewCell: UICollectionViewCell {
         view.layer.cornerRadius = 6
         return view
     }()
+    var progressBarAnimationLayer: CALayer? = nil
     
     let backgroundImageView = UIImageView(image: UIImage(named: "profileImg"))
     var tikkle: Tikkle? = nil {
@@ -124,11 +125,18 @@ class OtherTikkleCollectionViewCell: UICollectionViewCell {
         guard let tikkle else { return }
         
         layoutIfNeeded()
+        
+        if let progressBarAnimationLayer {
+            progressBarAnimationLayer.removeFromSuperlayer()
+        }
+                
         let notCompleteCount = tikkle.stampList.count - tikkle.stampList.filter { $0.isCompletion }.count
         let completeRate: Double = Double(notCompleteCount) / Double(tikkle.stampList.count)
         let fillLayer = CALayer()
         fillLayer.frame = CGRect(x: 0, y: progressBar.bounds.height * completeRate, width: progressBar.bounds.width, height: progressBar.bounds.height)
         fillLayer.backgroundColor = UIColor.mainColor.cgColor
+        
+        progressBarAnimationLayer = fillLayer
         
         let animation = CABasicAnimation(keyPath: "position.y")
         animation.fromValue = progressBar.bounds.height + (progressBar.bounds.height / 2)
@@ -138,4 +146,5 @@ class OtherTikkleCollectionViewCell: UICollectionViewCell {
         
         progressBar.layer.addSublayer(fillLayer)
     }
+    
 }
