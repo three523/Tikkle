@@ -9,27 +9,6 @@
     </dependencies>
     <scenes>
         <!--My-->
-        <scene sceneID="ok2-GS-5xE">
-            <objects>
-                <navigationController storyboardIdentifier="MyPageNavigationViewController" id="AH6-bY-G8F" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="My" image="tabBarMyPageUnselected" selectedImage="tabBarMyPageSelected" id="nSC-fM-hyc">
-                        <inset key="imageInsets" minX="0.0" minY="9" maxX="0.0" maxY="0.0"/>
-                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="4"/>
-                    </tabBarItem>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Yt8-Fp-ap1">
-                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="Y6W-OH-hqX" kind="relationship" relationship="rootViewController" id="lWd-ZA-LYn"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="gTr-1r-dt2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1466" y="-1"/>
-        </scene>
-        <!--My Page View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
                 <viewController storyboardIdentifier="FeedPageViewController" id="Y6W-OH-hqX" customClass="MyPageViewController" customModule="Tikkle" customModuleProvider="target" sceneMemberID="viewController">
@@ -38,20 +17,20 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kTq-xa-kDU">
-                                <rect key="frame" x="20" y="123" width="81" height="81"/>
+                                <rect key="frame" x="20" y="79" width="81" height="81"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="81" id="BUn-m1-GPD"/>
                                     <constraint firstAttribute="width" constant="81" id="q9S-Wm-LoO"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="아이디 명" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cv5-yv-Rr2">
-                                <rect key="frame" x="131" y="150.33333333333334" width="81" height="26.333333333333343"/>
+                                <rect key="frame" x="131" y="106.33333333333333" width="81" height="26.333333333333329"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i1D-aw-Geu">
-                                <rect key="frame" x="349" y="153.66666666666666" width="24" height="20"/>
+                                <rect key="frame" x="349" y="109.66666666666667" width="24" height="20.000000000000014"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="dzT-La-FAZ"/>
                                 </constraints>
@@ -59,7 +38,7 @@
                                 <buttonConfiguration key="configuration" style="plain"/>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Rns-3Q-khd">
-                                <rect key="frame" x="0.0" y="434" width="393" height="335"/>
+                                <rect key="frame" x="0.0" y="390" width="393" height="379"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="MypageTableViewCell" rowHeight="60" id="4T0-dK-KnP" customClass="MypageTableViewCell" customModule="Tikkle" customModuleProvider="target">
@@ -99,7 +78,7 @@
                                 </prototypes>
                             </tableView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="gad-7a-D3D">
-                                <rect key="frame" x="20" y="254" width="353" height="130"/>
+                                <rect key="frame" x="20" y="210" width="353" height="130"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9ND-g6-4sw">
                                         <rect key="frame" x="0.0" y="0.0" width="353" height="60"/>
@@ -175,7 +154,12 @@
                             <constraint firstItem="i1D-aw-Geu" firstAttribute="centerY" secondItem="kTq-xa-kDU" secondAttribute="centerY" id="ziD-vF-Ovm"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="My" image="tabBarMyPageUnselected" selectedImage="tabBarMyPageSelected" id="nSC-fM-hyc">
+                        <inset key="imageInsets" minX="0.0" minY="9" maxX="0.0" maxY="0.0"/>
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="4"/>
+                    </tabBarItem>
                     <navigationItem key="navigationItem" id="ldm-Ki-hH7"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="MyPageTableView" destination="Rns-3Q-khd" id="xcM-uL-3YX"/>
                         <outlet property="doneTikkleCountLabel" destination="ySt-ol-Ikk" id="L0d-F0-7kB"/>

@@ -9,8 +9,8 @@ import UIKit
 
 class TikklePageViewController: UIViewController {
     
-    var tikkle: Tikkle?
-    var tikkleList: TikkleListManager = TikkleListManager()
+    var tikkle: TikkleSheet?
+    var tikkleListManager: TikkleListManager = TikkleListManager()
     var isChallenged: Bool = false
     
     @IBOutlet weak var TikklePageImage: UIImageView!
@@ -34,10 +34,6 @@ class TikklePageViewController: UIViewController {
     //MARK: - TikklePage NavigationBar 커스텀
     func navigationSetting() {
         guard let naviBar = navigationController?.navigationBar else { return }
-        let naviBarAppearance = UINavigationBarAppearance()
-        naviBarAppearance.backgroundColor = .black
-        naviBar.standardAppearance = naviBarAppearance
-        naviBar.scrollEdgeAppearance = naviBarAppearance
         
         self.navigationController?.navigationBar.tintColor = UIColor.mainColor
         self.navigationController?.navigationBar.topItem?.title = ""
@@ -58,7 +54,7 @@ class TikklePageViewController: UIViewController {
         let deleteOKBtn = UIAlertAction(title: "포기", style: .default) { [weak self] _ in
             guard let self, let tikkle else { return }
             
-            tikkleList.deleteTikkle(where: tikkle.id)
+            tikkleListManager.deleteTikkle(where: tikkle.id)
             self.navigationController?.popViewController(animated: true)
         }
         
@@ -73,15 +69,13 @@ class TikklePageViewController: UIViewController {
     func uiSet() {
         guard let unwrappedTikkle = tikkle else { return }
         
-        updateLabelsBasedOnChallenge(isChallenge: tikkleList.getTikkle(where: unwrappedTikkle.id) != nil)
-        
         TikklePageImage.image = unwrappedTikkle.image
         TikklePageImage.contentMode = .scaleAspectFill
         TikklePageImage.layer.cornerRadius = TikklePageImage.frame.height / 2
         TikklePageTitle.text = unwrappedTikkle.title
         TikklePageInfo.text = unwrappedTikkle.description
-        
-        challengeUpdate(isChallenge: tikkleList.getTikkle(where: unwrappedTikkle.id) != nil)
+        updateLabelsBasedOnChallenge(isChallenge: tikkleListManager.getTikkle(where: unwrappedTikkle.id) != nil)
+        challengeUpdate(isChallenge: tikkleListManager.getTikkle(where: unwrappedTikkle.id) != nil)
     }
     
     
@@ -150,7 +144,7 @@ class TikklePageViewController: UIViewController {
         guard let tikkle else { return }
         updateDateLabel()
         updateDaysLabel()
-        tikkleList.addTikkle(tikkle)
+        tikkleListManager.addTikkle(tikkle)
         challengeUpdate(isChallenge: true)
     }
 }
@@ -164,7 +158,6 @@ extension TikklePageViewController: UICollectionViewDelegate, UICollectionViewDa
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = TikklePageCollectionView.dequeueReusableCell(withReuseIdentifier: "TikklePageCollectionViewCell", for: indexPath) as! TikklePageCollectionViewCell
         
-        cell.TikklePageCellName.text = tikkle?.stampList[indexPath.row].title
         cell.cellUISetting(tikkle: tikkle, index: indexPath.row)
         
         return cell
@@ -179,7 +172,7 @@ extension TikklePageViewController: UICollectionViewDelegate, UICollectionViewDa
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let tikkle,
               let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TikklePageCollectionViewCell", for: indexPath) as? TikklePageCollectionViewCell else { return }
-        if tikkleList.getTikkle(where: tikkle.id) == nil { return }
+        if tikkleListManager.getTikkle(where: tikkle.id) == nil { return }
         let index = indexPath.row
         
         tikkle.stampList[index].isCompletion = !tikkle.stampList[index].isCompletion

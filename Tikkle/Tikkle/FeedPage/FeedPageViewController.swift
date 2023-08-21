@@ -8,16 +8,16 @@
 import UIKit
 
 protocol ViewControllerPushDelegate: AnyObject {
-    func pushViewController(tikkle: Tikkle)
+    func pushViewController(tikkle: TikkleSheet)
 }
 
 class FeedPageViewController: UIViewController {
-    private var combinedList: [Tikkle] {
-        return tikkleManage.publicTikkleList() + DummyList.dummylist //✅합치고
+    private var combinedList: [TikkleSheet] {
+        return tikkleListManager.publicTikkleList() + DummyList.dummylist //✅합치고
     }
     
     @IBOutlet weak var feedCollectionView: UICollectionView!
-    private var tikkleManage: TikkleListManager = TikkleListManager()
+    private var tikkleListManager: TikkleListManager = TikkleListManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,35 +27,10 @@ class FeedPageViewController: UIViewController {
         feedCollectionView.register(HorizontalCollectionViewCell.self, forCellWithReuseIdentifier: HorizontalCollectionViewCell.identifier)
         feedCollectionView.register(OtherTikkleCollectionViewCell.self, forCellWithReuseIdentifier: OtherTikkleCollectionViewCell.identifier)
         feedCollectionView.register(OtherTikkleCollectionReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: OtherTikkleCollectionReusableView.identifier)
-        navigationSetting()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         feedCollectionView.reloadData()
-    }
-    
-    func navigationSetting() {
-        guard let naviBar = navigationController?.navigationBar,
-              let tabBar = tabBarController?.tabBar else { return }
-        let naviBarAppearance = UINavigationBarAppearance()
-        naviBarAppearance.configureWithTransparentBackground()
-        naviBar.standardAppearance = naviBarAppearance
-        naviBar.scrollEdgeAppearance = naviBarAppearance
-        let tabBarAppearance = UITabBarAppearance()
-        tabBarAppearance.configureWithTransparentBackground()
-        tabBar.standardAppearance = tabBarAppearance
-        
-        let logoImage = UIImage(named: "navi_Logo")
-        let logoImageView = UIImageView(image: logoImage)
-        logoImageView.contentMode = .scaleAspectFit
-        let logoItem = UIBarButtonItem(customView: logoImageView)
-        navigationItem.leftBarButtonItem = logoItem
-        
-        let bellImage = UIImage(named: "navi_Bell")
-        let bellImageView = UIImageView(image: bellImage)
-        bellImageView.contentMode = .scaleAspectFit
-        let bellItem = UIBarButtonItem(customView: bellImageView)
-        navigationItem.rightBarButtonItem = bellItem
     }
     
 }
@@ -151,7 +126,7 @@ extension FeedPageViewController: UICollectionViewDelegate, UICollectionViewData
     }
     
     
-    func pushViewController(tikkle: Tikkle) {
+    func pushViewController(tikkle: TikkleSheet) {
         let storyboard = UIStoryboard(name: "TikklePage", bundle: nil)
         guard let vc = storyboard.instantiateViewController(withIdentifier: "TikklePageViewController") as? TikklePageViewController else { return }
         //MARK: - TikklePageViewController의 데이터를 어디로

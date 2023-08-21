@@ -13,22 +13,22 @@ class CreateTikklePageViewController: UIViewController {
     @IBOutlet weak var photoImageView: UIImageView!
     
     @IBOutlet weak var publicStackView: UIStackView!
-    private var openBtn: UIButton = CustomButton.makePrivateTrueGrayButton()
-    private var privateBtn: UIButton = CustomButton.makePrivateFalseGrayButton()
+    private var openButton: UIButton = CustomButton.makePrivateTrueGrayButton()
+    private var privateButton: UIButton = CustomButton.makePrivateFalseGrayButton()
     
     @IBOutlet weak var challengeNameTextField: UITextField!
     @IBOutlet weak var infoTextView: UITextView!
     
     @IBOutlet weak var tikkleNameLable: UILabel!
     private var tikkleVerticalStack: TikkleVerticalStackView = {
-        let st = TikkleVerticalStackView()
-        st.axis = .vertical
-        st.alignment = .leading
-        st.distribution = .equalSpacing
-        st.spacing = 18
-        st.isLayoutMarginsRelativeArrangement = true
-        st.layoutMargins = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
-        return st
+        let stackView = TikkleVerticalStackView()
+        stackView.axis = .vertical
+        stackView.alignment = .leading
+        stackView.distribution = .equalSpacing
+        stackView.spacing = 18
+        stackView.isLayoutMarginsRelativeArrangement = true
+        stackView.layoutMargins = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        return stackView
     }()
     let tikkleListManager: TikkleListManager = TikkleListManager()
     
@@ -38,7 +38,7 @@ class CreateTikklePageViewController: UIViewController {
         keyboardNotification()
         navigationBarButton()
         photoTapSetting()
-        btnStyle()
+        buttonStyle()
         challengeNameTextFieldStyle()
         infoTextView.delegate = self
         infoTextViewStyle()
@@ -57,7 +57,6 @@ class CreateTikklePageViewController: UIViewController {
     @objc func keyboardUp(notification:NSNotification) {
         if let keyboardFrame:NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
            let keyboardRectangle = keyboardFrame.cgRectValue
-       
             UIView.animate(
                 withDuration: 0.3
                 , animations: {
@@ -73,19 +72,19 @@ class CreateTikklePageViewController: UIViewController {
     }
     
     //MARK: 공개 비공개 버튼 클릭 이벤트 생성
-    func btnStyle() {
-        openBtn.backgroundColor = .mainColor
-        openBtn.addTarget(self, action: #selector(openButtonClick), for: .touchUpInside)
-        privateBtn.addTarget(self, action: #selector(privateButtonCilck), for: .touchUpInside)
+    func buttonStyle() {
+        openButton.backgroundColor = .mainColor
+        openButton.addTarget(self, action: #selector(openButtonClick), for: .touchUpInside)
+        privateButton.addTarget(self, action: #selector(privateButtonCilck), for: .touchUpInside)
         
-        openBtn.widthAnchor.constraint(equalToConstant: 50).isActive = true
-        openBtn.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        openButton.widthAnchor.constraint(equalToConstant: 50).isActive = true
+        openButton.heightAnchor.constraint(equalToConstant: 20).isActive = true
         
-        privateBtn.widthAnchor.constraint(equalToConstant: 50).isActive = true
-        privateBtn.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        privateButton.widthAnchor.constraint(equalToConstant: 50).isActive = true
+        privateButton.heightAnchor.constraint(equalToConstant: 20).isActive = true
         
-        publicStackView.addArrangedSubview(openBtn)
-        publicStackView.addArrangedSubview(privateBtn)
+        publicStackView.addArrangedSubview(openButton)
+        publicStackView.addArrangedSubview(privateButton)
     }
     
     //MARK: - challengeNameTextField 커스텀
@@ -128,17 +127,17 @@ class CreateTikklePageViewController: UIViewController {
     
     //MARK: 공개버튼 클릭시 공개버튼의 isSelected 와 비공개 버튼의 isSelected, 배경색 변경
     @objc func openButtonClick(_ sender: Any) {
-        openBtn.backgroundColor = .mainColor
-        privateBtn.backgroundColor = .subTitleColor
-        openBtn.isSelected = true
-        privateBtn.isSelected = false
+        openButton.backgroundColor = .mainColor
+        privateButton.backgroundColor = .subTitleColor
+        openButton.isSelected = true
+        privateButton.isSelected = false
     }
     //MARK: 비공개버튼 클릭시 공개버튼의 isSelected 와 비공개 버튼의 isSelected, 배경색 변경
     @objc func privateButtonCilck(_ sender: Any) {
-        openBtn.backgroundColor = .subTitleColor
-        privateBtn.backgroundColor = .mainColor
-        openBtn.isSelected = false
-        privateBtn.isSelected = true
+        openButton.backgroundColor = .subTitleColor
+        privateButton.backgroundColor = .mainColor
+        openButton.isSelected = false
+        privateButton.isSelected = true
     }
     
     //MARK: Navigation에 완료 버튼 생성
@@ -148,6 +147,7 @@ class CreateTikklePageViewController: UIViewController {
     
     //MARK: NavigationBar에 완료 버튼 클릭 호출되는 함수
     // 적지 않은 내용이 있는지 확인하고 다 작성한 경우 Tikkle 클래스 생성후 화면 닫기
+    //TODO: 어떤 값이 입력이 되지 않았는지 보여주기
     @objc func saveTikkle() {
         guard let challengeNameText = challengeNameTextField.text,
               let infoText = infoTextView.text else { return }
@@ -157,9 +157,9 @@ class CreateTikklePageViewController: UIViewController {
         
         
         let image = getImage()
-        let isPrivate = privateBtn.isSelected
+        let isPrivate = privateButton.isSelected
         
-        let tikkle = Tikkle(image: image,title: challengeNameText, description: infoText, isPrivate: isPrivate, isSharedProject: false, stampList: stampList)
+        let tikkle = TikkleSheet(image: image,title: challengeNameText, description: infoText, isPrivate: isPrivate, isSharedProject: false, stampList: stampList)
         tikkleListManager.addTikkle(tikkle)
         navigationController?.popViewController(animated: true)
     }
@@ -185,11 +185,9 @@ class CreateTikklePageViewController: UIViewController {
     
     private func getImage() -> UIImage? {
         if photoImageView.image?.pngData() == UIImage(named: "addphoto")?.pngData() {
-            print("@@@")
             let defaultImage = UIImage(named: "default")
             return defaultImage
         } else {
-            print("#########")
             return photoImageView.image
         }
     }

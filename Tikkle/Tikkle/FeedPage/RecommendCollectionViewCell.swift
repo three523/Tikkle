@@ -34,7 +34,7 @@ class RecommendCollectionViewCell: UICollectionViewCell {
         return lb
     }()
     private let gradientView: UIView = UIView()
-    var tikkle: Tikkle? = nil {
+    var tikkle: TikkleSheet? = nil {
         didSet {
             if tikkle != nil {
                 uiSetting()

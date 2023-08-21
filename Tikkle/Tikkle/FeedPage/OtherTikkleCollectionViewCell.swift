@@ -61,7 +61,7 @@ class OtherTikkleCollectionViewCell: UICollectionViewCell {
     var progressBarAnimationLayer: CALayer? = nil
     
     let backgroundImageView = UIImageView(image: UIImage(named: "profileImg"))
-    var tikkle: Tikkle? = nil {
+    var tikkle: TikkleSheet? = nil {
         didSet {
             if tikkle != nil {
                 uiSetting()

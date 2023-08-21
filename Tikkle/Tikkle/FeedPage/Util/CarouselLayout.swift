@@ -59,7 +59,7 @@ class CarouselLayout: UICollectionViewFlowLayout {
         return true
     }
 
-    // UICollectionView의 위치와 크기를 가져와서
+    // UICollectionView의 위치와 크기 indexPath등 item의 레이아웃 정보를 담고 있는 attributes
     public override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
         guard let superAttributes = super.layoutAttributesForElements(in: rect),
             let attributes = NSArray(array: superAttributes, copyItems: true) as? [UICollectionViewLayoutAttributes]
@@ -67,14 +67,19 @@ class CarouselLayout: UICollectionViewFlowLayout {
         return attributes.map({ self.transformLayoutAttributes(attributes: $0) })
     }
 
+    // 아이템의 레이아웃을 각자 형식에 맞게 수정
     private func transformLayoutAttributes(attributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {
 
         guard let collectionView = self.collectionView else {return attributes}
 
         let collectionCenter = collectionView.frame.size.width / 2
+        
+        // collectionView의 중앙의 값
         let contentOffset = collectionView.contentOffset.x
+        //아이템 하나의 x 좌표에서 offset이 있는 경우 빼고 계산
         let center = attributes.center.x - contentOffset
 
+        //아이템의 가로 길이와 + item간의 스페이싱
         let maxDistance = self.itemSize.width + self.minimumLineSpacing
         let distance = min(abs(collectionCenter - center), maxDistance)
         
@@ -85,6 +90,7 @@ class CarouselLayout: UICollectionViewFlowLayout {
 
         attributes.alpha = alpha
 
+        // 보이는 화면 위치 및 크기
         let visibleRect = CGRect(origin: collectionView.contentOffset, size: collectionView.bounds.size)
         let dist = CGRectGetMidX(attributes.frame) - CGRectGetMidX(visibleRect)
         var transform = CATransform3DScale(CATransform3DIdentity, scale, scale, 1)
